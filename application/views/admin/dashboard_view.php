@@ -1,21 +1,111 @@
-
+<link rel="stylesheet" href="<?php echo site_url('assets/sass/') ?>admin/dashboard.css">
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+            Creat
+            <small>Product/ Service</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li class="active">Product/ Service</li>
         </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+
+		<!-- CREAT A PRODUCT/SERVICE -->
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="box box-default">
+					<div class="box-header">
+						<h3 class="box-title">Add item</h3>
+					</div>
+					<!-- /.box-header -->
+					<div class="box-body">
+						<div class="col-xs-12">
+							<h4 class="box-title">Basic Information</h4>
+						</div>
+						<div class="form-group col-xs-6">
+							<label for="productCategory_1">Product Category I</label>
+							<select class="form-control" id="productCategory_1">
+								<option>Cate I 1.0</option>
+								<option>Cate I 1.1</option>
+								<option>Cate I 1.2</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-6">
+							<label for="productCategory_2">Product Category II</label>
+							<select class="form-control" id="productCategory_2">
+								<option>Cate II 2.0</option>
+								<option>Cate II 2.1</option>
+								<option>Cate II 2.2</option>
+							</select>
+						</div>
+						<div class="form-group col-xs-12">
+							<label>Image</label>
+							<input class="form-control" type="file">
+							<br>
+							<div class="image-preview">
+								<div class="mask">
+									<img src="https://images.unsplash.com/photo-1522202195465-df8a5f26fa15?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ed42ce626f5dc8a20da758fdee6de8a9&auto=format&fit=crop&w=1350&q=80" alt="image Uploaded">
+									<span class="close-preview">
+										<i class="fa fa-2x fa-close"></i>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div>
+							<!-- Nav tabs -->
+							<ul class="nav nav-pills nav-justified" role="tablist">
+								<li role="presentation" class="active">
+									<a href="#vi" aria-controls="vi" role="tab" data-toggle="tab">
+										<span class="badge">1</span> Vietnamese
+									</a>
+								</li>
+								<li role="presentation">
+									<a href="#en" aria-controls="en" role="tab" data-toggle="tab">
+										<span class="badge">2</span> English
+									</a>
+								</li>
+								<li role="presentation">
+									<a href="#cn" aria-controls="cn" role="tab" data-toggle="tab">
+										<span class="badge">3</span> Chinese
+									</a>
+								</li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="vi">
+									<div class="form-group col-xs-12">
+										<label for="productName">Product Name</label>
+										<input type="text" class="form-control" id="productName" placeholder="Product Name">
+									</div>
+								</div>
+								<div role="tabpanel" class="tab-pane" id="en">
+									
+								</div>
+								<div role="tabpanel" class="tab-pane" id="cn">
+									<div role="tabpanel" class="tab-pane active" id="vi">
+										<div class="form-group col-xs-12">
+											<label for="productName">Product Name</label>
+											<input type="text" class="form-control" id="productName" placeholder="Product Name">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.box-body -->
+				</div>
+			</div>
+
+		</div>
+
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-lg-3 col-xs-6">
