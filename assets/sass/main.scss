@@ -1,0 +1,42 @@
+/*
+MAIN STYLE OF SITE
+
+AUTHOR: hung.luong@matocreative.vn
+
+CONTENT:
+
+1/HEADER
+2/BODY
+3/FOOTER
+
+ */
+
+/*
+Import variable.scss
+ */
+
+@import "variable";
+
+/*
+========== HEADER ==========
+ */
+
+.header{
+    background-color: $primary;
+}
+
+/*
+========== BODY ==========
+ */
+
+.main-content{
+    background-color: $primary-hover;
+}
+
+/*
+========== FOOTER ==========
+ */
+
+.footer{
+    background-color: $primary-hover;
+}

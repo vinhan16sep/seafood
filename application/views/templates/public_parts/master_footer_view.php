@@ -1,5 +1,5 @@
-<!-- /.content-wrapper -->
-<footer>
+
+<footer class="footer">
     Footer
 </footer>
 
