@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- AdminLTE App -->
     <script src="<?php echo site_url('assets/lib/') ?>dist/js/adminlte.min.js"></script>
 
-
+    <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js'); ?>"></script>
 </head>
 
 <body class="hold-transition skin-black-light sidebar-mini">
