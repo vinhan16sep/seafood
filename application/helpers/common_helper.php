@@ -36,8 +36,8 @@ if (!function_exists('handle_common_author_data')) {
      */
     function handle_author_common_data() {
         $CI =& get_instance();
-        $CI->load->library('ion_auth'); // load library
-//        $this->load->library('ion_auth');
+        $CI->load->library('ion_auth');
+
         date_default_timezone_set('Asia/Ho_Chi_Minh');
 
         return array(

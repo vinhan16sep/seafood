@@ -14,6 +14,7 @@ class Event extends Admin_Controller {
         parent::__construct();
 
         $this->load->model('event_model');
+        $this->load->model('event_lang_model');
         $this->load->helper('common');
 
         $this->author_data = handle_author_common_data();
@@ -49,10 +50,10 @@ class Event extends Admin_Controller {
 
                 $this->db->trans_begin();
 
-                $insert = $this->event_model->insert('event', $shared_request);
+                $insert = $this->event_model->common_insert($shared_request);
                 if($insert){
                     $requests = handle_multi_language_request('event_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    $this->event_model->insert_with_language('event_lang', $requests);
+                    $this->event_lang_model->insert_with_language($requests);
                 }
 
                 if ($this->db->trans_status() === false) {
