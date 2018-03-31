@@ -4,17 +4,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MY_Model extends CI_Model {
 
+    public $table = '';
+    public $table_lang = '';
+
     function __construct() {
         parent::__construct();
+        $this->table_lang = $this->table . '_lang';
     }
 
     /**
-     * @param $table
      * @param $data
      * @return integer|bool
      */
-    protected function common_insert($table, $data) {
-        $this->db->set($data)->insert($table);
+    function common_insert($data) {
+        $this->db->set($data)->insert($this->table);
 
         if ($this->db->affected_rows() == 1) {
             return $this->db->insert_id();
@@ -23,11 +26,10 @@ class MY_Model extends CI_Model {
     }
 
     /**
-     * @param $table
      * @param $data
      * @return mixed
      */
-    protected function insert_batch($table, $data){
-        return $this->db->insert_batch($table, $data);
+    function insert_with_language($data){
+        return $this->db->insert_batch($this->table, $data);
     }
 }
