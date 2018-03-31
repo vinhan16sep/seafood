@@ -1,9 +1,12 @@
 <?php
 
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class MY_Controller extends CI_Controller {
 
     protected $data = array();
     protected $author_info = array();
+    protected $page_languages = array('vi', 'en', 'cn');
 
     function __construct() {
         parent::__construct();
@@ -61,7 +64,6 @@ class Admin_Controller extends MY_Controller {
         );
     }
 
-
     protected function render($the_view = NULL, $template = 'admin_master') {
         parent::render($the_view, $template);
     }
@@ -97,7 +99,7 @@ class Admin_Controller extends MY_Controller {
     }
 
     protected function upload_file($upload_path = '', $file_name = '') {
-        $config = $this->config($upload_path);
+        $config = $this->config_file($upload_path);
 
         $file = $_FILES[$file_name];
         $count = count($file['name']);
@@ -121,7 +123,7 @@ class Admin_Controller extends MY_Controller {
         return $image_list;
     }
 
-    function config($upload_path = '') {
+    function config_file($upload_path = '') {
         $config = array();
         $config['upload_path'] = $upload_path;
         $config['allowed_types'] = 'jpg|png|gif';
