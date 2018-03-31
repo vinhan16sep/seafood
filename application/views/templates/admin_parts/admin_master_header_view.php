@@ -26,6 +26,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900&amp;subset=latin-ext" rel="stylesheet">
 
+    <!-- STYLE -->
+    <link rel="stylesheet" href="<?php echo site_url('assets/lib/') ?>dataTable/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/admin/datatable.css">
+
+
     <!-- Library JS called-->
     <!-- jQuery 3 -->
     <script src="<?php echo site_url('assets/lib/') ?>jquery/jquery.min.js"></script>
@@ -37,6 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?php echo site_url('assets/lib/') ?>dist/js/adminlte.min.js"></script>
 
     <script type="text/javascript" src="<?php echo site_url('tinymce/tinymce.min.js'); ?>"></script>
+    <!-- SCRIPT -->
+    <script src="<?php echo site_url('assets/lib/') ?>dataTable/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo site_url('assets/lib/') ?>dataTable/js/dataTables.bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-black-light sidebar-mini">
