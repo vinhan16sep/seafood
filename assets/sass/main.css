@@ -1,0 +1,64 @@
+/*
+MAIN STYLE OF SITE
+
+AUTHOR: hung.luong@matocreative.vn
+
+CONTENT:
+
+1/HEADER
+2/BODY
+3/FOOTER
+
+ */
+/*
+Import variable.scss
+ */
+/*
+MAIN VARIABLES FOR SITE
+
+AUTHOR: hung.luong@matocreative.vn
+
+CONTENT:
+
+1/RESET BOOTSTRAP
+2/VARIBLES
+3/MIXINS
+
+ */
+/*
+========== RESET BOOTSTRAP ==========
+ */
+@font-face {
+  font-family: 'sanFranciscoR';
+  src: url("../fonts/SanFranciscoDisplay-Regular.otf"); }
+@font-face {
+  font-family: 'sanFranciscoT';
+  src: url("../fonts/SanFranciscoDisplay-Thin.otf"); }
+@font-face {
+  font-family: 'centur';
+  src: url("../fonts/UTM%20Centur.ttf"); }
+/*
+========== VARIABLES ==========
+ */
+/*
+========== MIXINS ==========
+ */
+/*
+========== HEADER ==========
+ */
+.header {
+  background-color: #fdbb11; }
+
+/*
+========== BODY ==========
+ */
+.main-content {
+  background-color: #fdc941; }
+
+/*
+========== FOOTER ==========
+ */
+.footer {
+  background-color: #fdc941; }
+
+/*# sourceMappingURL=main.css.map */
