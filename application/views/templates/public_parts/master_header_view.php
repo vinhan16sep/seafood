@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Main</title>
+    <title>Ngoc Huong Restaurant</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -18,10 +18,65 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.css">
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
+	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
 <header class="header">
-    Header
+	<div class="container">
+		<nav class="nav">
+			<div class="logo">
+				<a href="<?php echo base_url('') ?>">
+					<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
+				</a>
+			</div>
+			<div class="nav-expand-btn visible-xs" id="nav-expand-btn">
+				<span class="nav-icon"></span>
+				<span class="nav-icon"></span>
+				<span class="nav-icon"></span>
+			</div>
+			<div class="nav-expand">
+				<div class="left">
+					<ul>
+						<li>
+							<a href="#about">About us</a>
+						</li>
+						<li>
+							<a href="#food">Our food</a>
+						</li>
+						<li>
+							<a href="#events">Event</a>
+						</li>
+						<li>
+							<a href="#gallery">Gallery</a>
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<ul>
+						<li>
+							<a href="#contact">Contact us</a>
+						</li>
+						<li id="bookTable">
+							<a href="<?php echo base_url('booking') ?>">Book your table</a>
+						</li>
+						<li class="dropdown" id="dropDownLang">
+							<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								English <span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dropDownLang">
+								<li>
+									<a href="#">Vietnamese</a>
+								</li>
+								<li>
+									<a href="#">Chinese</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
 </header>
