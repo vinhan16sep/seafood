@@ -1,12 +1,12 @@
 table tr td img {
   width: 250px; }
-table tr td a#dataActionEdit {
+table tr td a.dataActionEdit {
   color: #357ca5; }
-  table tr td a#dataActionEdit:hover {
+  table tr td a.dataActionEdit:hover {
     color: #3c8dbc; }
-table tr td a#dataActionDelete {
+table tr td a.dataActionDelete {
   color: #d33724; }
-  table tr td a#dataActionDelete:hover {
+  table tr td a.dataActionDelete:hover {
     color: #f56954; }
 table tr td .mask_lg {
   width: 250px;

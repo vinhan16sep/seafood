@@ -17,6 +17,7 @@
     <section class="content">
         <div class="row">
             <span><?php echo $this->session->flashdata('message'); ?></span>
+            <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf" />
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
@@ -63,7 +64,7 @@
                                 <?php foreach ($events as $key => $value): ?>
                                     
                                 
-                                    <tr>
+                                    <tr class="remove_<?php echo $value['id'] ?>">
                                         <td><?php echo $i++ ?></td>
                                         <td>
                                             <div class="mask_sm">
@@ -74,14 +75,22 @@
                                         <td><?php echo $value['private_rooms'] ?></td>
                                         <td><?php echo $value['private_floors'] ?></td>
                                         <td><?php echo $value['full_restaurant'] ?></td>
-                                        <td><span class="label label-success">Available</span></td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/products/detail') ?>"
+                                        <td>
+                                            <?php if($value['is_activated'] == 1): ?>
+                                                <span class="label label-success" onclick="deactive('event', <?php echo $value['id'] ?>)">Đang sử dụng</span>
+                                            <?php else: ?>
+                                                <span class="label label-warning" onclick="active('event', <?php echo $value['id'] ?>)">Không sử dụng</span>
+                                            <?php endif ?>
+                                        </td>
+                                        </td>
+                                        <td>
+                                            <a href="<?php echo base_url('admin/event/detail/'.$value['id']) ?>"
                                             <button class="btn btn-default btn-sm" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">See Detail</button>
                                         </td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/event/edit/'. $value['id']) ?>" id="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                                            <a href="" id="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
+                                            <a href="<?php echo base_url('admin/event/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                                            <a href="javascript:void(0);" onclick="remove('event', <?php echo $value['id'] ?>)" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
                                         </td>
 
                                     </tr>
@@ -122,4 +131,3 @@
     </section>
     <!-- /.content -->
 </div>
-

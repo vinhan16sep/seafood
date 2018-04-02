@@ -86,7 +86,12 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 /**
- * HTTP Status code
+ * HTTP Success code
  */
 defined('HTTP_SUCCESS') OR define('HTTP_SUCCESS', 200);
+
+
+/**
+ * HTTP Error code
+ */
 defined('HTTP_BAD_REQUEST') OR define('HTTP_BAD_REQUEST', 400);

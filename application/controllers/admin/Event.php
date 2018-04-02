@@ -151,7 +151,9 @@ class Event extends Admin_Controller {
                 $update = $this->event_model->common_update($id, $shared_request);
                 if($update){
                     $requests = handle_multi_language_request('event_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    $this->event_model->update_with_language($requests, $id);
+                    foreach ($requests as $key => $value){
+                        $this->event_model->update_with_language($id, $requests[$key]['language'], $value);
+                    }
                 }
 
                 if ($this->db->trans_status() === false) {
@@ -162,7 +164,7 @@ class Event extends Admin_Controller {
                 } else {
                     $this->db->trans_commit();
                     $this->session->set_flashdata('message', 'Item added!');
-                    if($image != $event['image']){
+                    if($image != '' && $image != $event['image'] && file_exists('assets/upload/event/'.$event['image'])){
                         unlink('assets/upload/event/'.$event['image']);
                     }
                     redirect('admin/event', 'refresh');
@@ -173,6 +175,89 @@ class Event extends Admin_Controller {
             }
         }
         $this->render('admin/event/edit_event_view');
+    }
+
+    public function detail($id){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $event = $this->event_model->get_by_id($id);
+
+        $title = explode('|||', $event['event_title']);
+        $event['title_cn'] = $title[0];
+        $event['title_en'] = $title[1];
+        $event['title_vi'] = $title[2];
+
+        $description = explode('|||', $event['event_description']);
+        $event['description_cn'] = $description[0];
+        $event['description_en'] = $description[1];
+        $event['description_vi'] = $description[2];
+
+        $content = explode('|||', $event['event_content']);
+        $event['content_cn'] = $content[0];
+        $event['content_en'] = $content[1];
+        $event['content_vi'] = $content[2];
+
+        $this->data['event'] = $event;
+
+        $this->render('admin/event/detail_event_view');
+    }
+
+    public function remove(){
+        $id = $this->input->post('id');
+        $data = array('is_deleted' => 1);
+        $update = $this->event_model->common_update($id, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'reponse' => $reponse)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function active(){
+        $id = $this->input->post('id');
+        $count = $this->event_model->count_active();
+        $data = array('is_activated' => 1);
+        if($count < 1){
+            $update = $this->event_model->common_update($id, $data);
+            if($update == 1){
+                return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_SUCCESS)
+                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true)));
+            }
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_SUCCESS)
+            ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => false)));
+    }
+
+    public function deactive(){
+        $id = $this->input->post('id');
+        $data = array('is_activated' => 0);
+        $update = $this->event_model->common_update($id, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'reponse' => $reponse)));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 
 }

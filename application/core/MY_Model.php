@@ -81,7 +81,14 @@ class MY_Model extends CI_Model {
         return $this->db->update($this->table, $data);
     }
 
-    function update_with_language($data, $event_id){
-        return $this->db->update_batch($this->table_lang, $data, 'event_id');
+    public function count_active(){
+        $query = $this->db->from($this->table)->where('is_activated', 1)->get();
+        return $query->num_rows();
+    }
+
+    function update_with_language($id, $language,  $data){
+        $this->db->where($this->table .'_id', $id);
+        $this->db->where('language', $language);
+        return $this->db->update($this->table_lang, $data);
     }
 }

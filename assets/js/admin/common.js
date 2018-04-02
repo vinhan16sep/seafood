@@ -58,3 +58,73 @@ function to_slug(str){
     // return
     return str;
 }
+
+var csrf_hash = $('#csrf').val();
+function remove(controller, id){
+    var url = HOSTNAME + 'admin/' + controller + '/remove';
+    if(confirm('Chắc chắn xóa?')){
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {
+                id : id, csrf_seafood_token : csrf_hash
+            },
+            success: function(response){
+                if(response.status == 200){
+                    csrf_hash = response.reponse.csrf_hash;
+                    $('.remove_' + id).fadeOut();
+                }
+            },
+            error: function(jqXHR, exception){
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+}
+
+function active(controller, id) {
+    var url = HOSTNAME + 'admin/' + controller + '/active';
+    if(confirm('Chắc chắn sử dụng sự kiện này?')){
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {
+                id : id, csrf_seafood_token : csrf_hash
+            },
+            success: function(response){
+                if(response.success == true){
+                    alert('Mở sự kiện thành công');
+                    location.reload();
+                }else{
+                    alert('Hiện có 1 sự kiện đang được sử dụng. Vui lòng tắt sự kiện đó rồi thực hiện lại thao tác!');
+                    location.reload();
+                }
+            },
+            error: function(jqXHR, exception){
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+}
+
+function deactive(controller, id) {
+    var url = HOSTNAME + 'admin/' + controller + '/deactive';
+    if(confirm('Chắc chắn sử tắt kiện này?')){
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {
+                id : id, csrf_seafood_token : csrf_hash
+            },
+            success: function(response){
+                if(response.status == 200){
+                    alert('Tắt sự kiện thành công');
+                    location.reload();
+                }
+            },
+            error: function(jqXHR, exception){
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+}
