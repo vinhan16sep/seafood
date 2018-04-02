@@ -126,7 +126,7 @@ class Admin_Controller extends MY_Controller {
     function config_file($upload_path = '') {
         $config = array();
         $config['upload_path'] = $upload_path;
-        $config['allowed_types'] = 'jpg|png|gif';
+        $config['allowed_types'] = 'jpg|png|gif|jpeg';
         $config['max_size'] = '1200';
 //        $config['max_width']     = '1028';
 //        $config['max_height']    = '1028';
