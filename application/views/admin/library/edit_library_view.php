@@ -22,20 +22,31 @@
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>
                         </div>
+
+                        <div class="form-group col-xs-12">
+                            <label for="image_shared">Hình ảnh đang sử dụng</label>
+                            <?php if (is_array($library['image'])): ?>
+                                <?php foreach ($library['image'] as $key => $value): ?>
+                                    <img src="<?php echo base_url('assets/upload/library/'. $library['slug'] .'/'. $value) ?>" width="150px">
+                                <?php endforeach ?>
+                            <?php endif ?>
+                            
+                        </div>
+
                         <div class="form-group col-xs-12">
                             <?php
-                            echo form_label('Hình ảnh', 'image_shared');
+                            echo form_label('Ảnh đại diện', 'image_shared');
                             echo form_error('image_shared');
                             echo form_upload('image_shared[]', '', 'class="form-control" multiple');
                             ?>
-                            <p class="help-block">Click để upload. Hình ảnh đầu tiên sẽ được sử dụng làm avata cho thư viện</p>
+                            <br>
                         </div>
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
                                 echo form_label('Slug', 'slug_shared');
                                 echo form_error('slug_shared');
-                                echo form_input('slug_shared', set_value('slug_shared'), 'class="form-control" id="slug_shared" readonly');
+                                echo form_input('slug_shared', $library['slug'], 'class="form-control" id="slug_shared" readonly');
                                 ?>
                             </div>
                         </div>
@@ -64,7 +75,7 @@
                                         <?php
                                         echo form_label('Tiêu đề', 'title_vi');
                                         echo form_error('title_vi');
-                                        echo form_input('title_vi', set_value('title_vi'), 'class="form-control" id="title_vi"');
+                                        echo form_input('title_vi', $library['title_vi'], 'class="form-control" id="title_vi"');
                                         ?>
                                     </div>
                                 </div>
@@ -73,7 +84,7 @@
                                         <?php
                                         echo form_label('Title', 'title_en');
                                         echo form_error('title_en');
-                                        echo form_input('title_en', set_value('title_en'), 'class="form-control" id="title_en"');
+                                        echo form_input('title_en', $library['title_en'], 'class="form-control" id="title_en"');
                                         ?>
                                     </div>
                                 </div>
@@ -82,7 +93,7 @@
                                         <?php
                                         echo form_label('标题', 'title_cn');
                                         echo form_error('title_cn');
-                                        echo form_input('title_cn', set_value('title_cn'), 'class="form-control" id="title_cn"');
+                                        echo form_input('title_cn', $library['title_cn'], 'class="form-control" id="title_cn"');
                                         ?>
                                     </div>
                                 </div>

@@ -26,7 +26,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/products/creatProducts') ?>" class="btn btn-primary" role="button">Add Item</a>
+                            <a href="<?php echo base_url('admin/library/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>
                         </div>
                         <div class="col-md-6">
                             <form action="<?php echo base_url('admin/library/index') ?>" method="get">
@@ -50,6 +50,7 @@
                                     <th>No.</th>
                                     <th>Hình ảnh đại diện</th>
                                     <th>Tiêu đề</th>
+                                    <th>Slug</th>
                                     <th>Detail</th>
                                     <th>Action</th>
                                 </tr>
@@ -58,7 +59,7 @@
                                 <?php if ($library): ?>
                                     <?php $i = 1; ?>
                                     <?php foreach ($library as $key => $value): ?>
-                                        <tr class="remove_">
+                                        <tr class="remove_<?php echo $value['id'] ?>">
                                             <td><?php echo $i++ ?></td>
                                             <td>
                                                 <div class="mask_sm">
@@ -68,13 +69,14 @@
                                                 </div>
                                             </td>
                                             <td><?php echo $value['title'] ?></td>
+                                            <td><?php echo $value['slug'] ?></td>
                                             <td>
                                                 <a href="<?php echo base_url('admin/library/detail/'. $value['id']) ?>"
                                                 <button class="btn btn-default btn-sm" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">See Detail</button>
                                             </td>
                                             <td>
-                                                <a href="<?php echo base_url('admin/library/edit/') ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                                                <a href="javascript:void(0);" onclick="remove('library', )" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
+                                                <a href="<?php echo base_url('admin/library/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                                                <a href="javascript:void(0);" onclick="remove('library', <?php echo $value['id'] ?>)" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
                                             </td>
 
                                         </tr>
@@ -90,6 +92,7 @@
                                     <th>No.</th>
                                     <th>Hình ảnh đại diện</th>
                                     <th>Tiêu đề</th>
+                                    <th>Slug</th>
                                     <th>Detail</th>
                                     <th>Action</th>
                                 </tr>
@@ -97,7 +100,7 @@
                             </table>
                         </div>
                         <div class="col-md-6 col-md-offset-5 page">
-                            <!-- <?php echo $page_links ?> -->
+                            <?php echo $page_links ?>
                         </div>
                     </div>
                     <!-- /.box-body -->
@@ -106,7 +109,6 @@
                 <!-- /.box -->
             </div>
         </div>
-        EVENT
     </section>
     <!-- /.content -->
 </div>
