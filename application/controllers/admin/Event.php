@@ -83,7 +83,7 @@ class Event extends Admin_Controller {
                 $insert = $this->event_model->common_insert($shared_request);
                 if($insert){
                     $requests = handle_multi_language_request('event_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    $this->event_lang_model->insert_with_language($requests);
+                    $this->event_model->insert_with_language($requests);
                 }
 
                 if ($this->db->trans_status() === false) {

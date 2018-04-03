@@ -30,7 +30,7 @@ class MY_Model extends CI_Model {
      * @return mixed
      */
     function insert_with_language($data){
-        return $this->db->insert_batch($this->table, $data);
+        return $this->db->insert_batch($this->table_lang, $data);
     }
 
     public function get_all_with_pagination_search($limit = NULL, $start = NULL, $keywords = '') {
@@ -90,5 +90,21 @@ class MY_Model extends CI_Model {
         $this->db->where($this->table .'_id', $id);
         $this->db->where('language', $language);
         return $this->db->update($this->table_lang, $data);
+    }
+
+    public function build_unique_slug($slug, $id = null){
+        $count = 0;
+        $temp_slug = $slug;
+        while(true) {
+            $this->db->select('id');
+            $this->db->where('slug', $temp_slug);
+            if($id != null){
+                $this->db->where('id !=', $id);
+            }
+            $query = $this->db->get($this->table);
+            if ($query->num_rows() == 0) break;
+            $temp_slug = $slug . '-' . (++$count);
+        }
+        return $temp_slug;
     }
 }
