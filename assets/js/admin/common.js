@@ -128,3 +128,25 @@ function deactive(controller, id) {
         });
     }
 }
+
+function remove_image(controller, id, image, key){
+    var url = HOSTNAME + 'admin/' + controller + '/remove_image';
+    if(confirm('Chắc chắn xóa ảnh này?')){
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {
+                id : id, csrf_seafood_token : csrf_hash, image : image
+            },
+            success: function(response){
+                if(response.status == 200){
+                    csrf_hash = response.reponse.csrf_hash;
+                    $('.row_' + key).fadeOut();
+                }
+            },
+            error: function(jqXHR, exception){
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+}
