@@ -35,7 +35,21 @@ body{
     font-size: 1.25em;
 }
 
+.slide {
+    .carousel-inner{
+        .slide-banner{
+            .button{
+                .btn{
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
 .main-content{
+
     .break{
         .title{
             text-transform: uppercase;

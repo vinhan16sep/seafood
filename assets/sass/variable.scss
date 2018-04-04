@@ -22,18 +22,18 @@ a{
 }
 
 .form-control:focus{
-    border-color: rgba(253,187,17,1.00);
+    border-color: rgba(223,43,38,1.00);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(253,187,17,.075), 0 0 8px rgba(253,187,17, .6);
-    box-shadow: inset 0 1px 1px rgba(253,187,17,.075), 0 0 8px rgba(253,187,17, .6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(223,43,38,.075), 0 0 8px rgba(223,43,38, .6);
+    box-shadow: inset 0 1px 1px rgba(223,43,38,.075), 0 0 8px rgba(223,43,38, .6);
 }
 
 /*
 ========== VARIABLES ==========
  */
 
-$primary: #fdbb11;
-$primary-hover: #fdc941;
+$primary: #df2b26;
+$primary-hover: #ac211d;
 
 $text-color: #6d6d6d;
 

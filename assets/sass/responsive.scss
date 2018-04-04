@@ -20,11 +20,15 @@ CONTENT:
         background-color: #333;
 
         .container{
-            height: 150px;
+            height: 100px;
 
             .logo{
                 left: 15px;
                 margin-left: 0;
+
+                img{
+                    width: 70%;
+                }
             }
 
             .nav-expand{
@@ -46,12 +50,29 @@ CONTENT:
         }
     }
 
-    .slide{
+    .slide#slider{
         height: 100%;
+
+        .carousel-inner{
+            .slide-banner{
+                width: 90%;
+                height: auto;
+                top: 40%;
+                left: 5%;
+
+                .image{
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
+        }
     }
 
     .main-content{
         .content{
+            padding-top: 50px;
+            padding-bottom: 50px;
+
             .mask{
                 width: 300px;
                 height:300px
@@ -62,6 +83,21 @@ CONTENT:
             .container{
                 .title{
                     width: 100%;
+                }
+            }
+        }
+
+        .container-fluid#gallery{
+            .slide#slideGallery{
+                .item{
+                    .inner{
+                        padding: 5px;
+
+                        .mask{
+                            width: 50vw;
+                            height: 50vw;
+                        }
+                    }
                 }
             }
         }
@@ -90,10 +126,7 @@ CONTENT:
 @media (min-width: 992px){
     .main-content{
         .content{
-            .mask{
-                width: 400px;
-                height:400px
-            }
+
         }
     }
 }

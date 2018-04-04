@@ -14,6 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/fontAwesome/css/font-awesome.min.css">
+	<!-- lightbox.scss -->
+	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/lightbox/css/lightbox.css">
 	<!-- _main.scss -->
 	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.css">
 
@@ -28,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<nav class="nav">
 			<div class="logo">
 				<a href="<?php echo base_url('') ?>">
-					<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
+					<img src="<?php echo site_url('assets/img/logo_n.png') ?>" alt="Ngoc Huong Logo">
 				</a>
 			</div>
 			<div class="nav-expand-btn visible-xs" id="nav-expand-btn">

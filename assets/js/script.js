@@ -3,30 +3,20 @@ $(document).ready(function(){
    var h = $(window).height();
 
    // Use Script to get CSS
-   $('.slide').css('height' , h * 90 / 100);
+   $('.slide#slider').css('height' , h * 90 / 100);
 
 
-    // Add smooth scrolling to all links
-    $("a").on('click', function(event) {
+    $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
 
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
+        var target = this.hash,
+            $target = $(target);
 
-            // Store hash
-            var hash = this.hash;
-
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function(){
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        } // End if
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
     });
 
     //Expand NAV in Devices
@@ -46,7 +36,30 @@ $(document).ready(function(){
                 i = 1
             }
         })
-    }
+    };
+
+    //Slider Gallery
+
+    $(document).ready(function(){
+
+        $('#itemslider').carousel({ interval: 3000 });
+
+        $('.carousel-showmanymoveone .item').each(function(){
+            var itemToClone = $(this);
+
+            for (var i=1;i<6;i++) {
+                itemToClone = itemToClone.next();
+
+                if (!itemToClone.length) {
+                    itemToClone = $(this).siblings(':first');
+                }
+
+                itemToClone.children(':first-child').clone()
+                    .addClass("cloneditem-"+(i))
+                    .appendTo($(this));
+            }
+        });
+    });
 
 });
 
@@ -57,9 +70,9 @@ $(window).scroll(function () {
     //nav bar to stick.
     'use strict';
     if ($(window).scrollTop() > 150) {
-        $('.header').addClass('fixed');
+        $('.header').css('background-color' , 'red');
     }
     if ($(window).scrollTop() < 150) {
-        $('.header').removeClass('fixed');
+        $('.header').css('background-color' , 'blue');
     }
 });

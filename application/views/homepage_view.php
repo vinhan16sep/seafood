@@ -27,6 +27,17 @@
 			</div>
 
 		</div>
+		<div class="slide-banner">
+			<div class="image">
+				<img src="<?php echo site_url('assets/img/slider_img.png') ?>" alt="book now">
+			</div>
+
+			<div class="button">
+				<a href="<?php echo base_url('booking') ?>" class="btn btn-default" role="button">
+					<span>Book your table</span>
+				</a>
+			</div>
+		</div>
 	</div>
 
 	<!-- Controls -->
@@ -124,6 +135,84 @@
 	</div>
 	<!-- End Events -->
 
+	<div class="container-fluid content" id="gallery">
+		<div class="title">
+			<h1>Gallery</h1>
+		</div>
+
+		<div id="slideGallery" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<!--
+            <ol class="carousel-indicators">
+                <li data-target="#slider" data-slide-to="0" class="active"></li>
+                <li data-target="#slider" data-slide-to="1"></li>
+                <li data-target="#slider" data-slide-to="2"></li>
+            </ol>
+            -->
+
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+				<div class="item active">
+					<div class="row">
+						<?php for ($i = 0; $i < 8; $i++){ ?>
+						<div class="col-xs-6 col-sm-6 col-md-3">
+							<div class="inner">
+								<div class="mask">
+									<a href="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" data-lightbox="slideGallery">
+										<img src="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" alt="Image Slide 1">
+									</a>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+                        <?php for ($i = 0; $i < 8; $i++){ ?>
+						<div class="col-xs-6 col-sm-6 col-md-3">
+							<div class="inner">
+								<div class="mask">
+									<a href="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" data-lightbox="slideGallery">
+										<img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" alt="Image Slide 1">
+									</a>
+								</div>
+							</div>
+						</div>
+                        <?php } ?>
+					</div>
+				</div>
+				<div class="item">
+					<div class="row">
+                        <?php for ($i = 0; $i < 8; $i++){ ?>
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<div class="inner">
+									<div class="mask">
+										<a href="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" data-lightbox="slideGallery">
+											<img src="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" alt="Image Slide 1">
+										</a>
+									</div>
+								</div>
+							</div>
+                        <?php } ?>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Controls -->
+			<a class="left carousel-control" href="#slideGallery" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#slideGallery" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+	<!-- Item slider end-->
+
 	<div class="container content" id="contact">
 		<div class="title">
 			<h1>Contact</h1>
@@ -187,5 +276,6 @@
 		</div>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.16776955629!2d108.20111104784492!3d16.0529015712601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219bab3e5ab59%3A0xc53bd360a446d08c!2zQnVyZ2VyIEtpbmcgU8OibiBCYXkgxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1522685834411" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
 	</div>
+	<!-- End Map -->
 
 </section>
