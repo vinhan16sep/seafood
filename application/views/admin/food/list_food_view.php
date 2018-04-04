@@ -26,12 +26,12 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="<?php echo base_url('admin/event/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>
+                            <a href="<?php echo base_url('admin/food/create') ?>" class="btn btn-primary" role="button">Thêm mới</a>
                         </div>
                         <div class="col-md-6">
-                            <form action="<?php echo base_url('admin/event/index') ?>" method="get">
+                            <form action="<?php echo base_url('admin/food/index') ?>" method="get">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="">
+                                    <input type="text" class="form-control" placeholder="Tìm kiếm ..." name="search" value="<?php echo $keywords ?>">
                                     <span class="input-group-btn">
                                         <input type="submit" class="btn btn-block btn-primary" value="Tìm kiếm">
                                     </span>
@@ -50,54 +50,40 @@
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
                                     <th>Tiêu đề</th>
-                                    <th>Private Rooms</th>
-                                    <th>Private Floors</th>
-                                    <th>Full Restaurant</th>
-                                    <th>Status</th>
+                                    <th>slug</th>
                                     <th>Detail</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if($events): ?>
+                                <?php if($foods): ?>
                                 <?php $i = 1; ?>
-                                <?php foreach ($events as $key => $value): ?>
+                                <?php foreach ($foods as $key => $value): ?>
                                     
                                 
                                     <tr class="remove_<?php echo $value['id'] ?>">
                                         <td><?php echo $i++ ?></td>
                                         <td>
                                             <div class="mask_sm">
-                                                <img src="<?php echo base_url('assets/upload/event/'. $value['image']) ?>" alt="anh-cua-<?php echo $value['slug'] ?>">
+                                                <img src="<?php echo base_url('assets/upload/food/'.$value['image'][0]) ?>">
                                             </div>
                                         </td>
                                         <td><?php echo $value['title'] ?></td>
-                                        <td><?php echo $value['private_rooms'] ?></td>
-                                        <td><?php echo $value['private_floors'] ?></td>
-                                        <td><?php echo $value['full_restaurant'] ?></td>
+                                        <td><?php echo $value['slug'] ?></td>
                                         <td>
-                                        <td>
-                                            <?php if($value['is_activated'] == 1): ?>
-                                                <span class="label label-success" onclick="deactive('event', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng sự kiện này?')">Đang sử dụng</span>
-                                            <?php else: ?>
-                                                <span class="label label-warning" onclick="active('event', <?php echo $value['id'] ?>, 'Chắc chắn sử tắt kiện này?')">Không sử dụng</span>
-                                            <?php endif ?>
-                                        </td>
+                                            <a href="<?php echo base_url('admin/food/detail/'. $value['id']) ?>"
+                                            <button class="btn btn-default btn-sm" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">Chi tiết</button>
                                         </td>
                                         <td>
-                                            <a href="<?php echo base_url('admin/event/detail/'.$value['id']) ?>"
-                                            <button class="btn btn-default btn-sm" type="button" data-toggle="collapse" data-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">See Detail</button>
-                                        </td>
-                                        <td>
-                                            <a href="<?php echo base_url('admin/event/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
-                                            <a href="javascript:void(0);" onclick="remove('event', <?php echo $value['id'] ?>)" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
+                                            <a href="<?php echo base_url('admin/food/edit/'. $value['id']) ?>" class="dataActionEdit"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
+                                            <a href="javascript:void(0);" onclick="remove('food', <?php echo $value['id'] ?>)" class="dataActionDelete"><i class="fa fa-remove" aria-hidden="true"></i> </a>
                                         </td>
 
                                     </tr>
                                 <?php endforeach ?>
                                 <?php else: ?>
                                     <tr>
-                                        Chưa có Event
+                                        Chưa có món ăn
                                     </tr>
                                 <?php endif; ?>
 
@@ -107,10 +93,7 @@
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
                                     <th>Tiêu đề</th>
-                                    <th>Private Rooms</th>
-                                    <th>Private Floors</th>
-                                    <th>Full Restaurant</th>
-                                    <th>Status</th>
+                                    <th>slug</th>
                                     <th>Detail</th>
                                     <th>Action</th>
                                 </tr>
@@ -127,7 +110,6 @@
                 <!-- /.box -->
             </div>
         </div>
-        EVENT
     </section>
     <!-- /.content -->
 </div>

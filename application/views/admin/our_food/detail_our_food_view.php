@@ -153,3 +153,4 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
+<script src="<?php echo site_url('assets/js/admin/') ?>our_food.js"></script>

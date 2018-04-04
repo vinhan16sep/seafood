@@ -63,10 +63,13 @@ class Event extends Admin_Controller {
             $this->render('admin/event/create_event_view');
         } else {
             if ($this->input->post()) {
+                $slug = $this->input->post('slug_shared');
+                $unique_slug = $this->event_model->build_unique_slug($slug);
+
                 $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
                 $shared_request = array(
                     'image' => $image,
-                    'slug' => $this->input->post('slug_shared'),
+                    'slug' => $unique_slug,
                     'meta_keywords' => $this->input->post('metakeywords_shared'),
                     'meta_description' => $this->input->post('metadescription_shared'),
                     'private_rooms' => $this->input->post('privaterooms_shared'),
@@ -132,9 +135,11 @@ class Event extends Admin_Controller {
 
         if($this->form_validation->run() === true){
             if($this->input->post()){
+                $slug = $this->input->post('slug_shared');
+                $unique_slug = $this->event_model->build_unique_slug($slug);
                 $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
                 $shared_request = array(
-                    'slug' => $this->input->post('slug_shared'),
+                    'slug' => $unique_slug,
                     'meta_keywords' => $this->input->post('metakeywords_shared'),
                     'meta_description' => $this->input->post('metadescription_shared'),
                     'private_rooms' => $this->input->post('privaterooms_shared'),
