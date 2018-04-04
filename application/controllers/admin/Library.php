@@ -134,6 +134,9 @@ class Library extends Admin_Controller
         	if ($this->input->post()) {
         		$slug = $this->input->post('slug_shared');
             	$unique_slug = $this->library_model->build_unique_slug($slug, $id);
+                if(file_exists("assets/upload/library/".$library['slug'])){
+                    rename("assets/upload/library/".$library['slug'], "assets/upload/library/".$unique_slug);
+                }
             	if(!file_exists("assets/upload/library/".$unique_slug)){
                     mkdir("assets/upload/library/".$unique_slug, 0755);
                     mkdir("assets/upload/library/".$unique_slug.'/thumb', 0755);
