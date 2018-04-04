@@ -10,7 +10,7 @@
 			<div class="middle col-xs-12 col-sm-4 col-md-4">
 				<div class="logo">
 					<a href="<?php echo base_url('') ?>">
-						<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
+						<img src="<?php echo site_url('assets/img/logo_n.png') ?>" alt="Ngoc Huong Logo">
 					</a>
 				</div>
 				<h3>Follow us on</h3>
@@ -54,6 +54,8 @@
 
 <!-- jQuery Input -->
 <script src="<?php echo site_url('assets/js/script.js') ?>"></script>
+<!-- Lightbox JS -->
+<script src="<?php echo site_url('assets/lib/lightbox/js/lightbox.js') ?>"></script>
 
 </body>
 </html>
