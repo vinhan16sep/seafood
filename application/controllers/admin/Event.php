@@ -229,10 +229,13 @@ class Event extends Admin_Controller {
         if($count < 1){
             $update = $this->event_model->common_update($id, $data);
             if($update == 1){
+                $reponse = array(
+                    'csrf_hash' => $this->security->get_csrf_hash()
+                );
                 return $this->output
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_SUCCESS)
-                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true)));
+                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true, 'reponse' => $reponse)));
             }
         }
         return $this->output
