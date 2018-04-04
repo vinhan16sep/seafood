@@ -15,19 +15,17 @@ CONTENT:
 ========== RESET BOOTSTRAP ==========
  */
 
-@font-face {
-    font-family: 'sanFranciscoR';
-    src: url("../fonts/SanFranciscoDisplay-Regular.otf");
+a{
+    &:hover{
+        text-decoration: none;
+    }
 }
 
-@font-face {
-    font-family: 'sanFranciscoT';
-    src: url("../fonts/SanFranciscoDisplay-Thin.otf");
-}
-
-@font-face {
-    font-family: 'centur';
-    src: url("../fonts/UTM%20Centur.ttf");
+.form-control:focus{
+    border-color: rgba(253,187,17,1.00);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(253,187,17,.075), 0 0 8px rgba(253,187,17, .6);
+    box-shadow: inset 0 1px 1px rgba(253,187,17,.075), 0 0 8px rgba(253,187,17, .6);
 }
 
 /*
