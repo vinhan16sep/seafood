@@ -82,9 +82,9 @@ function remove(controller, id){
     }
 }
 
-function active(controller, id) {
+function active(controller, id, question) {
     var url = HOSTNAME + 'admin/' + controller + '/active';
-    if(confirm('Chắc chắn sử dụng sự kiện này?')){
+    if(confirm(question)){
         $.ajax({
             method: "post",
             url: url,
@@ -93,7 +93,16 @@ function active(controller, id) {
             },
             success: function(response){
                 if(response.success == true){
-                    alert('Mở sự kiện thành công');
+                    csrf_hash = response.reponse.csrf_hash;
+                    switch(controller){
+                        case 'event' :
+                            alert('Mở sự kiện thành công');
+                            break;
+                        case 'order' :
+                            alert('Xác nhận đặt bàn thành công');
+                            break;
+                    }
+                    
                     location.reload();
                 }else{
                     alert('Hiện có 1 sự kiện đang được sử dụng. Vui lòng tắt sự kiện đó rồi thực hiện lại thao tác!');
@@ -107,9 +116,9 @@ function active(controller, id) {
     }
 }
 
-function deactive(controller, id) {
+function deactive(controller, id, question) {
     var url = HOSTNAME + 'admin/' + controller + '/deactive';
-    if(confirm('Chắc chắn sử tắt kiện này?')){
+    if(confirm(question)){
         $.ajax({
             method: "post",
             url: url,
@@ -117,8 +126,17 @@ function deactive(controller, id) {
                 id : id, csrf_seafood_token : csrf_hash
             },
             success: function(response){
+                csrf_hash = response.reponse.csrf_hash;
                 if(response.status == 200){
-                    alert('Tắt sự kiện thành công');
+                    
+                    switch(controller){
+                        case 'event' :
+                            alert('Tắt sự kiện thành công');
+                            break;
+                        case 'order' :
+                            alert('Hủy đặt bàn thành công');
+                            break;
+                    }
                     location.reload();
                 }
             },
