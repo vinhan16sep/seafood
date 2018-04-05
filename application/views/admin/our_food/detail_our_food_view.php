@@ -29,9 +29,12 @@
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg">
-                                            <?php foreach (json_decode($our_food['image']) as $key => $value): ?>
-                                                <img src="<?php echo base_url('assets/upload/our_food/'.$value) ?>" alt="Image Detail" width="150px">
-                                            <?php endforeach; ?>
+                                            <?php if (is_array(json_decode($our_food['image']))): ?>
+                                                <?php foreach (json_decode($our_food['image']) as $key => $value): ?>
+                                                    <img src="<?php echo base_url('assets/upload/our_food/'.$value) ?>" alt="Image Detail" width="150px">
+                                                <?php endforeach; ?>
+                                            <?php endif ?>
+                                            
                                         </div>
                                     </div>
                                 </div>

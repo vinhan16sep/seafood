@@ -26,9 +26,12 @@
                             <?php
                             echo form_label('Hình ảnh', 'image_shared');
                             echo form_error('image_shared');
-                            echo form_upload('image_shared[]', '', 'class="form-control" multiple');
+                            echo form_upload('image_shared[]', '', 'class="form-control" multiple required');
                             ?>
                             <p class="help-block">Click để upload. Yêu cầu hình ảnh dưới 1200 Kb</p>
+                            <div class="row">
+                                <span><?php echo $this->session->flashdata('message'); ?></span>
+                            </div>
                         </div>
                         <?php echo form_submit('submit_shared', 'OK', 'class="btn btn-primary"'); ?>
                         <?php echo form_close(); ?>
