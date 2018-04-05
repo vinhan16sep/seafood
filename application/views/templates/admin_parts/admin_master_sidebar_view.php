@@ -28,7 +28,7 @@ if($this->ion_auth->logged_in()) {
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active">
+                <li class="">
                     <a href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
@@ -56,25 +56,31 @@ if($this->ion_auth->logged_in()) {
                 </li>
 
                 
-                <li class="">
+                <li class="<?php echo ($this->uri->segment(2) == 'our_food')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/our_food') ?>">
                         <i class="fa fa-cutlery"></i>
-                        <span>Món Ăn</span>
+                        <span>Món Ăn Của Chúng Tôi</span>
                     </a>
                 </li>
-                <li class="">
+                <li class="<?php echo ($this->uri->segment(2) == 'food')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/food') ?>">
+                        <i class="fa fa-bars"></i>
+                        <span>Danh Sách Món Ăn</span>
+                    </a>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'event')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/event') ?>">
                         <i class="fa fa-file-text-o"></i>
                         <span>Sự Kiện</span>
                     </a>
                 </li>
-                <li class="">
+                <li class="<?php echo ($this->uri->segment(2) == 'library')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/library') ?>">
                         <i class="fa fa-picture-o"></i>
                         <span>Thư Viện Ảnh</span>
                     </a>
                 </li>
-                <li class="treeview">
+                <li class="treeview <?php echo ($this->uri->segment(2) == 'order')? 'active' : '' ?>">
                     <a href="">
                         <i class="fa fa-file-text-o"></i>
                         <span>Đặt Bàn</span>
@@ -83,9 +89,21 @@ if($this->ion_auth->logged_in()) {
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="<?php echo base_url('admin/order') ?>"><i class="fa fa-refresh"></i> Chờ Xác Nhận</a></li>
-                        <li><a href="<?php echo base_url('admin/order/success') ?>"><i class="fa fa-check-square-o"></i> Đã Xác Nhận</a></li>
-                        <li><a href="<?php echo base_url('admin/order/cancel') ?>"><i class="fa fa-ban"></i> Đã hủy bỏ</a></li>
+                        <li class="<?php echo ($this->uri->segment(3) == '' || $this->uri->segment(3) == 'index')? 'active' : '' ?>">
+                            <a href="<?php echo base_url('admin/order') ?>">
+                                <i class="fa fa-refresh"></i> Chờ Xác Nhận
+                            </a>
+                        </li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'success')? 'active' : '' ?>">
+                            <a href="<?php echo base_url('admin/order/success') ?>">
+                                <i class="fa fa-check-square-o"></i> Đã Xác Nhận
+                            </a>
+                        </li>
+                        <li class="<?php echo ($this->uri->segment(3) == 'cancel')? 'active' : '' ?>">
+                            <a href="<?php echo base_url('admin/order/cancel') ?>">
+                                <i class="fa fa-ban"></i> Đã hủy bỏ
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li>

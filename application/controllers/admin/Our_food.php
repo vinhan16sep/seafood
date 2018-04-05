@@ -81,13 +81,16 @@ class Our_food extends Admin_Controller {
                     $this->session->set_flashdata('message', 'Item added!');
                     if($image != '' && $image != $our_food['image']){
                         $old_image = json_decode($our_food['image']);
-                        foreach ($old_image as $key => $value) {
-                            if(file_exists('assets/upload/our_food/'.$value)){
-                                unlink('assets/upload/our_food/'.$value);
+                        if(is_array($old_image)){
+                            foreach ($old_image as $key => $value) {
+                                if(file_exists('assets/upload/our_food/'.$value)){
+                                    unlink('assets/upload/our_food/'.$value);
+                                }
                             }
                         }
+                        
                     }
-                    // redirect('admin/our_food', 'refresh');
+                    redirect('admin/our_food', 'refresh');
                     
                 }
             }

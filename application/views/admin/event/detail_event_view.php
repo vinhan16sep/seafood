@@ -103,36 +103,63 @@
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="vi">
-                                        <div class="form-group col-xs-12">
-                                            <strong>Tiêu đề: </strong><?php echo $event['title_vi'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Giới thiệu: </strong><?php echo $event['description_vi'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Nội dung: </strong><?php echo $event['content_vi'] ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="width: 100px">Tiêu đề: </th>
+                                                        <td><?php echo $event['title_vi'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">Giới thiệu: </th>
+                                                        <td><?php echo $event['description_vi'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">Nội dung: </th>
+                                                        <td><?php echo $event['content_vi'] ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="en">
-                                        <div class="form-group col-xs-12">
-                                            <strong>Tiêu đề: </strong><?php echo $event['title_en'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Giới thiệu: </strong><?php echo $event['description_en'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Nội dung: </strong><?php echo $event['content_en'] ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="width: 100px">Title: </th>
+                                                        <td><?php echo $event['title_en'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">Description: </th>
+                                                        <td><?php echo $event['description_en'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">Content: </th>
+                                                        <td><?php echo $event['content_en'] ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="cn">
-                                        <div class="form-group col-xs-12">
-                                            <strong>Tiêu đề: </strong><?php echo $event['title_cn'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Giới thiệu: </strong><?php echo $event['description_cn'] ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <strong>Nội dung: </strong><?php echo $event['content_cn'] ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <th style="width: 100px">标题: </th>
+                                                        <td><?php echo $event['title_cn'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">介绍: </th>
+                                                        <td><?php echo $event['description_cn'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 100px">内容: </th>
+                                                        <td><?php echo $event['content_cn'] ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

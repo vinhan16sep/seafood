@@ -275,24 +275,30 @@ class Library extends Admin_Controller
     		$library['image'] = json_decode($library['image']);
         }
 
+        
         if($this->input->post()){
-        	$image = $this->upload_file('./assets/upload/library/'.$library['slug'], 'image_shared', 'assets/upload/library/'. $library['slug'] .'/thumb');
-	        $image_array = array();
-	        $image_array = $library['image'];
-	        if($image){
-	        	foreach ($image as $key => $value) {
-	        		$image_array[] = $value;
-	        	}
-	        }
+            if (!empty($_FILES['userfile']['name'])){
+            	$image = $this->upload_file('./assets/upload/library/'.$library['slug'], 'image_shared', 'assets/upload/library/'. $library['slug'] .'/thumb');
+    	        $image_array = array();
+    	        $image_array = $library['image'];
+    	        if($image){
+    	        	foreach ($image as $key => $value) {
+    	        		$image_array[] = $value;
+    	        	}
+    	        }
 
-	        if($image){
-	        	$shared_request['image'] = json_encode($image_array);
-	        }
+    	        if($image){
+    	        	$shared_request['image'] = json_encode($image_array);
+    	        }
 
-	        $update = $this->library_model->common_update($id, $shared_request);
-	        if($update){
-	        	redirect('admin/library/detail/'. $id);
-	        }
+    	        $update = $this->library_model->common_update($id, $shared_request);
+    	        if($update){
+    	        	redirect('admin/library/detail/'. $id);
+    	        }
+            }else{
+                $this->session->set_flashdata('message', 'Vui lòng chọn ảnh!');
+                redirect('admin/library/create_image/'.$id);
+            }
         }
 
     	$this->render('admin/library/create_image_view');
