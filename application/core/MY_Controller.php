@@ -98,14 +98,16 @@ class Admin_Controller extends MY_Controller {
         return $image;
     }
 
-    protected function upload_file($upload_path = '', $file_name = '') {
+    protected function upload_file($upload_path = '', $file_name = '', $upload_thumb_path = '', $thumbs_with = 200, $thumbs_height = 200) {
         $config = $this->config_file($upload_path);
 
+        $image = '';
         $file = $_FILES[$file_name];
         $count = count($file['name']);
         $image_list = array();
+        $config_thumb = array();
 
-        for ($i = 0; $i <= $count - 1; $i++) {
+        for ($i = 0; $i < $count; $i++) {
 
             $_FILES['userfile']['name'] = $file['name'][$i];
             $_FILES['userfile']['type'] = $file['type'][$i];
@@ -118,6 +120,24 @@ class Admin_Controller extends MY_Controller {
             if ($this->upload->do_upload()) {
                 $data = $this->upload->data();
                 $image_list[] = $data['file_name'];
+                $image = $data['file_name'];
+
+                $this->load->library('image_lib');
+
+                $config['image_library'] = 'gd2';
+                $config_thumb['source_image'] = $upload_path . '/' . $image;
+                $config_thumb['create_thumb'] = TRUE;
+                $config_thumb['maintain_ratio'] = TRUE;
+                $config_thumb['new_image'] = $upload_thumb_path;
+                $config_thumb['width'] = $thumbs_with;
+                $config_thumb['height'] = $thumbs_height;
+
+                $this->image_lib->initialize($config_thumb);
+                $this->image_lib->resize();
+                $this->image_lib->clear();
+
+                $this->image_lib->resize($image);
+                
             }
         }
         return $image_list;
@@ -126,7 +146,7 @@ class Admin_Controller extends MY_Controller {
     function config_file($upload_path = '') {
         $config = array();
         $config['upload_path'] = $upload_path;
-        $config['allowed_types'] = 'jpg|png|gif|jpeg';
+        $config['allowed_types'] = 'jpg|jpeg|png|gif';
         $config['max_size'] = '1200';
 //        $config['max_width']     = '1028';
 //        $config['max_height']    = '1028';

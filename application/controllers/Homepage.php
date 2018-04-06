@@ -11,6 +11,8 @@ class Homepage extends Public_Controller {
     }
 
     public function index() {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 
         $this->render('homepage_view');
     }

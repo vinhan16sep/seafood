@@ -63,10 +63,13 @@ class Event extends Admin_Controller {
             $this->render('admin/event/create_event_view');
         } else {
             if ($this->input->post()) {
+                $slug = $this->input->post('slug_shared');
+                $unique_slug = $this->event_model->build_unique_slug($slug);
+
                 $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
                 $shared_request = array(
                     'image' => $image,
-                    'slug' => $this->input->post('slug_shared'),
+                    'slug' => $unique_slug,
                     'meta_keywords' => $this->input->post('metakeywords_shared'),
                     'meta_description' => $this->input->post('metadescription_shared'),
                     'private_rooms' => $this->input->post('privaterooms_shared'),
@@ -83,7 +86,7 @@ class Event extends Admin_Controller {
                 $insert = $this->event_model->common_insert($shared_request);
                 if($insert){
                     $requests = handle_multi_language_request('event_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    $this->event_lang_model->insert_with_language($requests);
+                    $this->event_model->insert_with_language($requests);
                 }
 
                 if ($this->db->trans_status() === false) {
@@ -132,9 +135,11 @@ class Event extends Admin_Controller {
 
         if($this->form_validation->run() === true){
             if($this->input->post()){
+                $slug = $this->input->post('slug_shared');
+                $unique_slug = $this->event_model->build_unique_slug($slug);
                 $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
                 $shared_request = array(
-                    'slug' => $this->input->post('slug_shared'),
+                    'slug' => $unique_slug,
                     'meta_keywords' => $this->input->post('metakeywords_shared'),
                     'meta_description' => $this->input->post('metadescription_shared'),
                     'private_rooms' => $this->input->post('privaterooms_shared'),
@@ -229,10 +234,13 @@ class Event extends Admin_Controller {
         if($count < 1){
             $update = $this->event_model->common_update($id, $data);
             if($update == 1){
+                $reponse = array(
+                    'csrf_hash' => $this->security->get_csrf_hash()
+                );
                 return $this->output
                     ->set_content_type('application/json')
                     ->set_status_header(HTTP_SUCCESS)
-                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true)));
+                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true, 'reponse' => $reponse)));
             }
         }
         return $this->output

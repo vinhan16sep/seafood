@@ -15,27 +15,25 @@ CONTENT:
 ========== RESET BOOTSTRAP ==========
  */
 
-@font-face {
-    font-family: 'sanFranciscoR';
-    src: url("../fonts/SanFranciscoDisplay-Regular.otf");
+a{
+    &:hover{
+        text-decoration: none;
+    }
 }
 
-@font-face {
-    font-family: 'sanFranciscoT';
-    src: url("../fonts/SanFranciscoDisplay-Thin.otf");
-}
-
-@font-face {
-    font-family: 'centur';
-    src: url("../fonts/UTM%20Centur.ttf");
+.form-control:focus{
+    border-color: rgba(223,43,38,1.00);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(223,43,38,.075), 0 0 8px rgba(223,43,38, .6);
+    box-shadow: inset 0 1px 1px rgba(223,43,38,.075), 0 0 8px rgba(223,43,38, .6);
 }
 
 /*
 ========== VARIABLES ==========
  */
 
-$primary: #fdbb11;
-$primary-hover: #fdc941;
+$primary: #df2b26;
+$primary-hover: #ac211d;
 
 $text-color: #6d6d6d;
 
