@@ -7,6 +7,7 @@ class MY_Controller extends CI_Controller {
     protected $data = array();
     protected $author_info = array();
     protected $page_languages = array('vi', 'en', 'cn');
+    protected $langAbbreviation = 'vi';
 
     function __construct() {
         parent::__construct();
@@ -98,7 +99,7 @@ class Admin_Controller extends MY_Controller {
         return $image;
     }
 
-    protected function upload_file($upload_path = '', $file_name = '', $upload_thumb_path = '', $thumbs_with = 200, $thumbs_height = 200) {
+    protected function upload_file($upload_path = '', $file_name = '', $upload_thumb_path = '', $thumbs_with = 500, $thumbs_height = 500) {
         $config = $this->config_file($upload_path);
 
         $image = '';
@@ -159,8 +160,37 @@ class Admin_Controller extends MY_Controller {
 class Public_Controller extends MY_Controller {
     public function __construct() {
         parent::__construct();
+        $this->load->helper('form');
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $this->langAbbreviation = $this->uri->segment(1) ? $this->uri->segment(1) : 'vi';
+        if($this->langAbbreviation == 'vi' || $this->langAbbreviation == 'en' || $this->langAbbreviation == 'cn' || $this->langAbbreviation == ''){
+            $this->session->set_userdata('langAbbreviation', $this->langAbbreviation);
+        }
+
+        if($this->session->userdata('langAbbreviation') == 'vi'){
+            $langName = 'vietnamese';
+            $this->config->set_item('vietnamese', $langName);
+            $this->session->set_userdata("langAbbreviation",'vi');
+            $this->lang->load('vietnamese_lang', 'vietnamese');
+        }
+
+        if($this->session->userdata('langAbbreviation') == 'en' || $this->session->userdata('langAbbreviation') == ''){
+            $langName = 'english';
+            $this->config->set_item('language', $langName);
+            $this->session->set_userdata("langAbbreviation",'en');
+            $this->lang->load('english_lang', 'english');
+        }
+
+        if($this->session->userdata('langAbbreviation') == 'cn' || $this->session->userdata('langAbbreviation') == ''){
+            $langName = 'chinese';
+            $this->config->set_item('language', $langName);
+            $this->session->set_userdata("langAbbreviation",'cn');
+            $this->lang->load('chinese_lang', 'chinese');
+        }
+
+
     }
 
     protected function render($the_view = NULL, $template = 'master') {
