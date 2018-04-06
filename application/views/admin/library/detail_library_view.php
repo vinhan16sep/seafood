@@ -11,61 +11,62 @@
                 <?php
                     echo form_open_multipart('admin/library/index', array('class' => 'form-horizontal'));
                 ?>
-                    <a type="button" href="<?php echo site_url('admin/library/create_image/'. $library['id']); ?>" class="btn btn-primary">THÊM MỚI</a>
-                    <a type="button" href="<?php echo site_url('admin/library/remove_all_image/'. $library['id']); ?>" class="btn btn-primary">XÓA HẾT ẢNH</a>
+                    <a type="button" href="<?php echo site_url('admin/library/create'); ?>" class="btn btn-primary">THÊM MỚI</a>
+                    <a type="button" href="<?php echo site_url('admin/library/delete_all/'); ?>" class="btn btn-primary">XÓA HẾT ẢNH</a>
                 <?php echo form_close(); ?>
             </div>
             <div>
             <br>
             <br>
-            <div class="detail-info col-md-12">
-                <div class="table-responsive">
-                    <label>Tiêu đề thự viện</label>
-                    <table class="table table-striped">
-                        <tbody>
-                        <tr>
-                            <th>Tiếng Việt: </th>
-                            <td><?php echo $library['title_vi'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>English: </th>
-                            <td><?php echo $library['title_en'] ?></td>
-                        </tr>
-                        <tr>
-                            <th>中国: </th>
-                            <td><?php echo $library['title_cn'] ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
-            </div>
             
             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf" />
 
             </div>
-            <?php if ($library): ?>
+            <?php if ($images): ?>
                 <div class="row">
                     <div class="col-lg-12" style="margin-top: 10px;">
-                        <table class="table table-hover table-bordered table-condensed">
-                            <tbody>
-                                <h3>Bài viết: <a href="<?php echo base_url('') ?>" title="" style="text-transform: uppercase"><?php echo $library['title_vi'] ?></a></h3>
+                        <table class="table table-condensed">
+                            <thead>
                                 <tr>
-                                    <td style="width: 100px"><b><a href="#">Ảnh</a></b></td>
-                                    <td style="width: 100px"><b>Operations</b></td>
+                                    <th style="width: 100px"><b><a href="#">Ảnh</a></b></th>
+                                    <th style="width: 100px"><b><a href="#">Tiêu đề</a></b></th>
+                                    <th style="width: 100px"><b>Operations</b></th>
                                 </tr>
-
-                                <?php if ($library['image'] != null): ?>
-                                    <?php foreach ($library['image'] as $key => $value): ?>
-                                        <tr class="row_<?php echo $key ?>">
-                                            <td><img src="<?php echo base_url('assets/upload/library/'.$library['slug'].'/'.$value) ?>" alt="" style="width: 200px"></td>
-                                            <td>
-                                                <a href="javascript:void(0);" title="Xóa" class="btn-remove" onclick="remove_image('library', <?php echo $library['id'] ?>, '<?php echo $value ?>', <?php echo $key ?>);" >
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                <?php endif ?>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($images as $key => $value): ?>
+                                    <tr class="remove_<?php echo $value['id'] ?>" >
+                                        <td style="width: 100px">
+                                            <img src="<?php echo base_url('assets/upload/library/thumb/'. $value['image']) ?>" alt="" style="width: 200px">
+                                        </td>
+                                        <td>
+                                            <table>
+                                                <tr class="row_<?php echo $value['id'] ?>" >
+                                                    <td style="width: 100px">Tiêu đề:
+                                                        <input type="text" name="title-vi" value="<?php echo $value['title_vi'] ?>" disabled>
+                                                    </td>
+                                                    <br />
+                                                    <td style="width: 100px">Title:
+                                                        <input type="text" name="title-en" value="<?php echo $value['title_en'] ?>" disabled>
+                                                    </td>
+                                                    <br>
+                                                    <td style="width: 100px">标题:
+                                                        <input type="text" name="title-cn" value="<?php echo $value['title_cn'] ?>" disabled>
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-warning btn-edit-<?php echo $value['id'] ?> btn-edit-ok" data-id="<?php echo $value['id'] ?>">Sửa</button>
+                                                        <button class="btn btn-success btn-success-<?php echo $value['id'] ?> btn-success-ok" data-id="<?php echo $value['id'] ?>" style="display: none">Ok</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td>
+                                            <a href="javascript:void(0);" title="Xóa" class="btn-remove" data-id="<?php echo $value['id'] ?>" >
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach ?>
                             </tbody>
                         </table>
                         <div class="col-md-6 col-md-offset-5 page">
@@ -82,3 +83,4 @@
         </div>
     </section>
 </div>
+<script src="<?php echo site_url('assets/js/admin/image.js') ?>"></script>

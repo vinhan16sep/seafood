@@ -55,6 +55,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</li>
 					</ul>
 				</div>
+
+                <?php
+                $url_vi = '';
+                $url_en = '';
+                $url_cn = '';
+                switch($current_link){
+                    case 'homepage':
+                        $url_vi = base_url() . 'vi';
+                        $url_en = base_url() . 'en';
+                        $url_cn = base_url() . 'cn';
+                        break;
+                    default:
+                        $url_vi = base_url() . 'vi';
+                        $url_en = base_url() . 'en';
+                        $url_cn = base_url() . 'cn';
+                        break;
+                }
+                ?>
+
 				<div class="right">
 					<ul>
 						<li>
@@ -64,21 +83,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<a href="<?php echo base_url('booking') ?>">Book your table</a>
 						</li>
 						<li class="dropdown" id="dropDownLang">
-							<a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								English <span class="caret"></span>
+							<a href="<?php echo $url_vi; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Vietnamese <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="dropDownLang">
 								<li>
-									<a href="#">Vietnamese</a>
+									<a href="<?php echo $url_en; ?>">English</a>
 								</li>
 								<li>
-									<a href="#">Chinese</a>
+									<a href="<?php echo $url_cn; ?>">Chinese</a>
 								</li>
 							</ul>
 						</li>
+
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</div>
 </header>
+<script>
+    $(function(){
+        $('.selectpicker').selectpicker();
+    });
+</script>

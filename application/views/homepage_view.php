@@ -68,14 +68,13 @@
 	<div class="container content" id="about">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1458644267420-66bc8a5f21e4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4ff3558258d5972b83cec5c963208b&auto=format&fit=crop&w=1493&q=80" alt="anh gioi thieu">
+				<img src="<?php echo base_url('assets/upload/about/thumb/'. $about['avatar']) ?>" alt="anh gioi thieu">
 				<div class="image-decor"></div>
 			</div>
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1>About Us</h1>
-			<p>Nunc est justo, facilisis ut porta sed, tempus et risus. Integer porta et quam nec condimentum. Nullam ipsum leo, sagittis non euismod quis, tempus quis velit. Nam viverra neque nibh, nec interdum dui placerat vel. Ut interdum congue velit, eu sodales sapien lacinia nec. Fusce quis turpis eget ante tincidunt tristique ut a mi. Vestibulum at lorem a diam porttitor ornare non ac enim. Quisque et porta ante, et consectetur nisl. Phasellus imperdiet sapien lacus, ac tincidunt mi consectetur vitae. Aliquam dolor dolor, posuere quis velit a, pellentesque faucibus risus. Nunc dui massa, elementum nec tellus nec, imperdiet lacinia dui. Etiam eros nibh, semper a elementum id, interdum ultrices felis.</p>
-			<p>Phasellus auctor scelerisque mauris. Donec quis eros ac eros fermentum aliquam sit amet id tellus. Duis non varius neque, blandit dignissim dolor. Phasellus hendrerit nisl vitae urna pulvinar sollicitudin. Sed faucibus porttitor nisi nec tincidunt. Praesent velit quam, volutpat sit amet libero nec, porta iaculis ligula. Sed eleifend diam vel tellus ullamcorper, vel fringilla magna iaculis. Mauris facilisis euismod arcu, et bibendum felis eleifend ornare. Donec tellus felis, pellentesque quis placerat non, venenatis nec odio. Donec sodales mi suscipit leo gravida hendrerit. Nam vehicula non arcu ac rhoncus.</p>
+			<p><?php echo $about['about_content'] ?></p>
 		</div>
 	</div>
 	<!-- End About -->
@@ -92,12 +91,12 @@
 	<div class="container content" id="food">
 		<div class="left col-xs-12 col-sm-6 col-md-6 text">
 			<h1>Our Food</h1>
-			<p>Nunc est justo, facilisis ut porta sed, tempus et risus. Integer porta et quam nec condimentum. Nullam ipsum leo, sagittis non euismod quis, tempus quis velit. Nam viverra neque nibh, nec interdum dui placerat vel. Ut interdum congue velit, eu sodales sapien lacinia nec. Fusce quis turpis eget ante tincidunt tristique ut a mi. Vestibulum at lorem a diam porttitor ornare non ac enim. Quisque et porta ante, et consectetur nisl. Phasellus imperdiet sapien lacus, ac tincidunt mi consectetur vitae. Aliquam dolor dolor, posuere quis velit a, pellentesque faucibus risus. Nunc dui massa, elementum nec tellus nec, imperdiet lacinia dui. Etiam eros nibh, semper a elementum id, interdum ultrices felis.</p>
-			<p>Phasellus auctor scelerisque mauris. Donec quis eros ac eros fermentum aliquam sit amet id tellus. Duis non varius neque, blandit dignissim dolor. Phasellus hendrerit nisl vitae urna pulvinar sollicitudin. Sed faucibus porttitor nisi nec tincidunt. Praesent velit quam, volutpat sit amet libero nec, porta iaculis ligula. Sed eleifend diam vel tellus ullamcorper, vel fringilla magna iaculis. Mauris facilisis euismod arcu, et bibendum felis eleifend ornare. Donec tellus felis, pellentesque quis placerat non, venenatis nec odio. Donec sodales mi suscipit leo gravida hendrerit. Nam vehicula non arcu ac rhoncus.</p>
+			<p><?php echo $our_food['our_food_content'] ?></p>
+
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" alt="anh gioi thieu">
+				<img src="<?php echo base_url('assets/upload/our_food/thumb/'. $our_food['avatar']) ?>" alt="anh mon an">
 				<div class="image-decor"></div>
 			</div>
 		</div>
@@ -116,20 +115,20 @@
 	<div class="container content" id="events">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1458644267420-66bc8a5f21e4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4ff3558258d5972b83cec5c963208b&auto=format&fit=crop&w=1493&q=80" alt="anh gioi thieu">
+				<img src="<?php echo base_url('assets/upload/event/thumb/'. $event['image']) ?>" alt="anh su kien">
 				<div class="image-decor"></div>
 			</div>
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1>Events</h1>
-			<p>Nunc est justo, facilisis ut porta sed, tempus et risus. Integer porta et quam nec condimentum. Nullam ipsum leo, sagittis non euismod quis, tempus quis velit. Nam viverra neque nibh, nec interdum dui placerat vel. Ut interdum congue velit, eu sodales sapien lacinia nec. Fusce quis turpis eget ante tincidunt tristique ut a mi. Vestibulum at lorem a diam porttitor ornare non ac enim. Quisque et porta ante, et consectetur nisl. Phasellus imperdiet sapien lacus, ac tincidunt mi consectetur vitae. Aliquam dolor dolor, posuere quis velit a, pellentesque faucibus risus. Nunc dui massa, elementum nec tellus nec, imperdiet lacinia dui. Etiam eros nibh, semper a elementum id, interdum ultrices felis.</p>
+			<p><?php echo $event['event_description'] ?></p>
 			<div class="box">
 				<h3>Private Rooms</h3>
-				<p>Up to 30 guests</p>
+				<p>Up to <?php echo $event['private_rooms'] ?> guests</p>
 				<h3>Private Floors</h3>
-				<p>Up to 50 guests</p>
+				<p>Up to <?php echo $event['private_floors'] ?> guests</p>
 				<h3>Full Restaurant</h3>
-				<p>Up to 100 guests</p>
+				<p>Up to <?php echo $event['full_restaurant'] ?> guests</p>
 			</div>
 		</div>
 	</div>
@@ -152,51 +151,25 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<div class="row">
-						<?php for ($i = 0; $i < 8; $i++){ ?>
-						<div class="col-xs-6 col-sm-6 col-md-3">
-							<div class="inner">
-								<div class="mask">
-									<a href="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" data-lightbox="slideGallery">
-										<img src="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" alt="Image Slide 1">
-									</a>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-					</div>
-				</div>
-				<div class="item">
-					<div class="row">
-                        <?php for ($i = 0; $i < 8; $i++){ ?>
-						<div class="col-xs-6 col-sm-6 col-md-3">
-							<div class="inner">
-								<div class="mask">
-									<a href="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" data-lightbox="slideGallery">
-										<img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" alt="Image Slide 1">
-									</a>
-								</div>
-							</div>
-						</div>
-                        <?php } ?>
-					</div>
-				</div>
-				<div class="item">
-					<div class="row">
-                        <?php for ($i = 0; $i < 8; $i++){ ?>
-							<div class="col-xs-6 col-sm-6 col-md-3">
-								<div class="inner">
-									<div class="mask">
-										<a href="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" data-lightbox="slideGallery">
-											<img src="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" alt="Image Slide 1">
-										</a>
-									</div>
-								</div>
-							</div>
-                        <?php } ?>
-					</div>
-				</div>
+                <?php if($library): ?>
+                    <?php foreach ($library as $key => $value): ?>
+                        <div class="item <?php echo ($key == 0)? 'active' : '' ?>">
+                            <div class="row">
+                                <?php foreach ($value as $k => $val): ?>
+                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                    <div class="inner">
+                                        <div class="mask">
+                                            <a href="<?php echo base_url('assets/upload/library/'. $val['image']) ?>" data-lightbox="slideGallery">
+                                                <img src="<?php echo base_url('assets/upload/library/thumb/'. $val['image_thumb']) ?>" alt="<?php echo $val['image_title'] ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                <?php endif ?>
 			</div>
 
 
