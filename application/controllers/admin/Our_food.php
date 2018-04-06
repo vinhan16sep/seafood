@@ -41,13 +41,28 @@ class Our_food extends Admin_Controller {
     public function edit(){
         $id = 1;
         $our_food = $this->our_food_model->get_our_food_by_id($id);
+
+        $title = explode('|||', $our_food['our_food_title']);
+        $our_food['title_cn'] = $title[0];
+        $our_food['title_en'] = $title[1];
+        $our_food['title_vi'] = $title[2];
+
+        $content = explode('|||', $our_food['our_food_content']);
+        $our_food['content_cn'] = $content[0];
+        $our_food['content_en'] = $content[1];
+        $our_food['content_vi'] = $content[2];
+
+        $this->data['our_food'] = $our_food;
+
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('title_cn', '标题', 'required');
-        if($this->input->post()){
-            if ($this->form_validation->run() == TRUE) {
+        if($this->form_validation->run() == false){
+            $this->render('admin/our_food/edit_our_food_view');
+        }else{
+            if ($this->input->post()) {
                 $image = $this->upload_file('./assets/upload/our_food', 'image_shared', 'assets/upload/our_food/thumb');
                 $image_json = json_encode($image);
                  $shared_request = array(
@@ -59,6 +74,7 @@ class Our_food extends Admin_Controller {
                 );
                 if($image){
                     $shared_request['image'] = $image_json;
+                    $shared_request['avatar'] = $image[0];
                 }
                 $this->db->trans_begin();
                 $update = $this->our_food_model->common_update($id, $shared_request);
@@ -95,5 +111,25 @@ class Our_food extends Admin_Controller {
                 }
             }
         }
+    }
+
+    public function active_avatar(){
+        $image = $this->input->post('image');
+        $data = array('avatar' => $image);
+
+        $update = $this->our_food_model->common_update(1, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'reponse' => $reponse)));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 }

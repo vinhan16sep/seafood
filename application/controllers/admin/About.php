@@ -49,6 +49,19 @@ class About extends Admin_Controller {
         $id = 1;
         $about = $this->about_model->get_by_id($id);
 
+        $title = explode('|||', $about['about_title']);
+        $about['title_cn'] = $title[0];
+        $about['title_en'] = $title[1];
+        $about['title_vi'] = $title[2];
+
+
+        $content = explode('|||', $about['about_content']);
+        $about['content_cn'] = $content[0];
+        $about['content_en'] = $content[1];
+        $about['content_vi'] = $content[2];
+
+        $this->data['about'] = $about;
+
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -56,9 +69,11 @@ class About extends Admin_Controller {
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('title_cn', '标题', 'required');
 
-        if($this->input->post()){
-            if ($this->form_validation->run() == TRUE) {
-                $image = $this->upload_file('./assets/upload/about', 'image_shared');
+        if($this->form_validation->run() == false){
+            $this->render('admin/about/edit_about_view');
+        }else{
+            if($this->input->post()){
+                $image = $this->upload_file('./assets/upload/about', 'image_shared', 'assets/upload/about/thumb');
                 $image_json = json_encode($image);
                  $shared_request = array(
                     'slug' => $this->input->post('slug_shared'),
@@ -69,6 +84,7 @@ class About extends Admin_Controller {
                 );
                 if($image){
                     $shared_request['image'] = $image_json;
+                    $shared_request['avatar'] = $image[0];
                 }
 
 
@@ -88,7 +104,7 @@ class About extends Admin_Controller {
                     $this->db->trans_rollback();
                     $this->load->libraries('session');
                     $this->session->set_flashdata('message', 'Cannot add item!');
-                    $this->render('admin/about');
+                    $this->render('admin/about/edit');
                 } else {
                     $this->db->trans_commit();
                     
@@ -106,5 +122,25 @@ class About extends Admin_Controller {
                 }
             }
         }
+    }
+
+    public function active_avatar(){
+        $image = $this->input->post('image');
+        $data = array('avatar' => $image);
+
+        $update = $this->about_model->common_update(1, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'reponse' => $reponse)));
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header(HTTP_BAD_REQUEST)
+            ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
     }
 }

@@ -25,38 +25,33 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="detail-image col-md-12">
-                                <label>Hình ảnh</label>
+                                <label>Hình ảnh (Click vào ảnh để chọn ảnh làm Avatar)</label>
                                 <div class="row">
                                     <div class="item col-md-12">
-                                        <div class="mask-lg">
-                                            <?php if (is_array(json_decode($our_food['image']))): ?>
-                                                <?php foreach (json_decode($our_food['image']) as $key => $value): ?>
-                                                    <img src="<?php echo base_url('assets/upload/our_food/'.$value) ?>" alt="Image Detail" width="150px">
-                                                <?php endforeach; ?>
-                                            <?php endif ?>
-                                            
+                                        <div class="mask-lg row">
+                                            <?php foreach (json_decode($our_food['image']) as $key => $value): ?>
+                                                <div class="col-md-2">
+                                                    <span onclick="active_avatar('our_food', '<?php echo $value ?>')" style="cursor: pointer;">
+                                                        <img src="<?php echo base_url('assets/upload/our_food/'.$value) ?>" alt="Image Detail" width="150px">
+                                                        <?php echo ($value == $our_food['avatar'])? '<i class="fa fa-check" aria-hidden="true"></i>' : '' ?>
+                                                    </span>
+                                                </div>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                            echo form_open_multipart('admin/our_food/edit', array('class' => 'form-horizontal'));
-                            ?>
-                            <div class="form-group col-xs-12">
-                                <label for="slug_shared">Slug</label>
-                                <input type="text" name="slug_shared" value="<?php echo $our_food['slug'] ?>" class="form-control" id="slug_shared" readonly="">
-                            </div>
-                            <div class="detail-info col-xs-12">
-                                <?php
-                                echo form_label('Thêm ảnh vào thư viện (ảnh không quá 1200 KB)', 'image_shared');
-                                echo form_error('image_shared');
-                                echo form_upload('image_shared[]','','multiple class="form-control" id="image"');
-                                ?>
-                                <br>
-                            </div>
-
                             <div class="col-md-12">
-
+                                <table class="table table-striped">
+                                    <tbody>
+                                    <tr>
+                                        <th style="width: 100px">Slug: </th>
+                                        <td><?php echo $our_food['slug'] ?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-12">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     <li role="presentation" class="active">
@@ -75,76 +70,63 @@
                                         </a>
                                     </li>
                                 </ul>
-
+                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf" />
                                 <!-- Tab panes -->
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="vi">
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('Tiêu đề', 'title_vi');
-                                            echo form_error('title_vi');
-                                            echo form_input('title_vi', $our_food['title_vi'], 'class="form-control" id="title_vi" disabled');
-                                            ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('Nội dung', 'content_vi');
-                                            echo form_error('content_vi');
-                                            echo form_textarea('content_vi', $our_food['content_vi'], 'class="tinymce-area form-control" id="content_vi"')
-                                            ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="width: 100px">Tiêu đề: </th>
+                                                    <td><?php echo $our_food['title_vi'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 100px">Nội dung: </th>
+                                                    <td><?php echo $our_food['content_vi'] ?></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="en">
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('Title', 'title_en');
-                                            echo form_error('title_en');
-                                            echo form_input('title_en', $our_food['title_en'], 'class="form-control" id="title_en" disabled');
-                                            ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('Content', 'content_en');
-                                            echo form_error('content_en');
-                                            echo form_textarea('content_en', $our_food['content_en'], 'class="tinymce-area form-control" id="content_en"')
-                                            ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="width: 100px">Title: </th>
+                                                    <td><?php echo $our_food['title_en'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 100px">Content: </th>
+                                                    <td><?php echo $our_food['content_en'] ?></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="cn">
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('标题', 'title_cn');
-                                            echo form_error('title_cn');
-                                            echo form_input('title_cn', $our_food['title_cn'], 'class="form-control" id="title_cn" disabled');
-                                            ?>
-                                        </div>
-                                        <div class="form-group col-xs-12">
-                                            <?php
-                                            echo form_label('内容', 'content_cn');
-                                            echo form_error('content_cn');
-                                            echo form_textarea('content_cn', $our_food['content_cn'], 'class="tinymce-area form-control" id="content_cn" ')
-                                            ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="width: 100px">标题: </th>
+                                                    <td><?php echo $our_food['title_cn'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th style="width: 100px">内容: </th>
+                                                    <td><?php echo $our_food['content_cn'] ?></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="detail-info">
-                                <div class="row">
-                                    <div class="col-md-2 col-md-offset-9">
-                                        <button type="button" onclick="enableEdit()" class="btn btn-primary enable-edit">
-                                            Bật chế độ sửa
-                                        </button>
-                                    </div>
-                                    <div class="col-md-2 col-md-offset-9 btn-submit">
-                                        <button type="submit" class="btn btn-primary">
-                                            OK
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php echo form_close(); ?>
                         </div>
-
+                        <div class="box-body">
+                            <a href="<?php echo base_url('admin/our_food/edit') ?>" class="btn btn-warning" role="button">Chỉnh sửa</a>
+                        </div>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -156,4 +138,3 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
-<script src="<?php echo site_url('assets/js/admin/') ?>our_food.js"></script>

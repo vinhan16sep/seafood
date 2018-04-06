@@ -168,3 +168,25 @@ function remove_image(controller, id, image, key){
         });
     }
 }
+
+function active_avatar(controller, image) {
+    var url = HOSTNAME + 'admin/' + controller + '/active_avatar';
+    if(confirm('Chọn hình ảnh này làm avatar?')){
+        $.ajax({
+            method: "post",
+            url: url,
+            data: {
+                csrf_seafood_token : csrf_hash, image : image
+            },
+            success: function(response){
+                if(response.status == 200){
+                    csrf_hash = response.reponse.csrf_hash;
+                    location.reload();
+                }
+            },
+            error: function(jqXHR, exception){
+                console.log(errorHandle(jqXHR, exception));
+            }
+        });
+    }
+}
