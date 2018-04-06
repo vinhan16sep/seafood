@@ -148,6 +148,7 @@ class Admin_Controller extends MY_Controller {
         $config['upload_path'] = $upload_path;
         $config['allowed_types'] = 'jpg|jpeg|png|gif';
         $config['max_size'] = '1200';
+        $config['encrypt_name'] = TRUE;
 //        $config['max_width']     = '1028';
 //        $config['max_height']    = '1028';
 
