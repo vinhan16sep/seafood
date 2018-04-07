@@ -6,18 +6,18 @@ $(document).ready(function(){
    $('.slide#slider').css('height' , h * 90 / 100);
 
 
-    $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
-        e.preventDefault();
-
-        var target = this.hash,
-            $target = $(target);
-
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
+    // $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
+    //     e.preventDefault();
+    //
+    //     var target = this.hash,
+    //         $target = $(target);
+    //
+    //     $('html, body').stop().animate({
+    //         'scrollTop': $target.offset().top
+    //     }, 900, 'swing', function () {
+    //         window.location.hash = target;
+    //     });
+    // });
 
     //Expand NAV in Devices
 
@@ -38,28 +38,6 @@ $(document).ready(function(){
         })
     };
 
-    //Slider Gallery
-
-    $(document).ready(function(){
-
-        $('#itemslider').carousel({ interval: 3000 });
-
-        $('.carousel-showmanymoveone .item').each(function(){
-            var itemToClone = $(this);
-
-            for (var i=1;i<6;i++) {
-                itemToClone = itemToClone.next();
-
-                if (!itemToClone.length) {
-                    itemToClone = $(this).siblings(':first');
-                }
-
-                itemToClone.children(':first-child').clone()
-                    .addClass("cloneditem-"+(i))
-                    .appendTo($(this));
-            }
-        });
-    });
 
 });
 
