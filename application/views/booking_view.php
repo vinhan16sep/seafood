@@ -60,7 +60,7 @@
         </div>
 
         <?php
-        echo form_open_multipart('', array('class' => 'form-horizontal'));
+        echo form_open_multipart('booking/create', array('class' => 'form-horizontal'));
         ?>
 
         <div class="row">
