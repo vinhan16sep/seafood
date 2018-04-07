@@ -10,23 +10,16 @@
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" alt="Image Slide 1">
-			</div>
-		</div>
-		<div class="item">
-			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" alt="Image Slide 2">
-			</div>
-
-		</div>
-		<div class="item">
-			<div class="mask">
-				<img src="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" alt="Image Slide 3">
-			</div>
-
-		</div>
+        <?php if($banner): ?>
+            <?php foreach($banner as $key => $value): ?>
+                <?php $i = 1; ?>
+                <div class="item <?php echo ($key == 0)? 'active' : '' ?>">
+                    <div class="mask">
+                        <img src="<?php echo base_url('assets/upload/banner/'. $value['image']) ?>" alt="Image Slide <?php echo $i++; ?>">
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
 		<div class="slide-banner">
 			<div class="image">
 				<img src="<?php echo site_url('assets/img/slider_img.png') ?>" alt="book now">
@@ -191,10 +184,10 @@
 			<h1>Contact</h1>
 		</div>
 
-        <?php
-        echo form_open_multipart('', array('class' => 'form-horizontal'));
-        ?>
-
+<!--        --><?php
+//        echo form_open_multipart('', array('class' => 'form-horizontal'));
+//        ?>
+        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash() ?>" id="csrf" />
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-6">
 				<div class="form-group">
@@ -203,6 +196,7 @@
                     echo form_error('contact_name');
                     echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name"');
                     ?>
+                    <span class="name_error"></span>
 				</div>
 				<div class="form-group">
                     <?php
@@ -210,6 +204,7 @@
                     echo form_error('contact_mail');
                     echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail"');
                     ?>
+                    <span class="email_error"></span>
 				</div>
 				<div class="form-group">
                     <?php
@@ -217,6 +212,7 @@
                     echo form_error('contact_phone');
                     echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone"');
                     ?>
+                    <span class="phone_error"></span>
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-6">
@@ -226,6 +222,7 @@
                     echo form_error('contact_reason');
                     echo form_dropdown('contact_reason', $option = array('1' => 'Reason 1', '2' => 'Reason 2') ,0, 'class="form-control" id="contact_reason"');
                     ?>
+                    <span class="reason_error"></span>
 				</div>
 				<div class="form-group">
                     <?php
@@ -233,13 +230,14 @@
                     echo form_error('contact_message');
                     echo form_textarea('contact_message', set_value('contact_message'), 'class="form-control" id="contact_message"');
                     ?>
+                    <span class="message_error"></span>
 				</div>
-                <?php echo form_submit('submit', 'Submit', 'class="btn btn-outline pull-right"'); ?>
+                <?php echo form_submit('submit', 'Submit', 'class="btn btn-outline pull-right btn-contact"'); ?>
 			</div>
 		</div>
 
 
-        <?php echo form_close(); ?>
+<!--        --><?php //echo form_close(); ?>
 	</div>
 	<!-- End Contact -->
 
@@ -252,3 +250,65 @@
 	<!-- End Map -->
 
 </section>
+<script>
+    HOSTNAME = window.location.origin + '/seafood/';
+    var csrf_hash = $('#csrf').val();
+    $('.btn-contact').click(function () {
+        var url = HOSTNAME + 'homepage/create';
+        var name = $('#contact_name').val();
+        var email = $('#contact_mail').val();
+        var phone = $('#contact_phone').val();
+        var reason = $('#contact_reason').val();
+        var message = $('#contact_message').val();
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(name.length == 0){
+            $('.name_error').text('Họ và Tên không được trống!');
+        }else{
+            $('.name_error').text('');
+        }
+
+        if(email.length == 0){
+            $('.email_error').text('Email không được trống!');
+        }
+        else{
+            $('.email_error').text('');
+        }
+
+        if(message.length == 0){
+            $('.message_error').text('Nội dung không được trống!');
+        }
+        else{
+            $('.message_error').text('');
+        }
+        if(name.length != 0 && email.length != 0 && message.length != 0) {
+            if(filter.test(email)) {
+                $.ajax({
+                    method: "post",
+                    url: url,
+                    data: {
+                        csrf_seafood_token: csrf_hash,
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        reason: reason,
+                        message: message
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        // if(response.success == true){
+                        //     csrf_hash = response.reponse.csrf_hash;
+                        //
+                        // }else{
+                        //     location.reload();
+                        // }
+                    },
+                    error: function (jqXHR, exception) {
+                        // console.log(errorHandle(jqXHR, exception));
+                    }
+                });
+            }else{
+                $('.email_error').text('Định dạng email không đúng, Vui lòng kiểm tra lại!');
+            }
+        }
+    });
+</script>

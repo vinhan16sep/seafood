@@ -66,6 +66,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $url_en = base_url() . 'en';
                         $url_cn = base_url() . 'cn';
                         break;
+                    case 'booking':
+                        $url_vi = base_url() . 'vi/booking';
+                        $url_en = base_url() . 'en/booking';
+                        $url_cn = base_url() . 'cn/booking';
+                        break;
                     default:
                         $url_vi = base_url() . 'vi';
                         $url_en = base_url() . 'en';
@@ -102,8 +107,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</nav>
 	</div>
 </header>
-<script>
-    $(function(){
-        $('.selectpicker').selectpicker();
-    });
-</script>
