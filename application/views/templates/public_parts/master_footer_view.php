@@ -56,6 +56,14 @@
 <script src="<?php echo site_url('assets/js/script.js') ?>"></script>
 <!-- Lightbox JS -->
 <script src="<?php echo site_url('assets/lib/lightbox/js/lightbox.js') ?>"></script>
+<!-- Smooth Scroll JS -->
+<script src="<?php echo site_url('assets/lib/smoothScroll/jquery.smoothscroll.js') ?>"></script>
+
+<script>
+    $(function() {
+        $('html').smoothScroll(500);
+    });
+</script>
 
 </body>
 </html>

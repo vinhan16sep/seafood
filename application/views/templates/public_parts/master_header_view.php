@@ -42,16 +42,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="left">
 					<ul>
 						<li>
-							<a href="#about">About us</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?>">About us</a>
 						</li>
 						<li>
-							<a href="#food">Our food</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?>">Our food</a>
 						</li>
 						<li>
-							<a href="#events">Event</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?>">Event</a>
 						</li>
 						<li>
-							<a href="#gallery">Gallery</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?>">Gallery</a>
 						</li>
 					</ul>
 				</div>
@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="right">
 					<ul>
 						<li>
-							<a href="#contact">Contact us</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#contact' : '#contact' ?>">Contact us</a>
 						</li>
 						<li id="bookTable">
 							<a href="<?php echo base_url('booking') ?>">Book your table</a>
