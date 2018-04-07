@@ -123,7 +123,7 @@
                                         <?php
                                         echo form_label('Nội dung', 'content_vi');
                                         echo form_error('content_vi');
-                                        echo form_textarea('content_vi', set_value('content_vi', '', false), 'id="tinymce-area" class="form-control"')
+                                        echo form_textarea('content_vi', set_value('content_vi', '', false), 'class="tinymce-area form-control"')
                                         ?>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                         <?php
                                         echo form_label('Content', 'content_en');
                                         echo form_error('content_en');
-                                        echo form_textarea('content_en', set_value('content_en', '', false), 'id="tinymce-area" class="form-control"')
+                                        echo form_textarea('content_en', set_value('content_en', '', false), 'class="tinymce-area form-control"')
                                         ?>
                                     </div>
                                 </div>
@@ -169,7 +169,7 @@
                                         <?php
                                         echo form_label('内容', 'content_cn');
                                         echo form_error('content_cn');
-                                        echo form_textarea('content_cn', set_value('content_cn', '', false), 'id="tinymce-area" class="form-control"')
+                                        echo form_textarea('content_cn', set_value('content_cn', '', false), 'class="tinymce-area form-control"')
                                         ?>
                                     </div>
                                 </div>

@@ -9,6 +9,7 @@ class Booking extends Public_Controller {
         parent::__construct();
 
         $this->load->helper('url');
+        $this->load->model('order_model');
     }
 
     public function index() {
@@ -16,25 +17,36 @@ class Booking extends Public_Controller {
         $this->load->library('form_validation');
         $this->data['current_link'] = 'booking';
 
-        $this->render('booking_view');
-    }
+        $this->load->helper('form');
+        $this->load->library('form_validation');
 
-    public function create(){
-        $data = array();
-        $data['name'] = $this->input->post('contact_name');
-        $data['email'] = $this->input->post('contact_mail');
-        $data['phone'] = $this->input->post('contact_phone');
-        $data['time'] = $this->input->post('contact_time') .' - '. $this->input->post('contact_date');
-        $data['quantity'] = $this->input->post('contact_quantity');
+        $this->form_validation->set_rules('contact_name', 'Your name', 'required');
+        $this->form_validation->set_rules('contact_mail', 'Your email', 'required');
+        $this->form_validation->set_rules('contact_phone', 'Your phone number', 'required');
+        $this->form_validation->set_rules('contact_date', 'Date', 'required');
+        $this->form_validation->set_rules('contact_time', 'Time', 'required');
+        $this->form_validation->set_rules('contact_quantity', 'Number of people', 'required');
 
+        if ($this->form_validation->run() == true) {
+            if($this->input->post()){
+                $data = array();
+                $data['name'] = $this->input->post('contact_name');
+                $data['email'] = $this->input->post('contact_mail');
+                $data['phone'] = $this->input->post('contact_phone');
+                $data['time'] = $this->input->post('contact_time') .' - '. $this->input->post('contact_date');
+                $data['quantity'] = $this->input->post('contact_quantity');
+            }
+            $this->order_model->common_insert($data);
+            $send = $this->send_mail($data);
 
-        $send = $this->send_mail($data);
-
-        if($send == false){
-            $this->output->set_status_header(404)
-                ->set_output(json_encode(array('message' => 'Fail', 'data' => $data)));
+            if($send == false){
+                $this->output->set_status_header(404)
+                    ->set_output(json_encode(array('message' => 'Fail', 'data' => $data)));
+            }else{
+                redirect('booking');
+            }
         }else{
-            redirect('booking');
+            $this->render('booking_view');
         }
     }
 

@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             Danh sách
-            <small>Sự kiện</small>
+            <small>Món Ăn</small>
         </h1>
 <!--        <ol class="breadcrumb">-->
 <!--            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
@@ -21,7 +21,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Sự kiện</h3>
+                        <h3 class="box-title">Món Ăn</h3>
                     </div>
 
                     <div class="row">
@@ -65,7 +65,7 @@
                                         <td><?php echo $i++ ?></td>
                                         <td>
                                             <div class="mask_sm">
-                                                <img src="<?php echo base_url('assets/upload/food/'.$value['image'][0]) ?>">
+                                                <img src="<?php echo base_url('assets/upload/food/'. $value['slug'] .'/'.$value['image'][0]) ?>">
                                             </div>
                                         </td>
                                         <td><?php echo $value['title'] ?></td>
