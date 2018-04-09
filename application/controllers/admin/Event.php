@@ -63,43 +63,51 @@ class Event extends Admin_Controller {
             $this->render('admin/event/create_event_view');
         } else {
             if ($this->input->post()) {
-                $slug = $this->input->post('slug_shared');
-                $unique_slug = $this->event_model->build_unique_slug($slug);
-
-                $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
-                $shared_request = array(
-                    'image' => $image,
-                    'slug' => $unique_slug,
-                    'meta_keywords' => $this->input->post('metakeywords_shared'),
-                    'meta_description' => $this->input->post('metadescription_shared'),
-                    'private_rooms' => $this->input->post('privaterooms_shared'),
-                    'private_floors' => $this->input->post('privatefloors_shared'),
-                    'full_restaurant' => $this->input->post('fullrestaurant_shared'),
-                    'created_at' => $this->author_data['created_at'],
-                    'created_by' => $this->author_data['created_by'],
-                    'updated_at' => $this->author_data['updated_at'],
-                    'updated_by' => $this->author_data['updated_by']
-                );
-
-                $this->db->trans_begin();
-
-                $insert = $this->event_model->common_insert($shared_request);
-                if($insert){
-                    $requests = handle_multi_language_request('event_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    $this->event_model->insert_with_language($requests);
+                $check_upload = true;
+                if ($_FILES['image_shared']['size'] > 1228800) {
+                    $check_upload = false;
                 }
+                if ($check_upload == true) {
+                    $slug = $this->input->post('slug_shared');
+                    $unique_slug = $this->event_model->build_unique_slug($slug);
 
-                if ($this->db->trans_status() === false) {
-                    $this->db->trans_rollback();
-                    $this->load->libraries('session');
-                    $this->session->set_flashdata('message', 'Cannot add item!');
-                    $this->render('admin/event/create_event_view');
-                } else {
-                    $this->db->trans_commit();
-                    $this->session->set_flashdata('message', 'Item added!');
-                    redirect('admin/event', 'refresh');
+                    $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
+                    $shared_request = array(
+                        'image' => $image,
+                        'slug' => $unique_slug,
+                        'meta_keywords' => $this->input->post('metakeywords_shared'),
+                        'meta_description' => $this->input->post('metadescription_shared'),
+                        'private_rooms' => $this->input->post('privaterooms_shared'),
+                        'private_floors' => $this->input->post('privatefloors_shared'),
+                        'full_restaurant' => $this->input->post('fullrestaurant_shared'),
+                        'created_at' => $this->author_data['created_at'],
+                        'created_by' => $this->author_data['created_by'],
+                        'updated_at' => $this->author_data['updated_at'],
+                        'updated_by' => $this->author_data['updated_by']
+                    );
+
+                    $this->db->trans_begin();
+
+                    $insert = $this->event_model->common_insert($shared_request);
+                    if($insert){
+                        $requests = handle_multi_language_request('event_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
+                        $this->event_model->insert_with_language($requests);
+                    }
+
+                    if ($this->db->trans_status() === false) {
+                        $this->db->trans_rollback();
+                        $this->load->libraries('session');
+                        $this->session->set_flashdata('message_error', 'Thêm mới thất bại!');
+                        $this->render('admin/event/create_event_view');
+                    } else {
+                        $this->db->trans_commit();
+                        $this->session->set_flashdata('message_success', 'Thêm mới thành công!');
+                        redirect('admin/event', 'refresh');
+                    }
+                }else{
+                    $this->session->set_flashdata('message_error', 'Hình ảnh vượt quá 1200 Kb. Vui lòng kiểm tra lại và thực hiện lại thao tác!');
+                    redirect('admin/event');
                 }
-
             }
         }
     }
@@ -135,48 +143,54 @@ class Event extends Admin_Controller {
 
         if($this->form_validation->run() === true){
             if($this->input->post()){
-                $slug = $this->input->post('slug_shared');
-                $unique_slug = $this->event_model->build_unique_slug($slug);
-                $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
-                $shared_request = array(
-                    'slug' => $unique_slug,
-                    'meta_keywords' => $this->input->post('metakeywords_shared'),
-                    'meta_description' => $this->input->post('metadescription_shared'),
-                    'private_rooms' => $this->input->post('privaterooms_shared'),
-                    'private_floors' => $this->input->post('privatefloors_shared'),
-                    'full_restaurant' => $this->input->post('fullrestaurant_shared'),
-                    'updated_at' => $this->author_data['updated_at'],
-                    'updated_by' => $this->author_data['updated_by']
-                );
-                if($image){
-                    $shared_request['image'] = $image;
+                $check_upload = true;
+                if ($_FILES['image_shared']['size'] > 1228800) {
+                    $check_upload = false;
                 }
-                $this->db->trans_begin();
-
-                $update = $this->event_model->common_update($id, $shared_request);
-                if($update){
-                    $requests = handle_multi_language_request('event_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    foreach ($requests as $key => $value){
-                        $this->event_model->update_with_language($id, $requests[$key]['language'], $value);
+                if ($check_upload == true) {
+                    $slug = $this->input->post('slug_shared');
+                    $unique_slug = $this->event_model->build_unique_slug($slug);
+                    $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
+                    $shared_request = array(
+                        'slug' => $unique_slug,
+                        'meta_keywords' => $this->input->post('metakeywords_shared'),
+                        'meta_description' => $this->input->post('metadescription_shared'),
+                        'private_rooms' => $this->input->post('privaterooms_shared'),
+                        'private_floors' => $this->input->post('privatefloors_shared'),
+                        'full_restaurant' => $this->input->post('fullrestaurant_shared'),
+                        'updated_at' => $this->author_data['updated_at'],
+                        'updated_by' => $this->author_data['updated_by']
+                    );
+                    if($image){
+                        $shared_request['image'] = $image;
                     }
-                }
+                    $this->db->trans_begin();
 
-                if ($this->db->trans_status() === false) {
-                    $this->db->trans_rollback();
-                    $this->load->libraries('session');
-                    $this->session->set_flashdata('message', 'Cannot add item!');
-                    $this->render('admin/event/edit/'.$id);
-                } else {
-                    $this->db->trans_commit();
-                    $this->session->set_flashdata('message', 'Item added!');
-                    if($image != '' && $image != $event['image'] && file_exists('assets/upload/event/'.$event['image'])){
-                        unlink('assets/upload/event/'.$event['image']);
+                    $update = $this->event_model->common_update($id, $shared_request);
+                    if($update){
+                        $requests = handle_multi_language_request('event_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
+                        foreach ($requests as $key => $value){
+                            $this->event_model->update_with_language($id, $requests[$key]['language'], $value);
+                        }
                     }
-                    redirect('admin/event', 'refresh');
-                }
 
-                // echo '<pre>';
-                // print_r($requests);die;
+                    if ($this->db->trans_status() === false) {
+                        $this->db->trans_rollback();
+                        $this->load->libraries('session');
+                        $this->session->set_flashdata('message_error', 'Cập nhật thất bại!');
+                        $this->render('admin/event/edit/'.$id);
+                    } else {
+                        $this->db->trans_commit();
+                        $this->session->set_flashdata('message_success', 'Cập nhật thành công!');
+                        if($image != '' && $image != $event['image'] && file_exists('assets/upload/event/'.$event['image'])){
+                            unlink('assets/upload/event/'.$event['image']);
+                        }
+                        redirect('admin/event', 'refresh');
+                    }
+                }else{
+                    $this->session->set_flashdata('message_error', 'Hình ảnh vượt quá 1200 Kb. Vui lòng kiểm tra lại và thực hiện lại thao tác!');
+                    redirect('admin/event');
+                }
             }
         }
         $this->render('admin/event/edit_event_view');

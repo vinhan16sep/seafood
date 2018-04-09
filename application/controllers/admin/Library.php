@@ -52,29 +52,39 @@ class Library extends Admin_Controller{
 
         if ($this->input->post()) {
             if (!empty($_FILES['image_shared']['name'])) {
-
-                $image = $this->upload_file('./assets/upload/library', 'image_shared', 'assets/upload/library/thumb');
-                foreach ($image as $key => $value) {
-                    $shared_request = array(
-                        'library_id' => 1,
-                        'image' => $value,
-                        'created_at' => $this->author_data['created_at'],
-                        'created_by' => $this->author_data['created_by'],
-                        'updated_at' => $this->author_data['updated_at'],
-                        'updated_by' => $this->author_data['updated_by']
-                    );
-                    $insert = $this->image_model->common_insert($shared_request);
-
-                    if ($insert) {
-                        $requests = handle_multi_language_request('image_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
-                        $insert_lang = $this->image_model->insert_with_language($requests);
-                        if($insert_lang){
-                            $success = true;
-                        }
+                $check_upload = true;
+                foreach ($_FILES['image_shared']['size'] as $key => $value) {
+                    if( $value > 1228800){
+                        $check_upload = false;
                     }
                 }
-                if($success){
-                    $this->session->set_flashdata('message', 'ok!');
+                if($check_upload == true){
+                    $image = $this->upload_file('./assets/upload/library', 'image_shared', 'assets/upload/library/thumb');
+                    foreach ($image as $key => $value) {
+                        $shared_request = array(
+                            'library_id' => 1,
+                            'image' => $value,
+                            'created_at' => $this->author_data['created_at'],
+                            'created_by' => $this->author_data['created_by'],
+                            'updated_at' => $this->author_data['updated_at'],
+                            'updated_by' => $this->author_data['updated_by']
+                        );
+                        $insert = $this->image_model->common_insert($shared_request);
+
+                        if ($insert) {
+                            $requests = handle_multi_language_request('image_id', $insert, $this->request_language_template, $this->input->post(), $this->page_languages);
+                            $insert_lang = $this->image_model->insert_with_language($requests);
+                            if($insert_lang){
+                                $success = true;
+                            }
+                        }
+                    }
+                    if($success){
+                        $this->session->set_flashdata('message_success', 'Thêm mới thành công!');
+                        redirect('admin/library');
+                    }
+                }else{
+                    $this->session->set_flashdata('message_error', 'Có hình ảnh vượt quá 1200 Kb. Vui lòng kiểm tra lại và thực hiện lại thao tác!');
                     redirect('admin/library');
                 }
             }

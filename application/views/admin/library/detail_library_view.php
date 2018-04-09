@@ -4,9 +4,20 @@
             <h3 style="text-transform: uppercase; text-align: center;">
                 Thư viện ảnh <p></p>
             </h3>
-            <div>
-                <span><?php echo $this->session->flashdata('message'); ?></span>
-            </div>
+            <?php if ($this->session->flashdata('message_error')): ?>
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+                    <?php echo $this->session->flashdata('message_error'); ?>
+                </div>
+            <?php endif ?>
+            <?php if ($this->session->flashdata('message_success')): ?>
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                    <?php echo $this->session->flashdata('message_success'); ?>
+                </div>
+            <?php endif ?>
             <div class="row">
                 <?php
                     echo form_open_multipart('admin/library/index', array('class' => 'form-horizontal'));
@@ -76,7 +87,7 @@
             <?php else: ?>
                 <div class="row">
                     <div class="col-lg-12" style="margin-top: 10px;">
-                        không tồn tại!
+                        Chưa có thư viện. Vui lòng thêm mới!
                     </div>
                 </div>
             <?php endif ?>
