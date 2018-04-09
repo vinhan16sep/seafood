@@ -3,9 +3,9 @@
     <div class="container">
 		<div class="row">
 			<div class="left col-xs-12 col-sm-4 col-md-4">
-				<p>Da Nang City</p>
-				<p>Tel: 000 0000 0000 (9AM - 10AM)</p>
-				<p>info#ngochuongrestaurant.com</p>
+				<p><?php echo $this->lang->line('company-address') ?></p>
+				<p>Tel: <?php echo $this->lang->line('company-tel') ?></p>
+				<p><?php echo $this->lang->line('company-email') ?></p>
 			</div>
 			<div class="middle col-xs-12 col-sm-4 col-md-4">
 				<div class="logo">
@@ -13,7 +13,7 @@
 						<img src="<?php echo site_url('assets/img/logo_n.png') ?>" alt="Ngoc Huong Logo">
 					</a>
 				</div>
-				<h3>Follow us on</h3>
+				<h3><?php echo $this->lang->line('company-follow') ?></h3>
 				<ul>
 					<li>
 						<a href="http://facebook.com" target="_blank">
@@ -36,15 +36,12 @@
 							</span>
 						</a>
 					</li>
-					<li>
-
-					</li>
 				</ul>
 			</div>
 			<div class="right col-xs-12 col-sm-4 col-md-4">
-				<p>OPEN DAILY</p>
-				<p>11:00 - 14:00</p>
-				<p>& 12:00 - 15:00</p>
+				<p><?php echo $this->lang->line('company-open-time') ?></p>
+				<p><?php echo $this->lang->line('company-open-time-start') ?></p>
+				<p>& <?php echo $this->lang->line('company-open-time-end') ?></p>
 			</div>
 		</div>
 	</div>

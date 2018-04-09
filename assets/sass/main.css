@@ -77,7 +77,9 @@ body, html {
       left: 50%;
       margin-left: -125px; }
       .header .container .logo img {
-        width: 100%; }
+        width: 60%;
+        margin-top: -45px;
+        margin-left: 20%; }
     .header .container .nav-expand-btn {
       width: 50px;
       padding: 5px;
@@ -125,6 +127,9 @@ body, html {
               background-color: #df2b26; }
               .header .container .nav-expand .right ul li#bookTable:hover a {
                 color: #fff; }
+          .header .container .nav-expand .right ul li select.form-control {
+            background-color: transparent;
+            color: #fff; }
           .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu {
             background-color: transparent;
             -webkit-box-shadow: none;

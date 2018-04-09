@@ -130,6 +130,9 @@
                                 </tfooter>
                             </table>
                         </div>
+						<div class="col-md-6 col-md-offset-5 page">
+                            <?php echo $page_links ?>
+						</div>
                     </div>
                     <!-- /.box-body -->
                 </div>
@@ -146,7 +149,7 @@
 <script>
     $(function () {
         $('#table').DataTable({
-            'paging'      : true,
+            'paging'      : false,
             'lengthChange': false,
             'searching'   : false,
             'ordering'    : true,

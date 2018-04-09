@@ -33,6 +33,7 @@ if($this->ion_auth->logged_in()) {
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
+                <!--
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-home"></i>
@@ -47,7 +48,7 @@ if($this->ion_auth->logged_in()) {
                         <li><a href="<?php echo base_url('admin/homepage/featured') ?>"><i class="fa fa-star-o"></i> Featured</a></li>
                     </ul>
                 </li>
-
+                -->
                 <li class="">
                     <a href="<?php echo base_url('admin/about') ?>">
                         <i class="fa fa-user-circle-o"></i>
@@ -55,19 +56,26 @@ if($this->ion_auth->logged_in()) {
                     </a>
                 </li>
 
-                
+				<li class="<?php echo ($this->uri->segment(2) == 'banner')? 'active' : '' ?>">
+					<a href="<?php echo base_url('admin/banner') ?>">
+						<i class="fa fa-image"></i>
+						<span>Slider</span>
+					</a>
+				</li>
                 <li class="<?php echo ($this->uri->segment(2) == 'our_food')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/our_food') ?>">
                         <i class="fa fa-cutlery"></i>
                         <span>Món Ăn Của Chúng Tôi</span>
                     </a>
                 </li>
+				<!--
                 <li class="<?php echo ($this->uri->segment(2) == 'food')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/food') ?>">
                         <i class="fa fa-bars"></i>
                         <span>Danh Sách Món Ăn</span>
                     </a>
                 </li>
+                -->
                 <li class="<?php echo ($this->uri->segment(2) == 'event')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/event') ?>">
                         <i class="fa fa-file-text-o"></i>
@@ -105,11 +113,6 @@ if($this->ion_auth->logged_in()) {
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="<?php echo base_url('admin/subscribe') ?>">
-                        <i class="fa fa-envelope-o"></i> <span>Subscribe</span>
-                    </a>
                 </li>
                 <li class="header">DOCUMENTATION</li>
                 <li>

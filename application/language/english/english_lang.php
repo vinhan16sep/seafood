@@ -7,3 +7,60 @@ $lang['title'] = 'Title';
 $lang['image'] = 'Image';
 $lang['description'] = 'Description';
 $lang['content'] = 'Content';
+
+/*
+Main Header
+ */
+
+$lang['about-us'] = 'About Us';
+$lang['our-food'] = 'Our Food';
+$lang['events'] = 'Events';
+$lang['gallery'] = 'Gallery';
+$lang['contact-us'] = 'Contact Us';
+$lang['book-table'] = 'Book your table';
+$lang['get-direction'] = 'Get Direction';
+
+/*
+Break
+ */
+
+$lang['perfect-blend'] = 'The Perfect Blend';
+$lang['elegant-recipes'] = 'Elegant Recipes';
+
+/*
+    Form
+ */
+
+$lang['your-name'] = 'Your Name';
+$lang['your-mail'] = 'Your Email';
+$lang['your-phone'] = 'Your Phone Number';
+$lang['your-way'] = 'How did you find us?';
+$lang['your-message'] = 'Message';
+
+$lang['your-date'] = 'Date';
+$lang['your-time'] = 'Time';
+$lang['your-number'] = 'Number of People';
+
+$lang['submit'] = 'Submit';
+
+/*
+    Events
+ */
+
+$lang['private-rooms'] = 'Private Rooms';
+$lang['private-floors'] = 'Private Floors';
+$lang['full-restaurant'] = 'Full Restaurant';
+$lang['up-to'] = 'Up to';
+$lang['guests'] = 'guests';
+
+/*
+    Footer
+ */
+
+$lang['company-address'] = 'Da Nang City';
+$lang['company-tel'] = '000 000 0000 (9AM - 11AM)';
+$lang['company-email'] = 'info@ngochuongrestaurant.com';
+$lang['company-open-time'] = 'Open Daily';
+$lang['company-open-time-start'] = '11:00 - 14:00';
+$lang['company-open-time-end'] = '12:00 - 15:00';
+$lang['company-follow'] = 'Follow us on';

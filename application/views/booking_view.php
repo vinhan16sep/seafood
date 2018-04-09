@@ -67,21 +67,21 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
                     <?php
-                    echo form_label('Your name(*)', 'contact_name');
+                    echo form_label($this->lang->line('your-name') . '(*)', 'contact_name');
                     echo form_error('contact_name');
                     echo form_input('contact_name', set_value('contact_name'), 'class="form-control" id="contact_name"');
                     ?>
                 </div>
                 <div class="form-group">
                     <?php
-                    echo form_label('Your email(*)', 'contact_mail');
+                    echo form_label($this->lang->line('your-mail') . '(*)', 'contact_mail');
                     echo form_error('contact_mail');
                     echo form_input('contact_mail', set_value('contact_mail'), 'class="form-control" id="contact_mail"');
                     ?>
                 </div>
                 <div class="form-group">
                     <?php
-                    echo form_label('Your phone number(*)', 'contact_phone');
+                    echo form_label($this->lang->line('your-phone') . '(*)', 'contact_phone');
                     echo form_error('contact_phone');
                     echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone"');
                     ?>
@@ -90,7 +90,7 @@
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
                     <?php
-                    echo form_label('Date (*)', 'contact_date');
+                    echo form_label($this->lang->line('your-date') . '(*)', 'contact_date');
                     echo form_error('contact_date');
                     echo form_input('contact_date', set_value('contact_date'),'class="form-control" id="contact_date"');
                     ?>
@@ -98,20 +98,20 @@
                 <div class="row">
                     <div class="form-group col-xs-12 col-sm-6 col-md-6">
                         <?php
-                        echo form_label('Time (*)', 'contact_time');
+                        echo form_label($this->lang->line('your-time') . '(*)', 'contact_time');
                         echo form_error('contact_time');
                         echo form_input('contact_time', set_value('contact_time'),'class="form-control" id="contact_time"');
                         ?>
                     </div>
                     <div class="form-group col-xs-12 col-sm-6 col-md-6">
                         <?php
-                        echo form_label('Number of people (*)', 'contact_quantity');
+                        echo form_label($this->lang->line('your-number') . '(*)', 'contact_quantity');
                         echo form_error('contact_quantity');
                         echo form_input('contact_quantity', set_value('contact_quantity'),'class="form-control" id="contact_quantity"');
                         ?>
                     </div>
                 </div>
-                <?php echo form_submit('submit', 'Submit', 'class="btn btn-outline"'); ?>
+                <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline"'); ?>
             </div>
         </div>
 

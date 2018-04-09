@@ -48,9 +48,9 @@ $(window).scroll(function () {
     //nav bar to stick.
     'use strict';
     if ($(window).scrollTop() > 150) {
-        $('.header').css('background-color' , 'red');
+        $('.header').css('' , '');
     }
     if ($(window).scrollTop() < 150) {
-        $('.header').css('background-color' , 'blue');
+        $('.header').css('' , '');
     }
 });
