@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<nav class="nav">
 			<div class="logo">
 				<a href="<?php echo base_url('') ?>">
-					<img src="<?php echo site_url('assets/img/logo_n.png') ?>" alt="Ngoc Huong Logo">
+					<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
 				</a>
 			</div>
 			<div class="nav-expand-btn visible-xs" id="nav-expand-btn">
@@ -42,16 +42,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="left">
 					<ul>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?>">About us</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?>">
+								<?php echo $this->lang->line('about-us') ?>
+							</a>
 						</li>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?>">Our food</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?>">
+                                <?php echo $this->lang->line('our-food') ?>
+							</a>
 						</li>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?>">Event</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?>">
+                                <?php echo $this->lang->line('events') ?>
+							</a>
 						</li>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?>">Gallery</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?>">
+                                <?php echo $this->lang->line('gallery') ?>
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -82,16 +90,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="right">
 					<ul>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#contact' : '#contact' ?>">Contact us</a>
+							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#contact' : '#contact' ?>">
+                                <?php echo $this->lang->line('contact-us') ?>
+							</a>
 						</li>
 						<li id="bookTable">
-							<a href="<?php echo base_url('booking') ?>">Book your table</a>
+							<a href="<?php echo base_url('booking') ?>">
+                                <?php echo $this->lang->line('book-table') ?>
+							</a>
 						</li>
+						<!--
 						<li class="dropdown" id="dropDownLang">
 							<a href="<?php echo $url_vi; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Vietnamese <span class="caret"></span>
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="dropDownLang">
+								<li>
+									<a href="<?php echo $url_vi; ?>">Vietnamese</a>
+								</li>
 								<li>
 									<a href="<?php echo $url_en; ?>">English</a>
 								</li>
@@ -100,6 +116,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</li>
 							</ul>
 						</li>
+						-->
+						<li>
+							<select class="form-control" id="langNav">
+								<option value="<?php echo $url_vi; ?>">Tiếng Việt</option>
+								<option value="<?php echo $url_en; ?>">English</option>
+								<option value="<?php echo $url_cn; ?>">中文</option>
+							</select>
+						</li>
+
+						<script type="text/javascript">
+                            var urlmenu = document.getElementById( 'langNav' );
+                            urlmenu.onchange = function() {
+                                window.location = this.value;
+                            };
+						</script>
 
 					</ul>
 				</div>

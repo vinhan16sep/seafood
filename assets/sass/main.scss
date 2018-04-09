@@ -59,7 +59,10 @@ body, html{
             margin-left: -125px;
 
             img{
-                width:100%;
+                width: 60%;
+                margin-top: -45px;
+                margin-left: 20%;
+
             }
         }
 
@@ -137,6 +140,11 @@ body, html{
                                     color: #fff;
                                 }
                             }
+                        }
+
+                        select.form-control{
+                            background-color: transparent;
+                            color: #fff;
                         }
 
                         &#dropDownLang{

@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="<?php echo site_url('assets/sass/admin/') ?>detail.css">
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">

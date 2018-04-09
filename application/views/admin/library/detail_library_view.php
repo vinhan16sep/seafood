@@ -39,8 +39,8 @@
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
-                                    <th style="width: 100px"><b><a href="#">Ảnh</a></b></th>
-                                    <th style="width: 100px"><b><a href="#">Tiêu đề</a></b></th>
+                                    <th style="width: 100px"><b>Ảnh</b></th>
+                                    <th style="width: 100px"><b>Tiêu đề</b></th>
                                     <th style="width: 100px"><b>Operations</b></th>
                                 </tr>
                             </thead>
@@ -53,18 +53,22 @@
                                         <td>
                                             <table>
                                                 <tr class="row_<?php echo $value['id'] ?>" >
-                                                    <td style="width: 100px">Tiêu đề:
+                                                    <td class="col-md-3">
+														<label>Tiêu đề:</label>
+														<br>
                                                         <input type="text" name="title-vi" value="<?php echo $value['title_vi'] ?>" disabled>
                                                     </td>
-                                                    <br />
-                                                    <td style="width: 100px">Title:
+                                                    <td class="col-md-3">
+														<label>Title:</label>
+														<br>
                                                         <input type="text" name="title-en" value="<?php echo $value['title_en'] ?>" disabled>
                                                     </td>
-                                                    <br>
-                                                    <td style="width: 100px">标题:
+                                                    <td class="col-md-3">
+														<label>标题:</label>
+														<br>
                                                         <input type="text" name="title-cn" value="<?php echo $value['title_cn'] ?>" disabled>
                                                     </td>
-                                                    <td>
+                                                    <td class="col-md-3">
                                                         <button class="btn btn-warning btn-edit-<?php echo $value['id'] ?> btn-edit-ok" data-id="<?php echo $value['id'] ?>">Sửa</button>
                                                         <button class="btn btn-success btn-success-<?php echo $value['id'] ?> btn-success-ok" data-id="<?php echo $value['id'] ?>" style="display: none">Ok</button>
                                                     </td>

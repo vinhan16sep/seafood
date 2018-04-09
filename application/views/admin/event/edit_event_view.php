@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm mới
+            Chỉnh sửa
             <small>Sự kiện</small>
         </h1>
     </section>
@@ -27,7 +27,7 @@
                             <?php
                             echo form_label('Ảnh đại diện đang sử dụng', 'image_old_shared');
                             ?>
-                            <img src="<?php echo base_url('assets/upload/event/'.$event['image']) ?>" alt="anh-cua-<?php echo $event['slug'] ?>">
+                            <img src="<?php echo base_url('assets/upload/event/'.$event['image']) ?>" alt="anh-cua-<?php echo $event['slug'] ?>" style="display: block;">
                             <br>
                         </div>
 
