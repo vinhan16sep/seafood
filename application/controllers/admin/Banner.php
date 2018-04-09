@@ -31,23 +31,32 @@ class Banner extends Admin_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         if($this->input->post()){
-            if(!empty($_FILES['image_shared']['name'])){
-                $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/banner', 'assets/upload/banner/thumb');
-                $shared_request = array(
-                    'image' => $image,
-                    'created_at' => $this->author_data['created_at'],
-                    'created_by' => $this->author_data['created_by'],
-                    'updated_at' => $this->author_data['updated_at'],
-                    'updated_by' => $this->author_data['updated_by']
-                );
-                $insert = $this->banner_model->common_insert($shared_request);
-                if($insert){
-                    $this->session->set_flashdata('message', 'Thêm mới Banner thành công!');
-                    redirect('admin/banner');
+            $check_upload = true;
+            if ($_FILES['image_shared']['size'] > 1228800) {
+                $check_upload = false;
+            }
+            if ($check_upload == true) {
+                if(!empty($_FILES['image_shared']['name'])){
+                    $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/banner', 'assets/upload/banner/thumb');
+                    $shared_request = array(
+                        'image' => $image,
+                        'created_at' => $this->author_data['created_at'],
+                        'created_by' => $this->author_data['created_by'],
+                        'updated_at' => $this->author_data['updated_at'],
+                        'updated_by' => $this->author_data['updated_by']
+                    );
+                    $insert = $this->banner_model->common_insert($shared_request);
+                    if($insert){
+                        $this->session->set_flashdata('message_success', 'Thêm mới Banner thành công!');
+                        redirect('admin/banner');
+                    }
+                }else{
+                    $this->session->set_flashdata('message_error', 'Vui lòng chọn ảnh upload!');
+                    redirect('admin/banner/create');
                 }
             }else{
-                $this->session->set_flashdata('message', 'Vui lòng chọn ảnh upload!');
-                redirect('admin/banner/create');
+                $this->session->set_flashdata('message_error', 'Hình ảnh vượt quá 1200 Kb. Vui lòng kiểm tra lại và thực hiện lại thao tác!');
+                redirect('admin/banner');
             }
         }
         $this->render('admin/banner/create_banner_view');

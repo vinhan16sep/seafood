@@ -5,6 +5,13 @@
             Thêm Banner
             <small>Banner</small>
         </h1>
+        <?php if ($this->session->flashdata('message_error')): ?>
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-warning"></i> alert!</h4>
+                <?php echo $this->session->flashdata('message_error'); ?>
+            </div>
+        <?php endif ?>
     </section>
 
     <!-- Main content -->

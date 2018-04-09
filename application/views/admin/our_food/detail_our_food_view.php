@@ -24,6 +24,20 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="row">
+                            <?php if ($this->session->flashdata('message_error')): ?>
+                                <div class="alert alert-warning alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-warning"></i> Alert!</h4>
+                                    <?php echo $this->session->flashdata('message_error'); ?>
+                                </div>
+                            <?php endif ?>
+                            <?php if ($this->session->flashdata('message_success')): ?>
+                                <div class="alert alert-success alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
+                                    <?php echo $this->session->flashdata('message_success'); ?>
+                                </div>
+                            <?php endif ?>
                             <div class="detail-image col-md-12">
                                 <label>Hình ảnh (Click vào ảnh để chọn ảnh làm Avatar)</label>
                                 <div class="row">

@@ -73,52 +73,63 @@ class About extends Admin_Controller {
             $this->render('admin/about/edit_about_view');
         }else{
             if($this->input->post()){
-                $image = $this->upload_file('./assets/upload/about', 'image_shared', 'assets/upload/about/thumb');
-                $image_json = json_encode($image);
-                 $shared_request = array(
-                    'slug' => $this->input->post('slug_shared'),
-                    'created_at' => $this->author_data['created_at'],
-                    'created_by' => $this->author_data['created_by'],
-                    'updated_at' => $this->author_data['updated_at'],
-                    'updated_by' => $this->author_data['updated_by']
-                );
-                if($image){
-                    $shared_request['image'] = $image_json;
-                    $shared_request['avatar'] = $image[0];
-                }
-
-
-                $this->db->trans_begin();
-
-                $update = $this->about_model->common_update($id, $shared_request);
-                if($update){
-                    $requests = handle_multi_language_request('about_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
-                    // echo "<pre>";
-                    // print_r($requests);die;
-                    foreach ($requests as $key => $value){
-                        $this->about_model->update_with_language($id, $value['language'], $value);
+                $check_upload = true;
+                foreach ($_FILES['image_shared']['size'] as $key => $value) {
+                    if( $value > 1228800){
+                        $check_upload = false;
                     }
                 }
+                if($check_upload == true){
+                    $image = $this->upload_file('./assets/upload/about', 'image_shared', 'assets/upload/about/thumb');
+                    $image_json = json_encode($image);
+                     $shared_request = array(
+                        'slug' => $this->input->post('slug_shared'),
+                        'created_at' => $this->author_data['created_at'],
+                        'created_by' => $this->author_data['created_by'],
+                        'updated_at' => $this->author_data['updated_at'],
+                        'updated_by' => $this->author_data['updated_by']
+                    );
+                    if($image){
+                        $shared_request['image'] = $image_json;
+                        $shared_request['avatar'] = $image[0];
+                    }
 
-                if ($this->db->trans_status() === false) {
-                    $this->db->trans_rollback();
-                    $this->load->libraries('session');
-                    $this->session->set_flashdata('message', 'Cannot add item!');
-                    $this->render('admin/about/edit');
-                } else {
-                    $this->db->trans_commit();
-                    
-                    $this->session->set_flashdata('message', 'Item added!');
-                    if($image != '' && $image != $about['image']){
-                        $old_image = json_decode($about['image']);
-                        foreach ($old_image as $key => $value) {
-                            if(file_exists('assets/upload/about/'.$value)){
-                                unlink('assets/upload/about/'.$value);
-                            }
+
+                    $this->db->trans_begin();
+
+                    $update = $this->about_model->common_update($id, $shared_request);
+                    if($update){
+                        $requests = handle_multi_language_request('about_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
+                        // echo "<pre>";
+                        // print_r($requests);die;
+                        foreach ($requests as $key => $value){
+                            $this->about_model->update_with_language($id, $value['language'], $value);
                         }
                     }
-                    redirect('admin/about', 'refresh');
-                    
+
+                    if ($this->db->trans_status() === false) {
+                        $this->db->trans_rollback();
+                        $this->load->libraries('session');
+                        $this->session->set_flashdata('message_error', 'Cập nhật thất bại!');
+                        $this->render('admin/about/edit');
+                    } else {
+                        $this->db->trans_commit();
+                        
+                        $this->session->set_flashdata('message_success', 'Cập nhật thành công!');
+                        if($image != '' && $image != $about['image']){
+                            $old_image = json_decode($about['image']);
+                            foreach ($old_image as $key => $value) {
+                                if(file_exists('assets/upload/about/'.$value)){
+                                    unlink('assets/upload/about/'.$value);
+                                }
+                            }
+                        }
+                        redirect('admin/about', 'refresh');
+                        
+                    }
+                }else{
+                    $this->session->set_flashdata('message_error', 'Có hình ảnh vượt quá 1200 Kb. Vui lòng kiểm tra lại và thực hiện lại thao tác!');
+                    redirect('admin/about');
                 }
             }
         }
