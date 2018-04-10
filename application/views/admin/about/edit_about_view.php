@@ -1,3 +1,8 @@
+<style type="text/css">
+    .image-file{
+        display: none;
+    }
+</style>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -11,7 +16,7 @@
             <li class="active">Chi tiết</li>
         </ol>
     </section>
-
+    
     <!-- Main content -->
     <section class="content">
         <!-- Small boxes (Stat box) -->
@@ -25,20 +30,24 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="detail-image col-md-12">
-                                <label>Hình ảnh</label>
+                                <label>Hình ảnh <?php echo (count(json_decode($about['image'])) >= 3)? ' (Số hình ảnh đã đủ. Muốn upload ảnh mới vui lòng xóa ảnh cũ!)' : '' ?></label>
                                 <div class="row">
                                     <div class="item col-md-12">
                                         <div class="mask-lg row">
                                             <?php foreach (json_decode($about['image']) as $key => $value): ?>
                                                 <div class="col-md-2">
-                                                    <img src="<?php echo base_url('assets/upload/about/'.$value) ?>" alt="Image Detail" width="150px">
-                                                    <?php echo ($value == $about['avatar'])? '<i class="fa fa-check" aria-hidden="true"></i>' : '' ?>
+                                                    <span class="row_<?php echo $key ?>">
+                                                        <img src="<?php echo base_url('assets/upload/about/'.$value) ?>" alt="Image Detail" width="150px">
+                                                        <?php echo ($value == $about['avatar'])? '<i class="fa fa-check" aria-hidden="true"></i>' : '' ?>
+                                                        <i class="fa fa-times remove-image" aria-hidden="true" onclick="remove_image('about', <?php echo $about['id'] ?>, '<?php echo $value ?>', <?php echo $key ?>)"></i>
+                                                    </span>
                                                 </div>
                                             <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                             <?php
                             echo form_open_multipart('admin/about/edit', array('class' => 'form-horizontal'));
                             ?>
@@ -46,12 +55,16 @@
                                 <label for="slug_shared">Slug</label>
                                 <input type="text" name="slug_shared" value="<?php echo $about['slug'] ?>" class="form-control" id="slug_shared" readonly="">
                             </div>
-                            <div class="detail-info col-xs-12">
+                            <?php $count_image = count(json_decode($about['image'])) ?>
+                            <input type="hidden" name="count_image" value="<?php echo $count_image   ?>">
+                            <div class="detail-info col-xs-12 <?php echo ($count_image >= 3)? 'image-file' : '' ?>">
                                 <?php
                                 echo form_label('Thêm ảnh vào thư viện (ảnh không quá 1200 KB)', 'image_shared');
                                 echo form_error('image_shared');
                                 echo form_upload('image_shared[]','','multiple class="form-control" id="image"');
                                 ?>
+                                <span style="color: red"><?php echo $this->session->flashdata('message_error_image'); ?></span>
+                                <br>
                                 <br>
                             </div>
 
@@ -151,3 +164,8 @@
         <!-- END ACCORDION & CAROUSEL-->
     </section>
 </div>
+<script type="text/javascript">
+    $('.remove-image').click(function(){
+        $('.image-file').show();
+    })
+</script>
