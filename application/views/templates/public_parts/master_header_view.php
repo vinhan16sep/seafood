@@ -124,14 +124,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<option value="<?php echo $url_cn; ?>">中文</option>
 							</select>
 						</li>
-
 						<script type="text/javascript">
+                            var currentLink = "<?php echo $current_link; ?>";
+                            var baseUrl = "<?php echo base_url(); ?>";
+                            var sessionLocation = "<?php echo $this->session->userdata('langAbbreviation'); ?>";
+
+                            switch(currentLink){
+                                case 'homepage':
+                                    $url = baseUrl + sessionLocation;
+                                    break;
+                                case 'booking':
+                                    $url = baseUrl + sessionLocation + '/booking';
+                                    break;
+                                default:
+                                    $url = baseUrl + sessionLocation;
+                                    break;
+                            }
+                            $('#langNav').val($url).change();
                             var urlmenu = document.getElementById( 'langNav' );
                             urlmenu.onchange = function() {
                                 window.location = this.value;
                             };
 						</script>
-
 					</ul>
 				</div>
 			</div>
