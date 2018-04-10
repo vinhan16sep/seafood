@@ -60,3 +60,6 @@ $route['^cn/(.+)$'] = "$1";
 $route['^vi$'] = $route['default_controller'];
 $route['^en$'] = $route['default_controller'];
 $route['^cn$'] = $route['default_controller'];
+
+
+$route['admin'] = 'admin/user/login';
