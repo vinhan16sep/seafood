@@ -5,19 +5,20 @@ $(document).ready(function(){
    // Use Script to get CSS
    $('.slide#slider').css('height' , h * 90 / 100);
 
-
-    $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
-        e.preventDefault();
-
-        var target = this.hash,
-            $target = $(target);
-
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
+    // Smooth Scroll
+    // $('header a').bind('click.smoothscroll',function (e) {
+    //     e.preventDefault();
+    //
+    //     var target = this.hash,
+    //         $target = $(target);
+    //
+    //     $('html, body').stop().animate({
+    //         'scrollTop': $target.offset().top
+    //     }, 900, 'swing', function () {
+    //         window.location.hash = target;
+    //     });
+    //     console.log($target);
+    // });
 
     //Expand NAV in Devices
 
@@ -42,15 +43,3 @@ $(document).ready(function(){
 });
 
 
-$(window).scroll(function () {
-    //if you hard code, then use console
-    //.log to determine when you want the
-    //nav bar to stick.
-    'use strict';
-    if ($(window).scrollTop() > 150) {
-        $('.header').css('' , '');
-    }
-    if ($(window).scrollTop() < 150) {
-        $('.header').css('' , '');
-    }
-});

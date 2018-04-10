@@ -75,7 +75,7 @@ if($this->ion_auth->logged_in()) {
                         <span>Danh Sách Món Ăn</span>
                     </a>
                 </li>
-                -->
+				-->
                 <li class="<?php echo ($this->uri->segment(2) == 'event')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/event') ?>">
                         <i class="fa fa-file-text-o"></i>

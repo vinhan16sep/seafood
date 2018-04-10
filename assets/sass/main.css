@@ -115,7 +115,7 @@ body, html {
       .header .container .nav-expand .right {
         float: right; }
         .header .container .nav-expand .right ul li {
-          padding: 7px 20px; }
+          padding: 7px 30px; }
           .header .container .nav-expand .right ul li#bookTable {
             background-color: #fff;
             -webkit-border-radius: 3px;
@@ -291,6 +291,14 @@ body, html {
       padding-bottom: 0; }
     .main-content .content .title {
       padding-bottom: 70px; }
+    .main-content .content .btn-outline {
+      border: 1px solid #6d6d6d;
+      padding: 15px 30px;
+      color: #6d6d6d; }
+      .main-content .content .btn-outline:hover {
+        background-color: #df2b26;
+        color: #fff;
+        border-color: transparent; }
   .main-content .break {
     width: 100%;
     padding: 150px 0px;
@@ -299,7 +307,7 @@ body, html {
     background-size: cover;
     background-position: center center; }
     .main-content .break .container .title {
-      width: 500px;
+      width: 50%;
       padding: 50px 20px;
       margin: auto;
       border: 2px solid #fff;
@@ -320,13 +328,9 @@ body, html {
     margin-right: 0; }
     .main-content .content#contact .form-group textarea {
       resize: none; }
-  .main-content .content#contact .btn-outline {
-    border: 1px solid #6d6d6d;
-    padding: 15px 30px; }
-    .main-content .content#contact .btn-outline:hover {
-      background-color: #df2b26;
-      color: #fff;
-      border-color: transparent; }
+
+#floor-plan .modal-body img {
+  width: 100%; }
 
 /*
 ========== FOOTER ==========
@@ -387,7 +391,7 @@ CONTENT:
         left: 15px;
         margin-left: 0; }
         .header .container .logo img {
-          width: 70%; }
+          width: 50%; }
       .header .container .nav-expand {
         top: 100%;
         background-color: #333;
@@ -475,6 +479,9 @@ body {
 .main-content .break .title {
   text-transform: uppercase; }
 .main-content .content#contact .btn-outline {
+  text-transform: uppercase; }
+.main-content .btn-outline {
+  font-size: 1.125em;
   text-transform: uppercase; }
 
 /*# sourceMappingURL=main.css.map */
