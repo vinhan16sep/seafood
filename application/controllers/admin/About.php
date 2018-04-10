@@ -68,6 +68,7 @@ class About extends Admin_Controller {
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('title_cn', '标题', 'required');
+        $this->form_validation->set_rules('image_shared[]', 'Image', 'callback_count_image');
 
         if($this->form_validation->run() == false){
             $this->render('admin/about/edit_about_view');
@@ -81,7 +82,7 @@ class About extends Admin_Controller {
                 }
                 if($check_upload == true){
                     $image = $this->upload_file('./assets/upload/about', 'image_shared', 'assets/upload/about/thumb');
-                    $image_json = json_encode($image);
+                    // $image_json = json_encode($image);
                      $shared_request = array(
                         'slug' => $this->input->post('slug_shared'),
                         'created_at' => $this->author_data['created_at'],
@@ -90,18 +91,21 @@ class About extends Admin_Controller {
                         'updated_by' => $this->author_data['updated_by']
                     );
                     if($image){
-                        $shared_request['image'] = $image_json;
+                        $new_image = array();
+                        $new_image = json_decode($about['image']);
+                        foreach ($image as $key => $value) {
+                            $new_image[] = $value;
+                        }
+                        $shared_request['image'] = json_encode($new_image);
+                    }
+                    if($about['avatar'] == null){
                         $shared_request['avatar'] = $image[0];
                     }
-
-
                     $this->db->trans_begin();
 
                     $update = $this->about_model->common_update($id, $shared_request);
                     if($update){
                         $requests = handle_multi_language_request('about_id', $id, $this->request_language_template, $this->input->post(), $this->page_languages);
-                        // echo "<pre>";
-                        // print_r($requests);die;
                         foreach ($requests as $key => $value){
                             $this->about_model->update_with_language($id, $value['language'], $value);
                         }
@@ -116,14 +120,6 @@ class About extends Admin_Controller {
                         $this->db->trans_commit();
                         
                         $this->session->set_flashdata('message_success', 'Cập nhật thành công!');
-                        if($image != '' && $image != $about['image']){
-                            $old_image = json_decode($about['image']);
-                            foreach ($old_image as $key => $value) {
-                                if(file_exists('assets/upload/about/'.$value)){
-                                    unlink('assets/upload/about/'.$value);
-                                }
-                            }
-                        }
                         redirect('admin/about', 'refresh');
                         
                     }
@@ -153,5 +149,54 @@ class About extends Admin_Controller {
             ->set_content_type('application/json')
             ->set_status_header(HTTP_BAD_REQUEST)
             ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    public function remove_image(){
+        $id = $this->input->post('id');
+        $image = $this->input->post('image');
+        $about = $this->about_model->get_by_id($id);
+
+        $upload = [];
+        $upload = json_decode($about['image']);
+        $key = array_search($image, $upload);
+        unset($upload[$key]);
+        $newUpload = [];
+        foreach ($upload as $key => $value) {
+            $newUpload[] = $value;
+        }
+        
+        $image_json = json_encode($newUpload);
+        $data = array('image' => $image_json);
+
+        $update = $this->about_model->common_update($id, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            if($image != '' && file_exists('assets/upload/about/'.$image)){
+                unlink('assets/upload/about/'.$image);
+            }
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'reponse' => $reponse)));
+        }
+            return $this->output
+                    ->set_content_type('application/json')
+                    ->set_status_header(HTTP_BAD_REQUEST)
+                    ->set_output(json_encode(array('status' => HTTP_BAD_REQUEST)));
+    }
+
+    function count_image(){
+        $about = $this->about_model->get_by_id(1);
+        $count_image = count(json_decode($about['image']));
+        
+        $cout_input = count($_FILES['image_shared']['name']);
+        $total_upload = 3 - $count_image;
+        if($count_image + $cout_input > 3){
+            $this->session->set_flashdata('message_error_image', 'Tổng số lượng upload không được quá '. $total_upload .' ảnh!');
+            return false;
+        }
+        return true;
     }
 }

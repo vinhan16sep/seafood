@@ -59,7 +59,7 @@ function to_slug(str){
     return str;
 }
 
-var csrf_hash = $('#csrf').val();
+var csrf_hash = $("input[name='csrf_seafood_token']").val();
 function remove(controller, id){
     var url = HOSTNAME + 'admin/' + controller + '/remove';
     if(confirm('Chắc chắn xóa?')){
@@ -160,6 +160,7 @@ function remove_image(controller, id, image, key){
                 if(response.status == 200){
                     csrf_hash = response.reponse.csrf_hash;
                     $('.row_' + key).fadeOut();
+                    $("input[name='csrf_seafood_token']").val(csrf_hash);
                 }
             },
             error: function(jqXHR, exception){
