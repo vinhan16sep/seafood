@@ -41,26 +41,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="nav-expand">
 				<div class="left">
 					<ul>
-						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?>">
-								<?php echo $this->lang->line('about-us') ?>
-							</a>
-						</li>
-						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?>">
+                        <li>
+                            <a href="homepage#about">
+                                <?php echo $this->lang->line('about-us') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="homepage#food">
                                 <?php echo $this->lang->line('our-food') ?>
-							</a>
-						</li>
-						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?>">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="homepage#events">
                                 <?php echo $this->lang->line('events') ?>
-							</a>
-						</li>
-						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?>">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="homepage#gallery">
                                 <?php echo $this->lang->line('gallery') ?>
-							</a>
-						</li>
+                            </a>
+                        </li>
+<!--						<li>-->
+<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?><!--">-->
+<!--								--><?php //echo $this->lang->line('about-us') ?>
+<!--							</a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?><!--">-->
+<!--                                --><?php //echo $this->lang->line('our-food') ?>
+<!--							</a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?><!--">-->
+<!--                                --><?php //echo $this->lang->line('events') ?>
+<!--							</a>-->
+<!--						</li>-->
+<!--						<li>-->
+<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?><!--">-->
+<!--                                --><?php //echo $this->lang->line('gallery') ?>
+<!--							</a>-->
+<!--						</li>-->
 					</ul>
 				</div>
 

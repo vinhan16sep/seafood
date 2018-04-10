@@ -6,18 +6,18 @@ $(document).ready(function(){
    $('.slide#slider').css('height' , h * 90 / 100);
 
 
-    // $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
-    //     e.preventDefault();
-    //
-    //     var target = this.hash,
-    //         $target = $(target);
-    //
-    //     $('html, body').stop().animate({
-    //         'scrollTop': $target.offset().top
-    //     }, 900, 'swing', function () {
-    //         window.location.hash = target;
-    //     });
-    // });
+    $('header a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
+
+        var target = this.hash,
+            $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
 
     //Expand NAV in Devices
 
