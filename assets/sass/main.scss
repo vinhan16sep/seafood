@@ -121,7 +121,7 @@ body, html{
 
                 ul{
                     li{
-                        padding: 7px 20px;
+                        padding: 7px 30px;
 
                         &#bookTable{
                             background-color: #fff;
@@ -403,6 +403,18 @@ body, html{
         .title{
             padding-bottom: 70px;
         }
+
+        .btn-outline{
+            border: 1px solid $text-color;
+            padding: 15px 30px;
+            color: $text-color;
+
+            &:hover{
+                background-color: $primary;
+                color: #fff;
+                border-color: transparent;
+            }
+        }
     }
 
     .break{
@@ -418,7 +430,7 @@ body, html{
 
         .container{
             .title{
-                width: 500px;
+                width: 50%;
                 padding: 50px 20px;
                 margin: auto;
                 border: 2px solid #fff;
@@ -460,19 +472,16 @@ body, html{
                 resize: none;
             }
         }
-
-        .btn-outline{
-            border: 1px solid $text-color;
-            padding: 15px 30px;
-
-            &:hover{
-                background-color: $primary;
-                color: #fff;
-                border-color: transparent;
-            }
-        }
     }
 
+}
+
+#floor-plan{
+    .modal-body{
+        img{
+            width: 100%;
+        }
+    }
 }
 
 /*

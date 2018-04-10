@@ -44,6 +44,12 @@ $lang['your-number'] = '人数';
 $lang['submit'] = '提交';
 
 /*
+    Our Food
+ */
+
+$lang['show-menu'] = '显示菜单';
+
+/*
     Events
  */
 
@@ -52,6 +58,8 @@ $lang['private-floors'] = '私人楼层';
 $lang['full-restaurant'] = '全餐厅';
 $lang['up-to'] = '取决于';
 $lang['guests'] = '宾客';
+
+$lang['show-floor-plan'] = '显示平面图';
 
 /*
     Footer
@@ -64,3 +72,11 @@ $lang['company-open-time'] = 'Open Daily';
 $lang['company-open-time-start'] = '11:00 - 14:00';
 $lang['company-open-time-end'] = '12:00 - 15:00';
 $lang['company-follow'] = '跟着我们';
+
+/*
+    Modal
+ */
+
+$lang['modal-menu'] = '菜单';
+$lang['modal-floor-plan'] = '平面图';
+$lang['modal-close'] = '关';

@@ -44,6 +44,12 @@ $lang['your-number'] = 'Số người tham gia';
 $lang['submit'] = 'Gửi tin nhắn';
 
 /*
+    Our Food
+ */
+
+$lang['show-menu'] = 'Xem menu';
+
+/*
     Events
  */
 
@@ -52,6 +58,8 @@ $lang['private-floors'] = 'Tần riêng';
 $lang['full-restaurant'] = 'Trọn gói nhà hàng';
 $lang['up-to'] = 'Lên tới';
 $lang['guests'] = 'khách';
+
+$lang['show-floor-plan'] = 'Xem bản đồ';
 
 /*
     Footer
@@ -64,3 +72,11 @@ $lang['company-open-time'] = 'Open Daily';
 $lang['company-open-time-start'] = '11:00 - 14:00';
 $lang['company-open-time-end'] = '12:00 - 15:00';
 $lang['company-follow'] = 'Theo dõi chúng tôi tại';
+
+/*
+    Modal
+ */
+
+$lang['modal-menu'] = 'Menu';
+$lang['modal-floor-plan'] = 'Sơ đồ nhà hàng';
+$lang['modal-close'] = 'Đóng';

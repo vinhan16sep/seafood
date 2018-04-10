@@ -10,7 +10,7 @@
 			<div class="middle col-xs-12 col-sm-4 col-md-4">
 				<div class="logo">
 					<a href="<?php echo base_url('') ?>">
-						<img src="<?php echo site_url('assets/img/logo_n.png') ?>" alt="Ngoc Huong Logo">
+						<img src="<?php echo site_url('assets/img/logo-footer.png') ?>" alt="Ngoc Huong Logo">
 					</a>
 				</div>
 				<h3><?php echo $this->lang->line('company-follow') ?></h3>
@@ -57,9 +57,21 @@
 <!--<script src="--><?php //echo site_url('assets/lib/smoothScroll/jquery.smoothscroll.js') ?><!--"></script>-->
 
 <script>
-//    $(function() {
-//        $('html').smoothScroll(500);
-//    });
+   // $(function() {
+   //     $('html').smoothScroll(500);
+   // });
+   $(window).scroll(function () {
+       //if you hard code, then use console
+       //.log to determine when you want the
+       //nav bar to stick.
+       'use strict';
+       if ($(window).scrollTop() > 150) {
+           $('.header').css('' , '');
+       }
+       if ($(window).scrollTop() < 150) {
+           $('.header').css('' , '');
+       }
+   });
 </script>
 
 </body>

@@ -85,6 +85,10 @@
 		<div class="left col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('our-food') ?></h1>
 			<p><?php echo $our_food['our_food_content'] ?></p>
+			<br>
+			<a href="<?php echo base_url('assets/doc/menu.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+                <?php echo $this->lang->line('show-menu') ?>
+			</a>
 
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6">
@@ -122,6 +126,10 @@
 				<p><?php echo $this->lang->line('up-to') ?> <?php echo $event['private_floors'] ?> <?php echo $this->lang->line('guests') ?></p>
 				<h3><?php echo $this->lang->line('full-restaurant') ?></h3>
 				<p><?php echo $this->lang->line('up-to') ?> <?php echo $event['full_restaurant'] ?> <?php echo $this->lang->line('guests') ?></p>
+				<br>
+				<a href="<?php echo base_url('assets/doc/floor-plan.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+                    <?php echo $this->lang->line('show-floor-plan') ?>
+				</a>
 			</div>
 		</div>
 	</div>
@@ -250,6 +258,50 @@
 	<!-- End Map -->
 
 </section>
+
+<!--
+MODAL PARTS
+-->
+<!--
+<div class="modal fade" id="menu" tabindex="-1" role="dialog" aria-labelledby="menuLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3 class="modal-title" id="menuLabel"><?php echo $this->lang->line('modal-menu') ?></h3>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+                    <?php echo $this->lang->line('modal-close') ?>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="floor-plan" tabindex="-1" role="dialog" aria-labelledby="floorPlanLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h3 class="modal-title" id="floorPlanLabel"><?php echo $this->lang->line('modal-floor-plan') ?></h3>
+			</div>
+			<div class="modal-body">
+				<img src="https://i.pinimg.com/originals/68/e6/6e/68e66ee8c9e307b1a1c72c70808060ba.jpg" alt="Restaurant Floor Plan">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">
+                    <?php echo $this->lang->line('modal-close') ?>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+-->
+
 <script>
     HOSTNAME = window.location.origin + '/seafood/';
     var csrf_hash = $('#csrf').val();
