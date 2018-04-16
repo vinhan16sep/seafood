@@ -27,8 +27,14 @@ CONTENT:
                 margin-left: 0;
 
                 img{
-                    width: 50%;
+                    width: 40%;
+                    margin-top: -30px;
+                    margin-left: 15px;
                 }
+            }
+
+            .nav-expand-btn {
+                top: 30px;
             }
 
             .nav-expand{
@@ -88,14 +94,17 @@ CONTENT:
         }
 
         .container-fluid#gallery{
+            padding-left: 15px;
+            padding-right: 15px;
+
             .slide#slideGallery{
                 .item{
                     .inner{
                         padding: 5px;
 
                         .mask{
-                            width: 50vw;
-                            height: 50vw;
+                            width: 45vw;
+                            height: 45vw;
                         }
                     }
                 }
