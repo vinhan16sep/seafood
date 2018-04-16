@@ -383,27 +383,25 @@ CONTENT:
 ========== MOBILE ==========
  */
 @media (max-width: 768px) {
-  .header {
-    background-color: #333; }
-    .header .container {
-      height: 100px; }
-      .header .container .logo {
-        left: 15px;
-        margin-left: 0; }
-        .header .container .logo img {
-          width: 40%;
-          margin-top: -30px;
-          margin-left: 15px; }
-      .header .container .nav-expand-btn {
-        top: 30px; }
-      .header .container .nav-expand {
-        top: 100%;
-        background-color: #333;
-        z-index: 999; }
-        .header .container .nav-expand .left, .header .container .nav-expand .right {
-          float: left; }
-          .header .container .nav-expand .left ul li, .header .container .nav-expand .right ul li {
-            display: list-item; }
+  .header .container {
+    height: 100px; }
+    .header .container .logo {
+      left: 15px;
+      margin-left: 0; }
+      .header .container .logo img {
+        width: 40%;
+        margin-top: -30px;
+        margin-left: 15px; }
+    .header .container .nav-expand-btn {
+      top: 30px; }
+    .header .container .nav-expand {
+      top: 100%;
+      background-color: #333;
+      z-index: 999; }
+      .header .container .nav-expand .left, .header .container .nav-expand .right {
+        float: left; }
+        .header .container .nav-expand .left ul li, .header .container .nav-expand .right ul li {
+          display: list-item; }
 
   .slide#slider {
     height: 100%; }
