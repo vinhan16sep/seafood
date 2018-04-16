@@ -59,56 +59,14 @@
 
 
 <script>
-   // $(function() {
-   //     $('html').smoothScroll(500);
-   // });
-   $(window).scroll(function () {
-       //if you hard code, then use console
-       //.log to determine when you want the
-       //nav bar to stick.
-       'use strict';
-       if ($(window).scrollTop() > 150) {
-           $('.header').css('' , '');
-       }
-       if ($(window).scrollTop() < 150) {
-           $('.header').css('' , '');
-       }
-   });
-</script>
-
-<script>
-	$("a[href*='#']").click(function() {
-	    var hash = this.hash;
-        console.log($(hash).height());
-
-    });
-
-
-    // $(document).ready(function(){
-    //     // Add smooth scrolling to all links
-    //     $("header a[href*='#']").on('click', function(event) {
+    // $("a[href*='#']").click(function() {
+	 //    var hash = this.hash;
+	 //    $('html, body').animate({
+    //         scrollTop: $(hash).offset().top
+		// }, 600);
+	 //    return false;
+    //     console.log($(hash).offset());
     //
-    //         // Make sure this.hash has a value before overriding default behavior
-    //         if (this.hash !== "") {
-    //             // Prevent default anchor click behavior
-    //             event.preventDefault();
-    //
-    //             // Store hash
-    //             var hash = this.hash;
-    //
-    //             // Using jQuery's animate() method to add smooth page scroll
-    //             // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-    //             $('html, body').animate({
-		// 			scrollTop: 0,
-    //                 scrollTop: $(hash).offset().top
-    //             }, 800, function(){
-    //
-    //                 // Add hash (#) to URL when done scrolling (default click behavior)
-    //                 window.location.hash = hash;
-    //             });
-    //
-    //         } // End if
-    //     });
     // });
 </script>
 

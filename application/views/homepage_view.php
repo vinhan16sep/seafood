@@ -58,7 +58,8 @@
 
 <section class="main-content container-fluid">
 
-	<div class="container content" id="about">
+	<div class="container content">
+		<div id="about" class="anchor"></div>
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
 				<img src="<?php echo base_url('assets/upload/about/thumb/'. $about['avatar']) ?>" alt="anh gioi thieu">
@@ -81,7 +82,8 @@
 	</div>
 	<!-- End Break 1 -->
 
-	<div class="container content" id="food">
+	<div class="container content">
+		<div id="food" class="anchor"></div>
 		<div class="left col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('our-food') ?></h1>
 			<p><?php echo $our_food['our_food_content'] ?></p>
@@ -157,7 +159,7 @@
                         <div class="item <?php echo ($key == 0)? 'active' : '' ?>">
                             <div class="row">
                                 <?php foreach ($value as $k => $val): ?>
-                                <div class="col-xs-6 col-sm-6 col-md-3">
+                                <div class="image col-xs-6 col-sm-6 col-md-3">
                                     <div class="inner">
                                         <div class="mask">
                                             <a href="<?php echo base_url('assets/upload/library/'. $val['image']) ?>" data-lightbox="slideGallery" data-title="<?php echo $val['image_title'] ?>">
