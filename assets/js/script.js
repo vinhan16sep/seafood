@@ -1,6 +1,7 @@
 $(document).ready(function(){
    'use strict';
    var h = $(window).height();
+   var winWidth = $(window).width();
 
    // Use Script to get CSS
    $('.slide#slider').css('height' , h * 90 / 100);
@@ -16,8 +17,15 @@ $(document).ready(function(){
     var fo = $('#food').height() + 200;
     var ev = $('#events').height() + 200;
     var ga = $('#gallery').height() + 200;
-    var co = $('#contact').height() + 200;
     var br = $('.break').height() + 300;
+
+    if(winWidth <= 992){
+        ab = $('#about').height() + 100;
+        fo = $('#food').height() + 100;
+        ev = $('#events').height() + 100;
+        ga = $('#gallery').height() + 100;
+        br = $('.break').height() + 300;
+    }
 
 
     $('.header a#toAbout').click(function () {
@@ -55,9 +63,8 @@ $(document).ready(function(){
 
     //Expand NAV in Devices
 
-    var winWidth = $(window).width();
-
     if(winWidth <= 992){
+
         $('nav > .nav-expand').hide();
         var i = 1;
 
