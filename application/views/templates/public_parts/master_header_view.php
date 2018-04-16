@@ -46,22 +46,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="left">
 					<ul>
                         <li>
-                            <a href="homepage#about">
+                            <a href="homepage#about" id="toAbout">
                                 <?php echo $this->lang->line('about-us') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="homepage#food">
+                            <a href="homepage#food" id="toFood">
                                 <?php echo $this->lang->line('our-food') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="homepage#events">
+                            <a href="homepage#events" id="toEvents">
                                 <?php echo $this->lang->line('events') ?>
                             </a>
                         </li>
                         <li>
-                            <a href="homepage#gallery">
+                            <a href="homepage#gallery" id="toGallery">
                                 <?php echo $this->lang->line('gallery') ?>
                             </a>
                         </li>
@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="right">
 					<ul>
 						<li>
-							<a href="<?php echo ($this->uri->segment(1) == 'booking')? 'homepage#contact' : '#contact' ?>">
+							<a href="homepage#contact" id="toContact">
                                 <?php echo $this->lang->line('contact-us') ?>
 							</a>
 						</li>

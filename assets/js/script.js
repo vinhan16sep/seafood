@@ -10,19 +10,48 @@ $(document).ready(function(){
     $('.container-fluid#gallery .mask').css('height' , maskWidth);
 
     // Smooth Scroll
-    // $('header a').bind('click.smoothscroll',function (e) {
-    //     e.preventDefault();
-    //
-    //     var target = this.hash,
-    //         $target = $(target);
-    //
-    //     $('html, body').stop().animate({
-    //         'scrollTop': $target.offset().top
-    //     }, 900, 'swing', function () {
-    //         window.location.hash = target;
-    //     });
-    //     console.log($target);
-    // });
+    var navH = $('header').height();
+    var sl = $('#slider').height();
+    var ab = $('#about').height() + 200;
+    var fo = $('#food').height() + 200;
+    var ev = $('#events').height() + 200;
+    var ga = $('#gallery').height() + 200;
+    var co = $('#contact').height() + 200;
+    var br = $('.break').height() + 300;
+
+
+    $('.header a#toAbout').click(function () {
+        $('html, body').animate({
+            scrollTop : sl - navH
+        }, 800)
+    });
+    $('.header a#toFood').click(function () {
+        $('html, body').animate({
+            scrollTop : sl + ab + br - navH
+        }, 800)
+        console.log(sl + ab + br - navH)
+    });
+    $('.header a#toEvents').click(function () {
+        $('html, body').animate({
+            scrollTop : sl + ab + br + fo + br - navH
+        }, 800)
+    });
+    $('.header a#toGallery').click(function () {
+        $('html, body').animate({
+            scrollTop : sl + ab + br + fo + br + ev - navH
+        }, 800)
+    });
+    $('.header a#toContact').click(function () {
+        $('html, body').animate({
+            scrollTop : sl + ab + br + fo + br + ev + ga - navH
+        }, 800)
+    });
+    $('.footer .logo a').click(function () {
+        $('html, body').animate({
+            scrollTop : 0
+        }, 800)
+    });
+
 
     //Expand NAV in Devices
 
@@ -46,17 +75,6 @@ $(document).ready(function(){
 
     };
 
-
-    // //scroll js
-    // smoothScroll.init({
-    //     selector: '[data-scroll]', // Selector for links (must be a valid CSS selector)
-    //     selectorHeader: '[data-scroll-header]', // Selector for fixed headers (must be a valid CSS selector)
-    //     speed: 500, // Integer. How fast to complete the scroll in milliseconds
-    //     easing: 'easeInOutCubic', // Easing pattern to use
-    //     updateURL: true, // Boolean. Whether or not to update the URL with the anchor hash on scroll
-    //     offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-    //     callback: function ( toggle, anchor ) {} // Function to run after scrolling
-    // });
 
 });
 

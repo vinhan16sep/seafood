@@ -58,17 +58,5 @@
 <script src="<?php echo site_url('assets/js/script.js') ?>"></script>
 
 
-<script>
-    // $("a[href*='#']").click(function() {
-	 //    var hash = this.hash;
-	 //    $('html, body').animate({
-    //         scrollTop: $(hash).offset().top
-		// }, 600);
-	 //    return false;
-    //     console.log($(hash).offset());
-    //
-    // });
-</script>
-
 </body>
 </html>
