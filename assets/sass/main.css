@@ -256,7 +256,12 @@ body, html {
   padding-right: 0; }
   .main-content .content {
     padding-top: 100px;
-    padding-bottom: 100px; }
+    padding-bottom: 100px;
+    position: relative; }
+    .main-content .content .anchor {
+      position: absolute;
+      top: -50px;
+      left: 0; }
     .main-content .content .mask {
       width: 500px;
       height: 500px;
@@ -320,11 +325,14 @@ body, html {
   .main-content .container-fluid#gallery {
     padding-left: 0;
     padding-right: 0; }
+    .main-content .container-fluid#gallery .slide#slideGallery .item .image {
+      padding-left: 0;
+      padding-right: 0; }
     .main-content .container-fluid#gallery .slide#slideGallery .item .inner {
       padding: 5px; }
       .main-content .container-fluid#gallery .slide#slideGallery .item .inner .mask {
-        width: 25vw;
-        height: 25vw; }
+        width: 100%;
+        height: auto; }
     .main-content .container-fluid#gallery .slide#slideGallery .carousel-control {
       background-image: none; }
   .main-content .content#contact .form-group {

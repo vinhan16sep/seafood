@@ -345,6 +345,14 @@ body, html{
         padding-top: 100px;
         padding-bottom: 100px;
 
+        position: relative;
+
+        .anchor{
+            position: absolute;
+            top: -50px;
+            left: 0;
+        }
+
         .mask{
             width: 500px;
             height: 500px;
@@ -449,12 +457,17 @@ body, html{
 
         .slide#slideGallery{
             .item{
+                .image{
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+
                 .inner{
                     padding: 5px;
 
                     .mask{
-                        width: 25vw;
-                        height: 25vw;
+                        width: 100%;
+                        height: auto;
                     }
                 }
             }

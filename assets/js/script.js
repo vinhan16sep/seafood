@@ -5,6 +5,10 @@ $(document).ready(function(){
    // Use Script to get CSS
    $('.slide#slider').css('height' , h * 90 / 100);
 
+    //Make gallery square size item
+    var maskWidth = $('.container-fluid#gallery .mask').width();
+    $('.container-fluid#gallery .mask').css('height' , maskWidth);
+
     // Smooth Scroll
     // $('header a').bind('click.smoothscroll',function (e) {
     //     e.preventDefault();
@@ -40,12 +44,6 @@ $(document).ready(function(){
             }
         })
 
-        //Make gallery square size item
-        var maskWidth = $('.container-fluid#gallery .mask').width();
-        //console.log(maskWidth);
-        $('.container-fluid#gallery .mask').css('height' , maskWidth);
-        //var maskHeight = $('.container-fluid#gallery .mask').height();
-        //console.log(maskHeight);
     };
 
 
