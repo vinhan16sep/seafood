@@ -21,6 +21,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?php echo site_url('assets/') ?>lib/jQueryUI/jquery-ui.js"></script>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="<?php echo site_url('assets/') ?>img/favicon.png"/>
 </head>
 
 <body>
@@ -33,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
 				</a>
 			</div>
-			<div class="nav-expand-btn visible-xs" id="nav-expand-btn">
+			<div class="nav-expand-btn visible-xs visible-sm" id="nav-expand-btn">
 				<span class="nav-icon"></span>
 				<span class="nav-icon"></span>
 				<span class="nav-icon"></span>

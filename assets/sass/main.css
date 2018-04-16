@@ -101,7 +101,9 @@ body, html {
       width: 100%;
       position: absolute;
       top: 35px;
-      left: 0; }
+      left: 0;
+      padding-top: 30px;
+      padding-bottom: 30px; }
       .header .container .nav-expand a {
         color: #fff; }
       .header .container .nav-expand ul {
@@ -138,6 +140,8 @@ body, html {
             border: none; }
             .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu li a:hover {
               background-color: transparent; }
+          .header .container .nav-expand .right ul li select option {
+            color: #6d6d6d; }
         .header .container .nav-expand .right ul li.open a:focus {
           background-color: transparent; }
   .header.fixed .container {
@@ -428,8 +432,7 @@ CONTENT:
     .main-content .container-fluid#gallery .slide#slideGallery .item .inner {
       padding: 5px; }
       .main-content .container-fluid#gallery .slide#slideGallery .item .inner .mask {
-        width: 45vw;
-        height: 45vw; } }
+        width: 100%; } }
 /*
 ========== TABLET ==========
  */
