@@ -7,12 +7,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Sự kiện
+            Giới thiệu
             <small>Chi tiết</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Sự kiện</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Giới thiệu</a></li>
             <li class="active">Chi tiết</li>
         </ol>
     </section>

@@ -7,7 +7,7 @@ if($this->ion_auth->logged_in()) {
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo site_url('assets/img/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
+                    <img src="<?php echo site_url('assets/img/admin/user2-160x160.jpg') ?>" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p>Alexander Pierce</p>
@@ -28,12 +28,13 @@ if($this->ion_auth->logged_in()) {
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="">
+				<!--
+				<li class="">
                     <a href="<?php echo base_url('admin') ?>">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
-                <!--
+
                 <li class="treeview">
                     <a href="">
                         <i class="fa fa-home"></i>

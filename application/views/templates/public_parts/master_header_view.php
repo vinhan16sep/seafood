@@ -21,7 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?php echo site_url('assets/') ?>lib/jQueryUI/jquery-ui.js"></script>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo site_url('assets/') ?>img/favicon.png"/>

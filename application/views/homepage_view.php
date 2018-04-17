@@ -35,21 +35,16 @@
 
 	<!-- Controls -->
 	<a class="left carousel-control" href="#slider" role="button" data-slide="prev">
-		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<i class="fa fa-3x fa-angle-left" aria-hidden="true"></i>
 		<span class="sr-only">Previous</span>
 	</a>
 	<a class="right carousel-control" href="#slider" role="button" data-slide="next">
-		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<i class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
 		<span class="sr-only">Next</span>
 	</a>
 
-	<div class="slider-footer">
-		<div class="mask">
-			<img src="<?php echo site_url('assets/img/slider_bg.png') ?>" alt="slider footer">
-		</div>
-	</div>
 	<div id="scrollBottom">
-		<a href="#about">
+		<a href="homepage#about" id="toAbout">
 			<i class="fa fa-3x fa-angle-down" aria-hidden="true"></i>
 		</a>
 	</div>
@@ -176,11 +171,11 @@
 
 			<!-- Controls -->
 			<a class="left carousel-control" href="#slideGallery" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<i class="fa fa-3x fa-angle-left" aria-hidden="true"></i>
 				<span class="sr-only">Previous</span>
 			</a>
 			<a class="right carousel-control" href="#slideGallery" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<i class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
@@ -236,7 +231,14 @@
                     <?php
                     echo form_label($this->lang->line('your-message'), 'contact_message');
                     echo form_error('contact_message');
-                    echo form_textarea('contact_message', set_value('contact_message'), 'class="form-control" id="contact_message"');
+                    $data = array(
+                    		'name' => 'contact_message',
+							'rows' => '5',
+							'class' => 'form-control',
+							'id' => 'contact_message',
+					);
+                    echo form_textarea($data, set_value('contact_message'));
+                    //echo form_textarea('contact_message', set_value('contact_message'),  'class="form-control" id="contact_message"');
                     ?>
                     <span class="message_error"></span>
 				</div>
@@ -259,49 +261,6 @@
 
 </section>
 
-<!--
-MODAL PARTS
--->
-<!--
-<div class="modal fade" id="menu" tabindex="-1" role="dialog" aria-labelledby="menuLabel">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title" id="menuLabel"><?php echo $this->lang->line('modal-menu') ?></h3>
-			</div>
-			<div class="modal-body">
-				...
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-                    <?php echo $this->lang->line('modal-close') ?>
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="floor-plan" tabindex="-1" role="dialog" aria-labelledby="floorPlanLabel">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h3 class="modal-title" id="floorPlanLabel"><?php echo $this->lang->line('modal-floor-plan') ?></h3>
-			</div>
-			<div class="modal-body">
-				<img src="https://i.pinimg.com/originals/68/e6/6e/68e66ee8c9e307b1a1c72c70808060ba.jpg" alt="Restaurant Floor Plan">
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-                    <?php echo $this->lang->line('modal-close') ?>
-				</button>
-			</div>
-		</div>
-	</div>
-</div>
--->
-
 <script>
     HOSTNAME = window.location.origin + '/seafood/';
     var csrf_hash = $('#csrf').val();
@@ -313,6 +272,7 @@ MODAL PARTS
         var reason = $('#contact_reason').val();
         var message = $('#contact_message').val();
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
         if(name.length == 0){
             //$('.name_error').text('Họ và Tên không được trống!');
             $('.name_error').text('Name must be filled!');
@@ -344,6 +304,9 @@ MODAL PARTS
             $('.phone_error').text('');
         }
         if(name.length != 0 && email.length != 0 && message.length != 0) {
+            //Disable Button when Click
+            $(this).prop('disabled', true);
+
             if(filter.test(email)) {
                 $.ajax({
                     method: "post",
@@ -364,6 +327,11 @@ MODAL PARTS
                         // }else{
                         //     location.reload();
                         // }
+
+                        //Disable Button when Click
+                        $(this).prop('disabled', false);
+						alert('Message Sent');
+
                     },
                     error: function (jqXHR, exception) {
                         // console.log(errorHandle(jqXHR, exception));
