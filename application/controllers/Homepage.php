@@ -155,7 +155,7 @@ class Homepage extends Public_Controller {
         //     '5' => $this->lang->line('contact_reason_5'),
         // );
 
-        $message .= '<p>Lý do liên hệ: ' . $options[$data['reason']] . '</p>';
+        $message .= '<p>Lý do liên hệ: ' . $data['reason'] . '</p>';
         $message .= '<p>Nội dung: ' . $data['message'] . '</p>';
         $message .= "</body></html>";
 

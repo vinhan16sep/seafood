@@ -28,7 +28,7 @@ $(document).ready(function(){
     }
 
 
-    $('.header a#toAbout').click(function () {
+    $('.header a#toAbout, a#toAbout').click(function () {
         $('html, body').animate({
             scrollTop : sl - navH
         }, 800)
@@ -72,12 +72,18 @@ $(document).ready(function(){
             if(i === 1){
                 $('nav > .nav-expand').slideDown();
                 $('.header').css('background' , '#333');
-                i = 0
+                i = 0;
             } else {
                 $('nav > .nav-expand').slideUp();
                 $('.header').css('background' , '')
                 i = 1
             }
+        })
+
+        $('.nav-expand a').click(function(){
+            $('nav > .nav-expand').slideUp();
+            $('.header').css('background' , '')
+            i = 1
         })
 
     };

@@ -54,7 +54,7 @@ $lang['show-menu'] = 'Xem menu';
  */
 
 $lang['private-rooms'] = 'Phòng riêng';
-$lang['private-floors'] = 'Tần riêng';
+$lang['private-floors'] = 'Tầng riêng';
 $lang['full-restaurant'] = 'Trọn gói nhà hàng';
 $lang['up-to'] = 'Lên tới';
 $lang['guests'] = 'khách';

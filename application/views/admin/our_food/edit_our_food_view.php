@@ -1,15 +1,15 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-            Sự kiện
-            <small>Chi tiết</small>
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Sự kiện</a></li>
-            <li class="active">Chi tiết</li>
-        </ol>
+		<h1>
+			Món ăn của chúng tôi
+			<small>Chi tiết</small>
+		</h1>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+			<li><a href="#"><i class="fa fa-dashboard"></i> Món ăn</a></li>
+			<li class="active">Chi tiết</li>
+		</ol>
     </section>
 
     <!-- Main content -->

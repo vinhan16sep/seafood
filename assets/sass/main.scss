@@ -117,23 +117,23 @@ body, html{
 
                 ul{
                     li{
-                        padding: 7px 30px;
+                        padding: 7px 50px;
 
                         &#bookTable{
-                            background-color: #fff;
+                            border: 2px solid #fff;
                             -webkit-border-radius: 3px;
                             -moz-border-radius: 3px;
                             border-radius: 3px;
 
                             a{
-                                color: $primary;
+                                color: #fff;
                             }
 
                             &:hover{
-                                background-color: $primary;
+                                background-color: #fff;
 
                                 a{
-                                    color: #fff;
+                                    color: $primary;
                                 }
                             }
                         }
@@ -240,17 +240,17 @@ body, html{
                 a{
                     margin: 15px auto;
                     padding: 10px 30px;
-                    border: none;
                     -webkit-border-radius: 10px;
                     -moz-border-radius: 10px;
                     border-radius: 10px;
-                    background-color: #fff;
-                    color: $primary;
+                    background: transparent;
+                    border: 2px solid #fff;
+                    color: #fff;
 
 
                     &:hover{
-                        background-color: $primary;
-                        color: #fff;
+                        background-color: #fff;
+                        color: $primary;
                     }
 
                     span{
@@ -267,6 +267,19 @@ body, html{
 
                 }
             }
+        }
+    }
+
+    .carousel-control{
+        i.fa{
+            position: absolute;
+            top: 50%;
+            z-index: 5;
+            display: inline-block;
+
+            width: 30px;
+            height: 30px;
+            margin-top: -10px;
         }
     }
 
@@ -466,11 +479,25 @@ body, html{
 
             .carousel-control{
                 background-image: none;
+
+                i.fa{
+                    position: absolute;
+                    top: 50%;
+                    z-index: 5;
+                    display: inline-block;
+
+                    width: 30px;
+                    height: 30px;
+                    margin-top: -10px;
+                }
             }
         }
     }
 
     .content#contact{
+        padding-top: 50px;
+        padding-bottom: 50px;
+
         .form-group{
             margin-left: 0;
             margin-right: 0;
@@ -504,6 +531,7 @@ body, html{
 
     .left{
         text-align: left;
+        padding-top: 180px;
     }
 
     .middle{
@@ -544,6 +572,7 @@ body, html{
 
     .right{
         text-align: right;
+        padding-top: 180px;
     }
 }
 

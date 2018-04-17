@@ -23,7 +23,7 @@ class User extends MY_Controller {
             if ($this->form_validation->run() === TRUE) {
                 $remember = (bool) $this->input->post('remember');
                 if ($this->ion_auth->login($this->input->post('identity'), $this->input->post('password'), $remember)) {
-                    redirect('admin/dashboard', 'refresh');
+                    redirect('admin/about', 'refresh');
                 } else {
                     $this->session->set_flashdata('message', $this->ion_auth->errors());
                     redirect('admin/user/login', 'refresh');

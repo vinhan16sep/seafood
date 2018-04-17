@@ -32,6 +32,10 @@ CONTENT:
 a:hover {
   text-decoration: none; }
 
+.form-control,
+select.form-control {
+  background-color: transparent; }
+
 .form-control:focus {
   border-color: #df2b26;
   outline: 0;
@@ -117,18 +121,18 @@ body, html {
       .header .container .nav-expand .right {
         float: right; }
         .header .container .nav-expand .right ul li {
-          padding: 7px 30px; }
+          padding: 7px 50px; }
           .header .container .nav-expand .right ul li#bookTable {
-            background-color: #fff;
+            border: 2px solid #fff;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px; }
             .header .container .nav-expand .right ul li#bookTable a {
-              color: #df2b26; }
+              color: #fff; }
             .header .container .nav-expand .right ul li#bookTable:hover {
-              background-color: #df2b26; }
+              background-color: #fff; }
               .header .container .nav-expand .right ul li#bookTable:hover a {
-                color: #fff; }
+                color: #df2b26; }
           .header .container .nav-expand .right ul li select.form-control {
             background-color: transparent;
             color: #fff; }
@@ -184,21 +188,29 @@ body, html {
       .slide#slider .carousel-inner .slide-banner .button a {
         margin: 15px auto;
         padding: 10px 30px;
-        border: none;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
-        background-color: #fff;
-        color: #df2b26; }
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff; }
         .slide#slider .carousel-inner .slide-banner .button a:hover {
-          background-color: #df2b26;
-          color: #fff; }
+          background-color: #fff;
+          color: #df2b26; }
         .slide#slider .carousel-inner .slide-banner .button a span:before {
           content: "•";
           padding-right: 15px; }
         .slide#slider .carousel-inner .slide-banner .button a span:after {
           content: "•";
           padding-left: 15px; }
+.slide#slider .carousel-control i.fa {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-top: -10px; }
 .slide#slider .slider-footer {
   width: 100%;
   height: fit-content;
@@ -330,11 +342,22 @@ body, html {
         height: auto; }
     .main-content .container-fluid#gallery .slide#slideGallery .carousel-control {
       background-image: none; }
-  .main-content .content#contact .form-group {
-    margin-left: 0;
-    margin-right: 0; }
-    .main-content .content#contact .form-group textarea {
-      resize: none; }
+      .main-content .container-fluid#gallery .slide#slideGallery .carousel-control i.fa {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-top: -10px; }
+  .main-content .content#contact {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+    .main-content .content#contact .form-group {
+      margin-left: 0;
+      margin-right: 0; }
+      .main-content .content#contact .form-group textarea {
+        resize: none; }
 
 #floor-plan .modal-body img {
   width: 100%; }
@@ -348,7 +371,8 @@ body, html {
   padding-top: 30px;
   padding-bottom: 50px; }
   .footer .left {
-    text-align: left; }
+    text-align: left;
+    padding-top: 180px; }
   .footer .middle {
     text-align: center; }
     .footer .middle .logo {
@@ -369,7 +393,8 @@ body, html {
           .footer .middle ul li a span.fa-stack i {
             color: #000; }
   .footer .right {
-    text-align: right; }
+    text-align: right;
+    padding-top: 180px; }
 
 /*
 IMPORT STYLES
@@ -409,6 +434,10 @@ CONTENT:
         float: left; }
         .header .container .nav-expand .left ul li, .header .container .nav-expand .right ul li {
           display: list-item; }
+      .header .container .nav-expand .right ul li {
+        padding-left: 0; }
+        .header .container .nav-expand .right ul li#bookTable a {
+          padding-left: 15px; }
 
   .slide#slider {
     height: 100%; }
@@ -427,6 +456,9 @@ CONTENT:
     .main-content .content .mask {
       width: 300px;
       height: 300px; }
+    .main-content .content .text h1 {
+      margin-top: 15px;
+      margin-bottom: 30px; }
   .main-content .break .container .title {
     width: 100%; }
   .main-content .container-fluid#gallery {
@@ -435,7 +467,10 @@ CONTENT:
     .main-content .container-fluid#gallery .slide#slideGallery .item .inner {
       padding: 5px; }
       .main-content .container-fluid#gallery .slide#slideGallery .item .inner .mask {
-        width: 100%; } }
+        width: 100%; }
+
+  .footer .left, .footer .right {
+    padding-top: 0; } }
 /*
 ========== TABLET ==========
  */
@@ -461,6 +496,9 @@ AUTHOR: hung.luong@matocreative.vn
 @font-face {
   font-family: 'centur';
   src: url("../fonts/UTM%20Centur.ttf"); }
+@font-face {
+  font-family: 'UVFaria';
+  src: url("../fonts/UVF%20Aria%20Pro_0.otf"); }
 h1 {
   font-size: 2.5em; }
 
@@ -474,13 +512,13 @@ h4 {
   font-size: 1.125em; }
 
 p {
-  font-size: 1em; }
+  font-size: 1.125em; }
 
 body {
-  font-family: 'centur'; }
+  font-family: "sanFranciscoR"; }
 
 .header {
-  font-family: sanFranciscoR;
+  font-family: "sanFranciscoR";
   font-size: 1.25em; }
 
 .slide .carousel-inner .slide-banner .button .btn {
@@ -488,11 +526,20 @@ body {
   text-transform: uppercase; }
 
 .main-content .break .title {
+  font-family: "UVFaria";
   text-transform: uppercase; }
 .main-content .content#contact .btn-outline {
+  font-family: "sanFranciscoR";
   text-transform: uppercase; }
 .main-content .btn-outline {
+  font-family: "sanFranciscoR";
   font-size: 1.125em;
   text-transform: uppercase; }
+.main-content .content .title {
+  font-family: "UVFaria"; }
+.main-content .content .text h1 {
+  font-family: "UVFaria"; }
+.main-content .content .text p {
+  font-family: "sanFranciscoR"; }
 
 /*# sourceMappingURL=main.css.map */
