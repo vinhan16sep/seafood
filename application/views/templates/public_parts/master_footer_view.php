@@ -51,11 +51,11 @@
 
 
 <!-- Lightbox JS -->
-<script src="<?php echo site_url('assets/lib/lightbox/js/lightbox.js') ?>"></script>
+<script src="<?php echo site_url('assets/lib/lightbox/js/lightbox.min.js') ?>"></script>
 <!-- Smooth Scroll JS -->
 <!--<script src="--><?php //echo site_url('assets/lib/smoothScroll/smooth-scroll.min.js') ?><!--"></script>-->
 <!-- jQuery Input -->
-<script src="<?php echo site_url('assets/js/script.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/script.min.js') ?>"></script>
 
 
 </body>

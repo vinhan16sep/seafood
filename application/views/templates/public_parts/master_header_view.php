@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/fontAwesome/css/font-awesome.min.css">
 	<!-- lightbox.scss -->
-	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/lightbox/css/lightbox.css">
+	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/lightbox/css/lightbox.min.css">
 	<!-- _main.scss -->
-	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.css">
+	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.min.css">
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
