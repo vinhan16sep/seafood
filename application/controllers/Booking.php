@@ -23,6 +23,7 @@ class Booking extends Public_Controller {
         $this->form_validation->set_rules('contact_name', 'Your name', 'required');
         $this->form_validation->set_rules('contact_mail', 'Your email', 'required');
         $this->form_validation->set_rules('contact_phone', 'Your phone number', 'required');
+        $this->form_validation->set_rules('contact_address', 'Your address', 'required');
         $this->form_validation->set_rules('contact_date', 'Date', 'required');
         $this->form_validation->set_rules('contact_time', 'Time', 'required');
         $this->form_validation->set_rules('contact_quantity', 'Number of people', 'required');
@@ -33,6 +34,7 @@ class Booking extends Public_Controller {
                 $data['name'] = $this->input->post('contact_name');
                 $data['email'] = $this->input->post('contact_mail');
                 $data['phone'] = $this->input->post('contact_phone');
+                $data['address'] = $this->input->post('contact_address');
                 $data['time'] = $this->input->post('contact_time') .' - '. $this->input->post('contact_date');
                 $data['quantity'] = $this->input->post('contact_quantity');
             }
@@ -88,6 +90,7 @@ class Booking extends Public_Controller {
         $message .= '<p>Họ tên: ' . $data['name'] . '</p>';
         $message .= '<p>Email: ' . $data['email'] . '</p>';
         $message .= '<p>Số điện thoại: ' . $data['phone'] . '</p>';
+        $message .= '<p>Địa chỉ: ' . $data['address'] . '</p>';
         $message .= '<p>Thời gian: ' . $data['time'] . '</p>';
         $message .= '<p>Số người: ' . $data['quantity'] . '</p>';
         $message .= "</body></html>";

@@ -37,6 +37,7 @@ $lang['your-phone'] = 'Your Phone Number';
 $lang['your-way'] = 'How did you find us?';
 $lang['your-message'] = 'Message';
 
+$lang['your-address'] = 'Your Address';
 $lang['your-date'] = 'Date';
 $lang['your-time'] = 'Time';
 $lang['your-number'] = 'Number of People';

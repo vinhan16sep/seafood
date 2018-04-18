@@ -56,7 +56,7 @@
 
     <div class="container content" id="contact">
         <div class="title">
-            <h1>Contact</h1>
+            <h1><?php echo $this->lang->line('book-table') ?></h1>
         </div>
 
         <?php
@@ -86,6 +86,13 @@
                     echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone"');
                     ?>
                 </div>
+				<div class="form-group">
+                    <?php
+                    echo form_label($this->lang->line('your-address') . '(*)', 'contact_address');
+                    echo form_error('contact_address');
+                    echo form_input('contact_address', set_value('contact_address'), 'class="form-control" id="contact_address"');
+                    ?>
+				</div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">

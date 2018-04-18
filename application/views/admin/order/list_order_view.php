@@ -74,6 +74,7 @@
                                         <th>Email</th>
                                         <th>Thời gian</th>
                                         <th>Số điện thoại</th>
+										<th>Địa chỉ liên hệ</th>
                                         <th>Số người</th>
                                         <th>Tình trạng</th>
                                         <th>Hủy bỏ</th>
@@ -89,6 +90,7 @@
                                                 <td><?php echo $value['email'] ?></td>
                                                 <td><?php echo $value['time'] ?></td>
                                                 <td><?php echo $value['phone'] ?></td>
+												<td><?php echo $value['address'] ?></td>
                                                 <td><?php echo $value['quantity'] ?></td>
                                                 <td>
                                                     <?php if ($value['status'] == 0): ?>
@@ -123,6 +125,7 @@
                                         <th>Email</th>
                                         <th>Thời gian</th>
                                         <th>Số điện thoại</th>
+										<th>Địa chỉ liên hệ</th>
                                         <th>Số người</th>
                                         <th>Tình trạng</th>
                                         <th>Hủy bỏ</th>

@@ -15,7 +15,7 @@ CONTENT:
 ========== MOBILE ==========
  */
 
-@media (max-width: 768px){
+@media (max-width: 767px){
     .header{
 
 
@@ -47,13 +47,29 @@ CONTENT:
                     float: left;
 
                     ul{
+
                         li{
+                            width: 80%;
                             display: list-item;
+
+                            a{
+                                text-align: left;
+                            }
                         }
                     }
                 }
 
+                .left{
+                    width: 50%;
+
+                    ul{
+                        padding-left: 25px;
+                    }
+                }
+
                 .right{
+                    width: 50%;
+
                     ul{
                         li{
                             padding-left: 0;
@@ -99,8 +115,10 @@ CONTENT:
             }
 
             .text{
+                margin-bottom: 30px;
+
                 h1{
-                    margin-top: 15px;
+                    margin-top: 30px;
                     margin-bottom: 30px;
                 }
             }
@@ -111,6 +129,19 @@ CONTENT:
                 .title{
                     width: 100%;
                 }
+            }
+        }
+
+        .content#food{
+            display: flex;
+            flex-direction: column;
+
+            .left{
+                order: 2;
+            }
+
+            .right{
+                order: 1;
             }
         }
 
@@ -128,6 +159,12 @@ CONTENT:
                         }
                     }
                 }
+            }
+        }
+
+        .container#contact{
+            #clickToCall{
+                width: 100%;
             }
         }
     }

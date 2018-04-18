@@ -53,6 +53,18 @@
 <!-- jQuery Input -->
 <script src="<?php echo site_url('assets/js/script.min.js') ?>"></script>
 
+<script type="text/javascript">
+    function onLoad(){
+        if( $(window).width() <= 992) {
+
+            //Hide nav expand menu
+            $('nav > .nav-expand').hide();
+        }
+    };
+
+    window.onload = onLoad();
+</script>
+
 
 </body>
 </html>

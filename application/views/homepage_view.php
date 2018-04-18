@@ -242,7 +242,16 @@
                     ?>
                     <span class="message_error"></span>
 				</div>
-                <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline pull-right btn-contact"'); ?>
+				<div class="row">
+					<div class="col-xs-6 col-sm-12 col-md-12">
+                        <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline pull-right btn-contact"'); ?>
+					</div>
+					<div class="col-xs-6 visible-xs">
+						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">
+							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
 
