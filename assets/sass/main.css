@@ -107,48 +107,53 @@ body, html {
     .header .container .nav-expand {
       width: 100%;
       position: absolute;
-      top: 35px;
+      top: 20px;
       left: 0;
       padding-top: 30px;
       padding-bottom: 30px; }
       .header .container .nav-expand a {
         color: #fff; }
       .header .container .nav-expand ul {
+        padding-left: 0;
         list-style: none; }
-        .header .container .nav-expand ul li {
-          display: inline-block; }
+        .header .container .nav-expand ul li a:hover {
+          background-color: transparent; }
       .header .container .nav-expand .left {
+        width: 40%;
         float: left; }
         .header .container .nav-expand .left ul li {
-          padding: 7px 15px; }
+          text-align: center; }
       .header .container .nav-expand .right {
+        width: 40%;
         float: right; }
-        .header .container .nav-expand .right ul li {
-          padding: 7px 50px; }
-          .header .container .nav-expand .right ul li#bookTable {
-            border: 2px solid #fff;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px; }
-            .header .container .nav-expand .right ul li#bookTable a {
-              color: #fff; }
-            .header .container .nav-expand .right ul li#bookTable:hover {
-              background-color: #fff; }
-              .header .container .nav-expand .right ul li#bookTable:hover a {
-                color: #df2b26; }
-          .header .container .nav-expand .right ul li select.form-control {
-            background-color: transparent;
+        .header .container .nav-expand .right ul li#bookTable {
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+                            /*
+                            &:hover{
+                                background-color: #fff;
+
+                                a{
+                                    color: $primary;
+                                }
+                            }
+                            */ }
+          .header .container .nav-expand .right ul li#bookTable a {
             color: #fff; }
-          .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu {
-            background-color: transparent;
-            -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-            box-shadow: none;
-            border: none; }
-            .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu li a:hover {
-              background-color: transparent; }
-          .header .container .nav-expand .right ul li select option {
-            color: #6d6d6d; }
+        .header .container .nav-expand .right ul li select.form-control {
+          background-color: transparent;
+          color: #fff; }
+        .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu {
+          background-color: transparent;
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+          border: none; }
+          .header .container .nav-expand .right ul li#dropDownLang ul.dropdown-menu li a:hover {
+            background-color: transparent; }
+        .header .container .nav-expand .right ul li select option {
+          color: #6d6d6d; }
         .header .container .nav-expand .right ul li.open a:focus {
           background-color: transparent; }
   .header.fixed .container {
@@ -361,6 +366,12 @@ body, html {
       margin-right: 0; }
       .main-content .content#contact .form-group textarea {
         resize: none; }
+    .main-content .content#contact .btn-outline {
+      background-color: transparent; }
+      .main-content .content#contact .btn-outline:hover {
+        background-color: #df2b26;
+        color: #fff;
+        border-color: transparent; }
 
 #floor-plan .modal-body img {
   width: 100%; }
@@ -417,7 +428,7 @@ CONTENT:
 /*
 ========== MOBILE ==========
  */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header .container {
     height: 100px; }
     .header .container .logo {
@@ -436,11 +447,20 @@ CONTENT:
       .header .container .nav-expand .left, .header .container .nav-expand .right {
         float: left; }
         .header .container .nav-expand .left ul li, .header .container .nav-expand .right ul li {
+          width: 80%;
           display: list-item; }
-      .header .container .nav-expand .right ul li {
-        padding-left: 0; }
-        .header .container .nav-expand .right ul li#bookTable a {
-          padding-left: 15px; }
+          .header .container .nav-expand .left ul li a, .header .container .nav-expand .right ul li a {
+            text-align: left; }
+      .header .container .nav-expand .left {
+        width: 50%; }
+        .header .container .nav-expand .left ul {
+          padding-left: 25px; }
+      .header .container .nav-expand .right {
+        width: 50%; }
+        .header .container .nav-expand .right ul li {
+          padding-left: 0; }
+          .header .container .nav-expand .right ul li#bookTable a {
+            padding-left: 15px; }
 
   .slide#slider {
     height: 100%; }
@@ -459,11 +479,20 @@ CONTENT:
     .main-content .content .mask {
       width: 300px;
       height: 300px; }
-    .main-content .content .text h1 {
-      margin-top: 15px;
+    .main-content .content .text {
       margin-bottom: 30px; }
+      .main-content .content .text h1 {
+        margin-top: 30px;
+        margin-bottom: 30px; }
   .main-content .break .container .title {
     width: 100%; }
+  .main-content .content#food {
+    display: flex;
+    flex-direction: column; }
+    .main-content .content#food .left {
+      order: 2; }
+    .main-content .content#food .right {
+      order: 1; }
   .main-content .container-fluid#gallery {
     padding-left: 15px;
     padding-right: 15px; }
@@ -471,6 +500,8 @@ CONTENT:
       padding: 5px; }
       .main-content .container-fluid#gallery .slide#slideGallery .item .inner .mask {
         width: 100%; }
+  .main-content .container#contact #clickToCall {
+    width: 100%; }
 
   .footer .left, .footer .right {
     padding-top: 0; } }
@@ -515,14 +546,14 @@ h4 {
   font-size: 1.125em; }
 
 p {
-  font-size: 1.125em; }
+  font-size: 1.3em; }
 
 body {
   font-family: "sanFranciscoR"; }
 
 .header {
   font-family: "sanFranciscoR";
-  font-size: 1.25em; }
+  font-size: 1.3em; }
 
 .slide .carousel-inner .slide-banner .button .btn {
   font-size: 1.5em;

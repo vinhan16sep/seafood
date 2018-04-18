@@ -37,9 +37,11 @@ $lang['your-phone'] = 'Số điện thoại của ';
 $lang['your-way'] = 'Bạn đã tìm thấy chúng tôi như thế nào?';
 $lang['your-message'] = 'Tin nhắn của bạn';
 
+$lang['your-address'] = 'Địa chỉ của bạn';
 $lang['your-date'] = 'Ngày đặt bàn';
 $lang['your-time'] = 'Giờ đặt bàn';
 $lang['your-number'] = 'Số người tham gia';
+
 
 $lang['submit'] = 'Gửi tin nhắn';
 
@@ -59,7 +61,7 @@ $lang['full-restaurant'] = 'Trọn gói nhà hàng';
 $lang['up-to'] = 'Lên tới';
 $lang['guests'] = 'khách';
 
-$lang['show-floor-plan'] = 'Xem bản đồ';
+$lang['show-floor-plan'] = 'Chi tiết nhà hàng';
 
 /*
     Footer

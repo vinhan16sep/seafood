@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="nav-expand">
 				<div class="left">
-					<ul>
+					<ul class="nav nav-justified">
                         <li>
                             <a href="homepage#about" id="toAbout">
                                 <?php echo $this->lang->line('about-us') ?>
@@ -64,26 +64,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo $this->lang->line('gallery') ?>
                             </a>
                         </li>
-<!--						<li>-->
-<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#about' : '#about' ?><!--">-->
-<!--								--><?php //echo $this->lang->line('about-us') ?>
-<!--							</a>-->
-<!--						</li>-->
-<!--						<li>-->
-<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#food' : '#food' ?><!--">-->
-<!--                                --><?php //echo $this->lang->line('our-food') ?>
-<!--							</a>-->
-<!--						</li>-->
-<!--						<li>-->
-<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#events' : '#events' ?><!--">-->
-<!--                                --><?php //echo $this->lang->line('events') ?>
-<!--							</a>-->
-<!--						</li>-->
-<!--						<li>-->
-<!--							<a href="--><?php //echo ($this->uri->segment(1) == 'booking')? 'homepage#gallery' : '#gallery' ?><!--">-->
-<!--                                --><?php //echo $this->lang->line('gallery') ?>
-<!--							</a>-->
-<!--						</li>-->
 					</ul>
 				</div>
 
@@ -111,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 ?>
 
 				<div class="right">
-					<ul>
+					<ul class="nav nav-justified">
 						<li>
 							<a href="homepage#contact" id="toContact">
                                 <?php echo $this->lang->line('contact-us') ?>
@@ -122,24 +102,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo $this->lang->line('book-table') ?>
 							</a>
 						</li>
-						<!--
-						<li class="dropdown" id="dropDownLang">
-							<a href="<?php echo $url_vi; ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Vietnamese <span class="caret"></span>
-							</a>
-							<ul class="dropdown-menu" aria-labelledby="dropDownLang">
-								<li>
-									<a href="<?php echo $url_vi; ?>">Vietnamese</a>
-								</li>
-								<li>
-									<a href="<?php echo $url_en; ?>">English</a>
-								</li>
-								<li>
-									<a href="<?php echo $url_cn; ?>">Chinese</a>
-								</li>
-							</ul>
-						</li>
-						-->
 						<li>
 							<select class="form-control" id="langNav">
 								<option value="<?php echo $url_vi; ?>">Tiếng Việt</option>

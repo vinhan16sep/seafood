@@ -88,7 +88,7 @@ body, html{
         .nav-expand{
             width: 100%;
             position: absolute;
-            top: 35px;
+            top: 20px;
             left: 0;
 
             padding-top: 30px;
@@ -99,32 +99,35 @@ body, html{
             }
 
             ul{
+                padding-left: 0;
                 list-style: none;
 
                 li{
-                    display: inline-block;
+                    a:hover{
+                        background-color: transparent;
+                    }
                 }
             }
 
             .left{
+                width: 40%;
                 float: left;
 
                 ul{
                     li{
-                        padding: 7px 15px;
+                        text-align: center;
                     }
                 }
             }
 
             .right{
+                width: 40%;
                 float: right;
 
                 ul{
                     li{
-                        padding: 7px 50px;
 
                         &#bookTable{
-                            border: 2px solid #fff;
                             -webkit-border-radius: 3px;
                             -moz-border-radius: 3px;
                             border-radius: 3px;
@@ -133,6 +136,7 @@ body, html{
                                 color: #fff;
                             }
 
+                            /*
                             &:hover{
                                 background-color: #fff;
 
@@ -140,6 +144,7 @@ body, html{
                                     color: $primary;
                                 }
                             }
+                            */
                         }
 
                         select.form-control{
@@ -508,6 +513,16 @@ body, html{
 
             textarea{
                 resize: none;
+            }
+        }
+
+        .btn-outline{
+            background-color: transparent;
+
+            &:hover{
+                background-color: $primary;
+                color: #fff;
+                border-color: transparent;
             }
         }
     }

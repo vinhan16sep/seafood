@@ -1,5 +1,6 @@
 $(document).ready(function(){
    'use strict';
+
    var h = $(window).height();
    var winWidth = $(window).width();
 
@@ -65,6 +66,7 @@ $(document).ready(function(){
 
     if(winWidth <= 992){
 
+        //Hide nav expand menu
         $('nav > .nav-expand').hide();
         var i = 1;
 

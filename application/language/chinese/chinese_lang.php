@@ -37,6 +37,7 @@ $lang['your-phone'] = '你的电话号码';
 $lang['your-way'] = '你是怎么找到我们的?';
 $lang['your-message'] = '信息';
 
+$lang['your-address'] = '你的地址';
 $lang['your-date'] = '日期';
 $lang['your-time'] = '时间';
 $lang['your-number'] = '人数';
