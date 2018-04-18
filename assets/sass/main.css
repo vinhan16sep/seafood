@@ -48,6 +48,9 @@ select.form-control {
 /*
 ========== MIXINS ==========
  */
+* {
+  -webkit-overflow-scrolling: touch; }
+
 body, html {
   width: 100%;
   height: 100%;
