@@ -17,6 +17,10 @@ Import variable.scss
 
 @import "variable";
 
+*{
+    -webkit-overflow-scrolling: touch;
+}
+
 body, html{
     width: 100%;
     height: 100%;
