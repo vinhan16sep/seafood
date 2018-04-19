@@ -86,6 +86,7 @@
                     echo form_input('contact_phone', set_value('contact_phone'), 'class="form-control" id="contact_phone"');
                     ?>
                 </div>
+				<!--
 				<div class="form-group">
                     <?php
                     echo form_label($this->lang->line('your-address') . '(*)', 'contact_address');
@@ -93,6 +94,7 @@
                     echo form_input('contact_address', set_value('contact_address'), 'class="form-control" id="contact_address"');
                     ?>
 				</div>
+				-->
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6">
                 <div class="form-group">
@@ -118,7 +120,23 @@
                         ?>
                     </div>
                 </div>
-                <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline"'); ?>
+
+				<div class="row">
+					<div class="col-xs-12">
+                		<?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline"'); ?>
+					</div>
+					<div class="col-xs-12 visible-xs">
+
+						<p><?php echo $this->lang->line('company-address') ?></p>
+						<p>Tel: <?php echo $this->lang->line('company-tel') ?> | <?php echo $this->lang->line('company-email') ?></p>
+						<p><?php echo $this->lang->line('company-open-time') ?></p>
+						<p><?php echo $this->lang->line('company-open-time-start') ?> & <?php echo $this->lang->line('company-open-time-end') ?></p>
+
+						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">
+							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
+						</a>
+					</div>
+				</div>
             </div>
         </div>
 
