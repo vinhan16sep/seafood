@@ -33,7 +33,7 @@ $lang['elegant-recipes'] = 'Những công thức thanh lịch';
 
 $lang['your-name'] = 'Tên của bạn';
 $lang['your-mail'] = 'Email của bạn';
-$lang['your-phone'] = 'Số điện thoại của ';
+$lang['your-phone'] = 'Số điện thoại của bạn';
 $lang['your-way'] = 'Bạn đã tìm thấy chúng tôi như thế nào?';
 $lang['your-message'] = 'Tin nhắn của bạn';
 

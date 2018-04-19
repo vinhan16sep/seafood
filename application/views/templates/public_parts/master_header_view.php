@@ -31,11 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <header class="header">
 	<div class="container">
 		<nav class="nav">
-			<div class="logo">
-				<a href="<?php echo base_url('') ?>">
+
+				<a href="<?php echo base_url('') ?>" class="logo">
 					<img src="<?php echo site_url('assets/img/logo.png') ?>" alt="Ngoc Huong Logo">
 				</a>
-			</div>
+
 			<div class="nav-expand-btn visible-xs visible-sm" id="nav-expand-btn">
 				<span class="nav-icon"></span>
 				<span class="nav-icon"></span>

@@ -163,15 +163,37 @@ CONTENT:
         }
 
         .container#contact{
-            #clickToCall{
+            .btn-outline{
                 width: 100%;
+                margin-bottom: 15px;
             }
         }
     }
 
     .footer{
+
         .left, .right{
             padding-top: 0;
+            text-align: center;
+        }
+
+        .container{
+            .row{
+                display: flex;
+                flex-direction: column;
+
+                .left{
+                    order: 3;
+                }
+
+                .middle{
+                    order: 1;
+                }
+
+                .right{
+                    order: 2;
+                }
+            }
         }
     }
 }
