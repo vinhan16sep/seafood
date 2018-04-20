@@ -91,10 +91,10 @@ CONTENT:
 
         .carousel-inner{
             .slide-banner{
-                width: 90%;
+                width: 70%;
                 height: auto;
                 top: 40%;
-                left: 5%;
+                left: 15%;
 
                 .image{
                     width: 100%;
@@ -162,7 +162,7 @@ CONTENT:
             }
         }
 
-        .container#contact{
+        .container#contact, .container#booking{
             .btn-outline{
                 width: 100%;
                 margin-bottom: 15px;

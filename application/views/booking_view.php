@@ -54,7 +54,7 @@
 
 <section class="main-content container-fluid">
 
-    <div class="container content" id="contact">
+    <div class="container content" id="booking">
         <div class="title">
             <h1><?php echo $this->lang->line('book-table') ?></h1>
         </div>
@@ -122,16 +122,16 @@
                 </div>
 
 				<div class="row">
-					<div class="col-xs-12">
+					<div class="col-xs-6">
                 		<?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline"'); ?>
 					</div>
-					<div class="col-xs-12 visible-xs">
-
+					<div class="col-xs-6 visible-xs">
+						<!--
 						<p><?php echo $this->lang->line('company-address') ?></p>
 						<p>Tel: <?php echo $this->lang->line('company-tel') ?> | <?php echo $this->lang->line('company-email') ?></p>
 						<p><?php echo $this->lang->line('company-open-time') ?></p>
 						<p><?php echo $this->lang->line('company-open-time-start') ?> & <?php echo $this->lang->line('company-open-time-end') ?></p>
-
+						-->
 						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">
 							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
 						</a>

@@ -59,11 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo $this->lang->line('events') ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="homepage#gallery" id="toGallery">
-                                <?php echo $this->lang->line('gallery') ?>
-                            </a>
-                        </li>
+
 					</ul>
 				</div>
 
@@ -92,6 +88,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div class="right">
 					<ul class="nav nav-justified">
+						<li>
+							<a href="homepage#gallery" id="toGallery">
+                                <?php echo $this->lang->line('gallery') ?>
+							</a>
+						</li>
 						<li>
 							<a href="homepage#contact" id="toContact">
                                 <?php echo $this->lang->line('contact-us') ?>

@@ -7,9 +7,12 @@ $(document).ready(function(){
    // Use Script to get CSS
    $('.slide#slider').css('height' , h * 90 / 100);
 
+
     //Make gallery square size item
     var maskWidth = $('.container-fluid#gallery .mask').width();
     $('.container-fluid#gallery .mask').css('height' , maskWidth);
+    var mask = $('.container .mask').width();
+    $('.container .mask').css( 'height' , mask);
 
     // Smooth Scroll
     var navH = $('header').height();
