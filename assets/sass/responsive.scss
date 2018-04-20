@@ -102,6 +102,19 @@ CONTENT:
                 }
             }
         }
+
+        .carousel-control{
+            i.fa{
+
+                &.fa-angle-left{
+                    left: 5px;
+                }
+
+                &.fa-angle-right{
+                    right: 5px;
+                }
+            }
+        }
     }
 
     .main-content{
@@ -208,6 +221,14 @@ CONTENT:
             .mask{
                 width: 300px;
                 height:300px
+            }
+        }
+    }
+
+    .footer{
+        .middle{
+            .logo{
+                width: 100%;
             }
         }
     }

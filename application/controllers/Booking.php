@@ -9,6 +9,10 @@ class Booking extends Public_Controller {
         parent::__construct();
 
         $this->load->helper('url');
+        $this->load->model('banner_model');
+        $this->data['lang'] = $this->session->userdata('langAbbreviation');
+
+        $this->load->helper('url');
         $this->load->model('order_model');
     }
 
@@ -16,6 +20,12 @@ class Booking extends Public_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->data['current_link'] = 'booking';
+
+        /**
+         * Get Banner
+         */
+        $banner = $this->banner_model->get_all_banner();
+        $this->data['banner'] = $banner;
 
         $this->load->helper('form');
         $this->load->library('form_validation');

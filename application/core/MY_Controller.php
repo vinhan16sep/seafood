@@ -69,7 +69,7 @@ class Admin_Controller extends MY_Controller {
         parent::render($the_view, $template);
     }
 
-    protected function upload_image($image_input_id, $image_name, $upload_path, $upload_thumb_path = '', $thumbs_with = 75, $thumbs_height = 50) {
+    protected function upload_image($image_input_id, $image_name, $upload_path, $upload_thumb_path = '', $thumbs_with = 500, $thumbs_height = 500) {
         $image = '';
         if (!empty($image_name)) {
             $config['upload_path'] = $upload_path;

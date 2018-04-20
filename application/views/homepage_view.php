@@ -39,7 +39,7 @@
 		<span class="sr-only">Previous</span>
 	</a>
 	<a class="right carousel-control" href="#slider" role="button" data-slide="next">
-		<i class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
+		<i class="fa fa-3x fa-angle-right" aria-hidden="true""></i>
 		<span class="sr-only">Next</span>
 	</a>
 
@@ -116,6 +116,7 @@
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('events') ?></h1>
+			<h2><b><?php echo $event['event_title'] ?></b></h2>
 			<p><?php echo $event['event_content'] ?></p>
 
 			<!--
@@ -253,7 +254,7 @@
                         <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline btn-contact"'); ?>
 					</div>
 					<div class="col-xs-6 visible-xs">
-						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">
+						<a href="tel:+84 933151515" class="btn btn-outline" id="clickToCall" role="button">
 							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
 						</a>
 					</div>
