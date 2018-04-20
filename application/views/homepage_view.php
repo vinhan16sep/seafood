@@ -63,6 +63,9 @@
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('about-us') ?></h1>
 			<p><?php echo $about['about_content'] ?></p>
+			<a href="<?php echo base_url('assets/doc/floor-plan.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+                <?php echo $this->lang->line('show-floor-plan') ?>
+			</a>
 		</div>
 	</div>
 	<!-- End About -->
@@ -113,7 +116,9 @@
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('events') ?></h1>
-			<p><?php echo $event['event_description'] ?></p>
+			<p><?php echo $event['event_content'] ?></p>
+
+			<!--
 			<div class="box">
 				<h3><?php echo $this->lang->line('private-rooms') ?></h3>
 				<p><?php echo $this->lang->line('up-to') ?> <?php echo $event['private_rooms'] ?> <?php echo $this->lang->line('guests') ?></p>
@@ -126,6 +131,7 @@
                     <?php echo $this->lang->line('show-floor-plan') ?>
 				</a>
 			</div>
+			-->
 		</div>
 	</div>
 	<!-- End Events -->
@@ -243,8 +249,8 @@
                     <span class="message_error"></span>
 				</div>
 				<div class="row">
-					<div class="col-xs-6 col-sm-12 col-md-12">
-                        <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline pull-right btn-contact"'); ?>
+					<div class="col-xs-6">
+                        <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline btn-contact"'); ?>
 					</div>
 					<div class="col-xs-6 visible-xs">
 						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">

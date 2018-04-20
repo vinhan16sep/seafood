@@ -279,8 +279,7 @@ body, html {
     padding-top: 100px;
     padding-bottom: 100px; }
     .main-content .content .mask {
-      width: 500px;
-      height: 500px;
+      width: 100%;
       overflow: hidden;
       margin: 0 auto;
       position: relative; }
@@ -371,6 +370,21 @@ body, html {
     .main-content .content#contact .btn-outline {
       background-color: transparent; }
       .main-content .content#contact .btn-outline:hover {
+        background-color: #df2b26;
+        color: #fff;
+        border-color: transparent; }
+  .main-content .content#booking {
+    padding-top: 50px;
+    padding-bottom: 50px; }
+    .main-content .content#booking .form-group {
+      margin-left: 0;
+      margin-right: 0; }
+      .main-content .content#booking .form-group textarea {
+        resize: none; }
+    .main-content .content#booking .btn-outline {
+      background-color: transparent;
+      margin-top: 25px; }
+      .main-content .content#booking .btn-outline:hover {
         background-color: #df2b26;
         color: #fff;
         border-color: transparent; }
@@ -467,10 +481,10 @@ CONTENT:
   .slide#slider {
     height: 100%; }
     .slide#slider .carousel-inner .slide-banner {
-      width: 90%;
+      width: 70%;
       height: auto;
       top: 40%;
-      left: 5%; }
+      left: 15%; }
       .slide#slider .carousel-inner .slide-banner .image {
         width: 100%;
         margin-left: 0; }
@@ -502,7 +516,7 @@ CONTENT:
       padding: 5px; }
       .main-content .container-fluid#gallery .slide#slideGallery .item .inner .mask {
         width: 100%; }
-  .main-content .container#contact .btn-outline {
+  .main-content .container#contact .btn-outline, .main-content .container#booking .btn-outline {
     width: 100%;
     margin-bottom: 15px; }
 
