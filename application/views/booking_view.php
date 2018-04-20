@@ -9,25 +9,18 @@
     -->
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="mask">
-                <img src="https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80" alt="Image Slide 1">
-            </div>
-        </div>
-        <div class="item">
-            <div class="mask">
-                <img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4e80e68514efce683bd1016f33ecd8b6&auto=format&fit=crop&w=1041&q=80" alt="Image Slide 2">
-            </div>
-
-        </div>
-        <div class="item">
-            <div class="mask">
-                <img src="https://images.unsplash.com/photo-1448043552756-e747b7a2b2b8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=33b0e638540ff8ab1325e2ed73bafd58&auto=format&fit=crop&w=1249&q=80" alt="Image Slide 3">
-            </div>
-
-        </div>
-    </div>
+	<div class="carousel-inner" role="listbox">
+        <?php if($banner): ?>
+            <?php foreach($banner as $key => $value): ?>
+                <?php $i = 1; ?>
+				<div class="item <?php echo ($key == 0)? 'active' : '' ?>">
+					<div class="mask">
+						<img src="<?php echo base_url('assets/upload/banner/'. $value['image']) ?>" alt="Image Slide <?php echo $i++; ?>">
+					</div>
+				</div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+	</div>
 
     <!-- Controls -->
     <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
@@ -39,13 +32,8 @@
         <span class="sr-only">Next</span>
     </a>
 
-    <div class="slider-footer">
-        <div class="mask">
-            <img src="<?php echo site_url('assets/img/slider_bg.png') ?>" alt="slider footer">
-        </div>
-    </div>
     <div id="scrollBottom">
-        <a href="#contact">
+        <a href="#booking">
             <i class="fa fa-3x fa-angle-down" aria-hidden="true"></i>
         </a>
     </div>
@@ -56,7 +44,7 @@
 
     <div class="container content" id="booking">
         <div class="title">
-            <h1><?php echo $this->lang->line('book-table') ?></h1>
+            <h1><?php echo $this->lang->line('book-your-table') ?></h1>
         </div>
 
         <?php
@@ -132,7 +120,7 @@
 						<p><?php echo $this->lang->line('company-open-time') ?></p>
 						<p><?php echo $this->lang->line('company-open-time-start') ?> & <?php echo $this->lang->line('company-open-time-end') ?></p>
 						-->
-						<a href="tel:+84 0000 0000" class="btn btn-outline" id="clickToCall" role="button">
+						<a href="tel:+84 933151515" class="btn btn-outline" id="clickToCall" role="button">
 							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
 						</a>
 					</div>

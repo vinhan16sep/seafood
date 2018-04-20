@@ -156,11 +156,11 @@ class About extends Admin_Controller {
         $image = $this->input->post('image');
         $about = $this->about_model->get_by_id($id);
 
-        $upload = [];
+        $upload = array();
         $upload = json_decode($about['image']);
         $key = array_search($image, $upload);
         unset($upload[$key]);
-        $newUpload = [];
+        $newUpload = array();
         foreach ($upload as $key => $value) {
             $newUpload[] = $value;
         }

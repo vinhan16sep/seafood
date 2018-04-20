@@ -17,7 +17,7 @@ $lang['our-food'] = '我们的食物';
 $lang['events'] = '活动';
 $lang['gallery'] = '画廊';
 $lang['contact-us'] = '联系我们';
-$lang['book-table'] = '预订你的餐桌';
+$lang['book-table'] = '预订';
 $lang['get-direction'] = '得到指引';
 
 /*
@@ -63,10 +63,15 @@ $lang['guests'] = '宾客';
 $lang['show-floor-plan'] = '显示平面图';
 
 /*
+    Booking
+ */
+$lang['book-your-table'] = '预订你的餐桌';
+
+/*
     Footer
  */
 
-$lang['company-address'] = 'Da Nang City';
+$lang['company-address'] = 'Lot 8+9, An Cu 3 Area, Vo Nguyen Giap Street, Son Tra District, Da Nang City';
 $lang['company-tel'] = '000 000 0000 (9AM - 11AM)';
 $lang['company-email'] = 'info@ngochuongrestaurant.com';
 $lang['company-open-time'] = 'Open Daily';
