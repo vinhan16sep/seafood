@@ -17,6 +17,7 @@ class Homepage extends Public_Controller {
         $this->load->model('event_model');
         $this->load->model('image_model');
         $this->load->model('banner_model');
+        $this->load->model('break_model');
         $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
@@ -85,9 +86,26 @@ class Homepage extends Public_Controller {
         for($i = 0; $i < $count ; $i += 8){
             $new_library[] = array_slice($library, $i, 8);
         }
-//        print_r($new_library);die;
 
         $this->data['library'] = $new_library;
+
+        /**
+         *
+         * Get Break one
+         *
+         */
+        $break_1 = $this->break_model->get_break_by_id(1, $this->data['lang']);
+
+        $this->data['break_1'] = $break_1;
+
+        /**
+         *
+         * Get Break one
+         *
+         */
+        $break_2 = $this->break_model->get_break_by_id(2, $this->data['lang']);
+
+        $this->data['break_2'] = $break_2;
 
 
         $this->data['current_link'] = 'homepage';
