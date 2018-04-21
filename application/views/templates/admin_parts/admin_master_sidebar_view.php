@@ -89,6 +89,27 @@ if($this->ion_auth->logged_in()) {
                         <span>Thư Viện Ảnh</span>
                     </a>
                 </li>
+				<li class="treeview <?php echo ($this->uri->segment(2) == 'break_list')? 'active' : '' ?>">
+					<a href="">
+						<i class="fa fa-picture-o"></i>
+						<span>Break Edit</span>
+						<span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+						<ul class="treeview-menu">
+							<li class="<?php echo ($this->uri->segment(3) == '')? 'active' : '' ?>">
+								<a href="<?php echo base_url('admin/break_list') ?>">
+									<i class="fa fa-coffee"></i> Break 1
+								</a>
+							</li>
+							<li class="<?php echo ($this->uri->segment(3) == 'break_2')? 'active' : '' ?>">
+								<a href="<?php echo base_url('admin/break_list/break_2') ?>">
+									<i class="fa fa-coffee"></i> Break 2
+								</a>
+							</li>
+						</ul>
+					</a>
+				</li>
                 <li class="treeview <?php echo ($this->uri->segment(2) == 'order')? 'active' : '' ?>">
                     <a href="">
                         <i class="fa fa-file-text-o"></i>

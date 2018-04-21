@@ -120,7 +120,7 @@
 						<p><?php echo $this->lang->line('company-open-time') ?></p>
 						<p><?php echo $this->lang->line('company-open-time-start') ?> & <?php echo $this->lang->line('company-open-time-end') ?></p>
 						-->
-						<a href="tel:+84 933151515" class="btn btn-outline" id="clickToCall" role="button">
+						<a href="tel:+84 913 315 127" class="btn btn-outline" id="clickToCall" role="button">
 							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
 						</a>
 					</div>
