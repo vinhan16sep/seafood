@@ -255,7 +255,7 @@
                         <?php echo form_submit('submit', $this->lang->line('submit'), 'class="btn btn-outline btn-contact"'); ?>
 					</div>
 					<div class="col-xs-6 visible-xs">
-						<a href="tel:+84 933151515" class="btn btn-outline" id="clickToCall" role="button">
+						<a href="tel:+84 913 315 127" class="btn btn-outline" id="clickToCall" role="button">
 							<i class="fa fa-phone" aria-hidden="true"></i> Hotline
 						</a>
 					</div>
