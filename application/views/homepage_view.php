@@ -69,11 +69,11 @@
 		</div>
 	</div>
 	<!-- End About -->
-
-	<div class="break" id="break-1" style="background-image: url('https://images.unsplash.com/photo-1519351635902-7c60d09cb2ed?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9f2350a7b6ce99528b6a8ce9fbb9d27d&auto=format&fit=crop&w=967&q=80')">
+	<?php $image_1 = base_url("assets/upload/break/". $break_1["image"]) ?>
+	<div class="break" id="break-1" style="background-image: url('<?php echo $image_1 ?>')">
 		<div class="container">
 			<div class="title">
-				<h2><?php echo $this->lang->line('perfect-blend') ?></h2>
+				<h2><?php echo $break_1['break_title'] ?></h2>
 			</div>
 		</div>
 	</div>
@@ -97,11 +97,12 @@
 		</div>
 	</div>
 	<!-- End Food -->
-
-	<div class="break" id="break-2" style="background-image: url('https://images.unsplash.com/photo-1458644267420-66bc8a5f21e4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=de4ff3558258d5972b83cec5c963208b&auto=format&fit=crop&w=1493&q=80')">
+	
+	<?php $image_2 = base_url("assets/upload/break/". $break_2["image"]) ?>
+	<div class="break" id="break-2" style="background-image: url('<?php echo $image_2 ?>')">
 		<div class="container">
 			<div class="title">
-				<h2><?php echo $this->lang->line('elegant-recipes') ?></h2>
+				<h2><?php echo $break_2['break_title'] ?></h2>
 			</div>
 		</div>
 	</div>
