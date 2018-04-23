@@ -72,7 +72,7 @@ $lang['book-your-table'] = 'Đặt bàn';
     Footer
  */
 
-$lang['company-address'] = 'Lô 8+9 khu An Cư 3, Võ Nguyên Giáp, Sơn Trà, Đà Nẵng';
+$lang['company-address'] = 'Lô 8+9, Khu dân cư 3, đường Võ Nguyên Giáp, quận Sơn Trà, thành phố Đà Nẵng';
 $lang['company-tel'] = '000 000 0000 (9AM - 11AM)';
 $lang['company-email'] = 'info@ngochuongrestaurant.com';
 $lang['company-open-time'] = 'Open Daily';
