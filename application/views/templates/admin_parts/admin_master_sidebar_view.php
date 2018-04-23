@@ -77,6 +77,20 @@ if($this->ion_auth->logged_in()) {
                     </a>
                 </li>
 				-->
+                <li class="<?php echo ($this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'list_food' || $this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'create_food')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/upload/list_food') ?>">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+
+                <li class="<?php echo ($this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'list_floor' || $this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'create_floor')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/upload/list_floor') ?>">
+                        <i class="fa fa-th-large" aria-hidden="true"></i>
+                        <span>Mặt Bằng</span>
+                    </a>
+                </li>
+
                 <li class="<?php echo ($this->uri->segment(2) == 'event')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/event') ?>">
                         <i class="fa fa-file-text-o"></i>
