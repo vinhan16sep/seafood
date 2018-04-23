@@ -82,7 +82,7 @@ function remove(controller, id){
     }
 }
 
-function active(controller, id, question) {
+function active(controller, id, question, message = '') {
     var url = HOSTNAME + 'admin/' + controller + '/active';
     if(confirm(question)){
         $.ajax({
@@ -101,11 +101,22 @@ function active(controller, id, question) {
                         case 'order' :
                             alert('Xác nhận đặt bàn thành công');
                             break;
+                        case 'upload' :
+                            alert('Thay đổi thành công');
+                            break;
                     }
                     
                     location.reload();
                 }else{
-                    alert('Hiện có 1 sự kiện đang được sử dụng. Vui lòng tắt sự kiện đó rồi thực hiện lại thao tác!');
+                    switch(controller){
+                        case 'event' :
+                            alert('Hiện có 1 sự kiện đang được sử dụng. Vui lòng tắt sự kiện đó rồi thực hiện lại thao tác!');
+                            break;
+                        case 'upload' :
+                            alert(message);
+                            break;
+                    }
+                    
                     location.reload();
                 }
             },
