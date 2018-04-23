@@ -71,7 +71,7 @@ $lang['book-your-table'] = '预订你的餐桌';
     Footer
  */
 
-$lang['company-address'] = 'Lot 8+9, An Cu 3 Area, Vo Nguyen Giap Street, Son Tra District, Da Nang City';
+$lang['company-address'] = 'Lot 8+9, Residential Area No.3, Vo Nguyen Giap St., Son Tra Dis, Da Nang City, Vietnam';
 $lang['company-tel'] = '000 000 0000 (9AM - 11AM)';
 $lang['company-email'] = 'info@ngochuongrestaurant.com';
 $lang['company-open-time'] = 'Open Daily';

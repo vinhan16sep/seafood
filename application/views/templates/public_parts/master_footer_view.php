@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="left col-xs-12 col-sm-4 col-md-4">
 				<p><?php echo $this->lang->line('company-address') ?></p>
-				<p>Tel: 0933 15 15 15 | info@ngochuong.vn</p>
+				<p>Tel: 0913 31 51 27  | info@ngochuong.vn</p>
 			</div>
 			<div class="middle col-xs-12 col-sm-4 col-md-4">
 				<div class="logo">
