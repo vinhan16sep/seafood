@@ -18,6 +18,7 @@ class Homepage extends Public_Controller {
         $this->load->model('image_model');
         $this->load->model('banner_model');
         $this->load->model('break_model');
+        $this->load->model('upload_model');
         $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
@@ -106,6 +107,22 @@ class Homepage extends Public_Controller {
         $break_2 = $this->break_model->get_break_by_id(2, $this->data['lang']);
 
         $this->data['break_2'] = $break_2;
+
+        /**
+         *
+         * Get Break food
+         *
+         */
+        $food = $this->upload_model->get_active(0);
+        $this->data['food'] = $food;
+
+        /**
+         *
+         * Get Break floor
+         *
+         */
+        $floor = $this->upload_model->get_active(1);
+        $this->data['floor'] = $floor;
 
 
         $this->data['current_link'] = 'homepage';

@@ -26,6 +26,11 @@ class Upload_model extends MY_Model{
     	return $result = $this->db->get()->row_array();
     }
 
+    public function get_active($type){
+        $query = $this->db->from($this->table)->where(array('is_activated' => 1, 'type' => $type))->get();
+        return $query->row_array();
+    }
+
     public function count_active_with_upload($type){
         $query = $this->db->from($this->table)->where(array('is_activated' => 1, 'type' => $type))->get();
         return $query->num_rows();

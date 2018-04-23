@@ -91,8 +91,8 @@ class Upload extends Admin_Controller{
                     );
                     $insert = $this->upload_model->common_insert($shared_request);
                     if($insert){
-                        $this->session->set_flashdata('message_success', 'Thêm mới Menu thành công!');
-                        redirect('admin/upload/list_food');
+                        $this->session->set_flashdata('message_success', 'Thêm mới Floor thành công!');
+                        redirect('admin/upload/list_floor');
                     }
                 }else{
                     $this->session->set_flashdata('message_error', 'Vui lòng chọn file upload!');

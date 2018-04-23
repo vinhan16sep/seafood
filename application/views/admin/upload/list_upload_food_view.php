@@ -2,7 +2,11 @@
     <section class="content row">
         <div class="container col-md-12">
             <h3 style="text-transform: uppercase; text-align: center;">
-                Thư viện ảnh <p></p>
+                <?php if ($this->uri->segment(3) == 'list_food'): ?>
+                    MENU
+                <?php elseif($this->uri->segment(3) == 'list_floor'): ?>
+                    FLOOR
+                <?php endif ?>
             </h3>
             <?php if ($this->session->flashdata('message_error')): ?>
                 <div class="alert alert-warning alert-dismissible">
