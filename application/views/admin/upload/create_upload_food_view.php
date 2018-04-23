@@ -2,8 +2,15 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Thêm Menu
-            <small>Menu</small>
+            <?php if ($this->uri->segment(3) == 'create_food'): ?>
+                Thêm Menu
+                <small>Menu</small>
+            <?php elseif($this->uri->segment(3) == 'create_floor'): ?>
+                Thêm FLOOR
+                <small>FLOOR</small>
+                
+            <?php endif ?>
+            
         </h1>
         <?php if ($this->session->flashdata('message_error')): ?>
             <div class="alert alert-warning alert-dismissible">
@@ -24,7 +31,13 @@
                         echo form_open_multipart('', array('class' => 'form-horizontal'));
                         ?>
                         <div class="col-xs-12">
-                            <h4 class="box-title">Menu</h4>
+                            <h4 class="box-title">
+                                <?php if ($this->uri->segment(3) == 'create_food'): ?>
+                                    Menu
+                                <?php elseif($this->uri->segment(3) == 'create_floor'): ?>
+                                    FLOOR
+                                <?php endif ?>
+                            </h4>
                         </div>
                         <div class="row">
                             <span><?php echo $this->session->flashdata('message'); ?></span>

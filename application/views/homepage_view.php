@@ -63,7 +63,7 @@
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
 			<h1><?php echo $this->lang->line('about-us') ?></h1>
 			<p><?php echo $about['about_content'] ?></p>
-			<a href="<?php echo base_url('assets/doc/floor-plan.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+			<a href="<?php echo base_url('assets/upload/pdf/'. $floor['link']) ?>" class="btn btn-outline" role="button" target="_blank">
                 <?php echo $this->lang->line('show-floor-plan') ?>
 			</a>
 		</div>
@@ -84,7 +84,7 @@
 			<h1><?php echo $this->lang->line('our-food') ?></h1>
 			<p><?php echo $our_food['our_food_content'] ?></p>
 			<br>
-			<a href="<?php echo base_url('assets/doc/menu.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+			<a href="<?php echo base_url('assets/upload/pdf/'. $food['link']) ?>" class="btn btn-outline" role="button" target="_blank">
                 <?php echo $this->lang->line('show-menu') ?>
 			</a>
 
@@ -129,7 +129,7 @@
 				<h3><?php echo $this->lang->line('full-restaurant') ?></h3>
 				<p><?php echo $this->lang->line('up-to') ?> <?php echo $event['full_restaurant'] ?> <?php echo $this->lang->line('guests') ?></p>
 				<br>
-				<a href="<?php echo base_url('assets/doc/floor-plan.pdf') ?>" class="btn btn-outline" role="button" target="_blank">
+				<a href="<?php echo base_url('assets/upload/pdf/') ?>" class="btn btn-outline" role="button" target="_blank">
                     <?php echo $this->lang->line('show-floor-plan') ?>
 				</a>
 			</div>
