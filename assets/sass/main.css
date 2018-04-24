@@ -402,8 +402,8 @@ body, html {
 .footer {
   background-color: #000;
   color: #fff;
-  padding-top: 30px;
-  padding-bottom: 50px; }
+  padding-top: 15px;
+  padding-bottom: 20px; }
   .footer .left {
     text-align: left;
     padding-top: 180px; }
@@ -613,5 +613,8 @@ body {
   font-family: "UVFaria"; }
 .main-content .content .text p {
   font-family: "sanFranciscoR"; }
+
+.footer p {
+  font-size: 1.1em; }
 
 /*# sourceMappingURL=main.css.map */
