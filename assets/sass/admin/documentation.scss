@@ -1,5 +1,36 @@
 $mainFont: 'Roboto', sans-serif;
+$text-color: #6d6d6d;
+$text-color-bold: #333;
 
 body{
     font-family: $mainFont;
+}
+
+h1, h2, h3, h4{
+    color: $text-color-bold;
+}
+
+p{
+    color: $text-color;
+}
+
+ol{
+    li{
+        font-weight: bold;
+        font-size: 1.25em;
+
+    }
+
+    img{
+        width: 1000px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    ul{
+        li{
+            font-weight: normal;
+            font-size: 1em;
+        }
+    }
 }
