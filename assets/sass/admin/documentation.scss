@@ -6,12 +6,17 @@ body{
     font-family: $mainFont;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, b{
     color: $text-color-bold;
 }
 
 p{
     color: $text-color;
+}
+
+p.note{
+    color:red;
+    font-weight: bold;
 }
 
 ol{
@@ -31,6 +36,16 @@ ol{
         li{
             font-weight: normal;
             font-size: 1em;
+        }
+    }
+}
+
+.main-content{
+    .left{
+        &.sticky{
+            position: -webkit-sticky;
+            position: sticky;
+            top: 15px;
         }
     }
 }

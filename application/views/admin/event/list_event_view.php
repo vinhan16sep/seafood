@@ -63,9 +63,11 @@
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
                                     <th>Tiêu đề</th>
+									<!--
                                     <th>Private Rooms</th>
                                     <th>Private Floors</th>
                                     <th>Full Restaurant</th>
+                                    -->
                                     <th>Status</th>
                                     <th>Detail</th>
                                     <th>Action</th>
@@ -85,17 +87,17 @@
                                             </div>
                                         </td>
                                         <td><?php echo $value['title'] ?></td>
-                                        <td><?php echo $value['private_rooms'] ?></td>
+                                        <!--
+										<td><?php echo $value['private_rooms'] ?></td>
                                         <td><?php echo $value['private_floors'] ?></td>
                                         <td><?php echo $value['full_restaurant'] ?></td>
-                                        <td>
+                                        -->
                                         <td>
                                             <?php if($value['is_activated'] == 1): ?>
                                                 <span class="label label-success" onclick="deactive('event', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng sự kiện này?')">Đang sử dụng</span>
                                             <?php else: ?>
                                                 <span class="label label-warning" onclick="active('event', <?php echo $value['id'] ?>, 'Chắc chắn tắt sự kiện này?')">Không sử dụng</span>
                                             <?php endif ?>
-                                        </td>
                                         </td>
                                         <td>
                                             <a href="<?php echo base_url('admin/event/detail/'.$value['id']) ?>"
@@ -120,9 +122,11 @@
                                     <th>No.</th>
                                     <th>Hình ảnh</th>
                                     <th>Tiêu đề</th>
+									<!--
                                     <th>Private Rooms</th>
                                     <th>Private Floors</th>
                                     <th>Full Restaurant</th>
+                                    -->
                                     <th>Status</th>
                                     <th>Detail</th>
                                     <th>Action</th>

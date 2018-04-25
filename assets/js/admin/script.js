@@ -1,6 +1,6 @@
 switch(window.location.origin){
-    case 'http://seafood.com':
-        var HOSTNAME = 'http://seafood.com/';
+    case 'http://ngochuong.vn':
+        var HOSTNAME = 'http://ngochuong.vn/';
         break;
     default:
         var HOSTNAME = 'http://localhost/seafood/';

@@ -1,11 +1,15 @@
 body {
   font-family: "Roboto", sans-serif; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, b {
   color: #333; }
 
 p {
   color: #6d6d6d; }
+
+p.note {
+  color: red;
+  font-weight: bold; }
 
 ol li {
   font-weight: bold;
@@ -17,5 +21,10 @@ ol img {
 ol ul li {
   font-weight: normal;
   font-size: 1em; }
+
+.main-content .left.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px; }
 
 /*# sourceMappingURL=documentation.css.map */

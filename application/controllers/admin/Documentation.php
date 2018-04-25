@@ -11,4 +11,8 @@ class Documentation extends Admin_Controller {
         //$this->render('admin/documentation_view');
         $this->load->view('admin/documentation_view');
     }
+
+    public function print(){
+        $this->load->view('admin/documentation_print_view');
+    }
 }

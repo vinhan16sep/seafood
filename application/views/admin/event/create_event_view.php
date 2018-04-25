@@ -57,6 +57,7 @@
                                 ?>
                             </div>
                         </div>
+						<!-- Delete
                         <div class="form-group col-xs-12">
                             <div class="form-group col-xs-12">
                                 <?php
@@ -84,6 +85,7 @@
                                 ?>
                             </div>
                         </div>
+                        -->
                         <div>
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 <li role="presentation" class="active">
