@@ -100,7 +100,7 @@
 						</li>
 					</ul>
 					<div class="panel-footer">
-						<a href="<?php echo base_url('admin/documentation/print') ?>" class="btn btn-default" role="button" target="_blank">
+						<a href="<?php echo base_url('admin/documentation/printfile') ?>" class="btn btn-default" role="button" target="_blank">
 							<i class="fa fa-print" aria-hidden="true"></i> In tài liệu
 						</a>
 					</div>

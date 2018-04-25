@@ -12,7 +12,7 @@ class Documentation extends Admin_Controller {
         $this->load->view('admin/documentation_view');
     }
 
-    public function print(){
+    public function printfile(){
         $this->load->view('admin/documentation_print_view');
     }
 }
