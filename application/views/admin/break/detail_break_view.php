@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Banner
+            Break
             <small>Chi tiết</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="#"><i class="fa fa-dashboard"></i> Banner</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Break</a></li>
             <li class="active">Chi tiết</li>
         </ol>
     </section>
@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Chi tiết sự kiện</h3>
+                        <h3 class="box-title">Chi tiết break</h3>
                     </div>
 
                     <!-- /.box-header -->

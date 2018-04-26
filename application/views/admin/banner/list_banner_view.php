@@ -2,7 +2,7 @@
     <section class="content row">
         <div class="container col-md-12">
             <h3 style="text-transform: uppercase; text-align: center;">
-                Thư viện ảnh <p></p>
+                Slider ảnh <p></p>
             </h3>
             <?php if ($this->session->flashdata('message_error')): ?>
                 <div class="alert alert-warning alert-dismissible">

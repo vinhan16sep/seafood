@@ -56,7 +56,8 @@
                                             <th>Meta Description</th>
                                             <td><?php echo $event['meta_description'] ?></td>
                                         </tr>
-                                        <tr>
+                                        <!--
+										<tr>
                                             <th>Private Rooms</th>
                                             <td><?php echo $event['private_rooms'] ?></td>
                                         </tr>
@@ -68,6 +69,7 @@
                                             <th>Full Restaurant</th>
                                             <td><?php echo $event['full_restaurant'] ?></td>
                                         </tr>
+                                        -->
                                         <tr>
                                             <th>Trạng thái</th>
                                             <td>
