@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.min.css">
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
+    <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.cookie.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- favicon -->
@@ -27,6 +28,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0&appId=1890469611274046&autoLogAppEvents=1';
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <header class="header">
 	<div class="container">

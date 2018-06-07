@@ -52,6 +52,7 @@
 <script src="<?php echo site_url('assets/lib/lightbox/js/lightbox.min.js') ?>"></script>
 <!-- jQuery Input -->
 <script src="<?php echo site_url('assets/js/script.min.js') ?>"></script>
+<script src="<?php echo base_url('node_modules/socket.io-client/dist/socket.io.js');?>"></script>
 
 <script type="text/javascript">
     function onLoad(){
@@ -112,6 +113,56 @@
         display: table;
     }
     .clearfix:after { clear: both; }
+
+    /* ---------- LIVE-REGISTER ---------- */
+
+    #live-register {
+        bottom: 0;
+        font-size: 12px;
+        right: 24px;
+        position: fixed;
+        width: 300px;
+        height:300px;
+        background: #fff;
+    }
+
+    #live-register header {
+        background: #293239;
+        border-radius: 5px 5px 0 0;
+        color: #fff;
+        cursor: pointer;
+        padding: 16px 24px;
+    }
+
+    #live-register h4:before {
+        background: #1a8a34;
+        border-radius: 50%;
+        content: "";
+        display: inline-block;
+        height: 8px;
+        margin: 0 8px 0 0;
+        width: 8px;
+    }
+
+    #live-register h4 {
+        font-size: 12px;
+    }
+
+    #live-register h5 {
+        font-size: 10px;
+    }
+
+    #live-register form {
+        padding: 24px;
+    }
+
+    #live-register input[type="text"] {
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        padding: 8px;
+        outline: none;
+        width: 234px;
+    }
 
     /* ---------- LIVE-CHAT ---------- */
 
@@ -226,97 +277,95 @@
     }
 </style>
 
-<div id="live-chat">
 
-    <header class="clearfix">
+<div id="chatPosition">
 
-        <a href="#" class="chat-close">x</a>
+    <div id="live-register">
 
-        <h4>John Doe</h4>
+        <header class="clearfix">
 
-        <span class="chat-message-counter">3</span>
+            <a href="#" class="chat-close">x</a>
 
-    </header>
+            <h4>Please tell us who you are</h4>
 
-    <div class="chat">
+            <span class="chat-message-counter">3</span>
 
-        <div class="chat-history">
+        </header>
 
-            <div class="chat-message clearfix">
-
-                <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-
-                <div class="chat-message-content clearfix">
-
-                    <span class="chat-time">13:35</span>
-
-                    <h5>John Doe</h5>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, explicabo quasi ratione odio dolorum harum.</p>
-
-                </div> <!-- end chat-message-content -->
-
-            </div> <!-- end chat-message -->
-
-            <hr>
-
-            <div class="chat-message clearfix">
-
-                <img src="http://gravatar.com/avatar/2c0ad52fc5943b78d6abe069cc08f320?s=32" alt="" width="32" height="32">
-
-                <div class="chat-message-content clearfix">
-
-                    <span class="chat-time">13:37</span>
-
-                    <h5>Marco Biedermann</h5>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, nulla accusamus magni vel debitis numquam qui tempora rem voluptatem delectus!</p>
-
-                </div> <!-- end chat-message-content -->
-
-            </div> <!-- end chat-message -->
-
-            <hr>
-
-            <div class="chat-message clearfix">
-
-                <img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
-
-                <div class="chat-message-content clearfix">
-
-                    <span class="chat-time">13:38</span>
-
-                    <h5>John Doe</h5>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-
-                </div> <!-- end chat-message-content -->
-
-            </div> <!-- end chat-message -->
-
-            <hr>
-
-        </div> <!-- end chat-history -->
-
-        <p class="chat-feedback">Your partner is typing…</p>
-
-        <form action="#" method="post">
-
+        <div class="chat">
             <fieldset>
-
-                <input type="text" placeholder="Type your message…" autofocus>
+                <input type="text" placeholder="Your name" id="registerName" autofocus>
+                <input type="text" placeholder="Your email" id="registerEmail" autofocus>
+                <input type="text" placeholder="Your phone" id="registerPhone" autofocus>
+                <input type="button" id="btnRegister" name="" value="Register">
                 <input type="hidden">
-
             </fieldset>
+        </div> <!-- end register -->
 
-        </form>
+    </div> <!-- end live-register -->
 
-    </div> <!-- end chat -->
+    <div id="live-chat">
+        <header class="clearfix">
+            <a href="#" class="chat-close">x</a>
+            <h4>John Doe</h4>
+            <span class="chat-message-counter">3</span>
+        </header>
+        <div class="chat">
+            <div class="chat-history" id="chatContent">
 
-</div> <!-- end live-chat -->
+            </div> <!-- end chat-history -->
+            <p class="chat-feedback">Your partner is typing…</p>
+                <fieldset>
+                    <input type="text" id="txtMessage" data-room="whatever" placeholder="Type your message…" autofocus>
+                    <input type="button" id="btnSend" data-room="whatever" value="Send">
+                </fieldset>
+        </div> <!-- end chat -->
+    </div> <!-- end live-chat -->
+
+</div>
 <script>
-    (function() {
+    var socket = io("http://localhost:3000");
 
+    $("#live-chat").hide();
+
+    $("#btnRegister").click(function(){
+        socket.emit("Client-send-register-data", {
+            name: $("#registerName").val(),
+            email: $("#registerEmail").val(),
+            phone: $("#registerPhone").val()
+        });
+    });
+
+    $("#chatPosition").on("click", "#btnSend", function(event){
+        socket.emit("Client-send-message", {
+            room: $(event.target).data("room"),
+            text: $(event.target).prev().val()
+        });
+    });
+
+    socket.on("Server-send-create-room-status", function(roomId){
+        if(roomId){
+            $("#live-register").hide(2000);
+            $("#live-chat").show(1000, function(){
+                var messageInput = $(this).find("input[type=\"text\"]");
+                messageInput.attr("data-room", roomId).next().attr("data-room", roomId);
+            });
+        }
+    });
+
+    socket.on("Server-send-message-to-room", function(data){
+        // console.log(data);
+        $("#chatContent").html("");
+        data.map(function(item){
+            $("#chatContent").append(item.author + ": " + item.text + "<br>");
+        });
+    });
+
+    socket.on("Server-user-send-message-to-room", function(data){
+        console.log(data);
+    });
+
+    (function() {
         $('#live-chat header').on('click', function() {
 
             $('.chat').slideToggle(300, 'swing');

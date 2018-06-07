@@ -162,6 +162,3 @@ if($this->ion_auth->logged_in()) {
         <!-- /.sidebar -->
     </aside>
 <?php } ?>
-
-
-

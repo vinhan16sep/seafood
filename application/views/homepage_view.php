@@ -52,6 +52,32 @@
 <!-- End Slider -->
 
 <section class="main-content container-fluid">
+	<div class="page-header">
+  <h1>Share Dialog</h1>
+</div>
+
+<p>Click the button below to trigger a Share Dialog</p>
+
+<div id="shareBtn" class="btn btn-success clearfix">Share</div>
+
+<p style="margin-top: 50px">
+  <hr />
+  <a class="btn btn-small"  href="https://developers.facebook.com/docs/sharing/reference/share-dialog">Share Dialog Documentation</a>
+</p>
+
+<script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'https://developers.facebook.com/docs/',
+  }, function(response){
+	  console.log(response);
+	  $.cookie("share_data", response.post_id, { path: '/'});
+	  debugger;
+  });
+}
+</script>
 
 	<div class="container content" id="about">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
@@ -97,7 +123,7 @@
 		</div>
 	</div>
 	<!-- End Food -->
-	
+
 	<?php $image_2 = base_url("assets/upload/break/". $break_2["image"]) ?>
 	<div class="break" id="break-2" style="background-image: url('<?php echo $image_2 ?>')">
 		<div class="container">
