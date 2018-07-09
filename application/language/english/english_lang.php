@@ -19,6 +19,7 @@ $lang['gallery'] = 'Gallery';
 $lang['contact-us'] = 'Contact Us';
 $lang['book-table'] = 'Booking';
 $lang['get-direction'] = 'Get Direction';
+$lang['blogs'] = 'Blogs';
 
 /*
 Break
