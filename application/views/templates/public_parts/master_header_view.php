@@ -78,6 +78,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $url_en = base_url() . 'en/booking';
                         $url_cn = base_url() . 'cn/booking';
                         break;
+                    case 'blog':
+                        $url_vi = base_url() . 'vi/blog';
+                        $url_en = base_url() . 'en/blog';
+                        $url_cn = base_url() . 'cn/blog';
+                        break;
+                    case 'blog/detail':
+                        $url_vi = base_url() . 'vi/blog/detail';
+                        $url_en = base_url() . 'en/blog/detail';
+                        $url_cn = base_url() . 'cn/blog/detail';
+                        break;
                     default:
                         $url_vi = base_url() . 'vi';
                         $url_en = base_url() . 'en';

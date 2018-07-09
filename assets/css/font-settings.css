@@ -1,0 +1,65 @@
+/*
+MAIN FONT SETTINGS OF SITE
+
+AUTHOR: hung.luong@matocreative.vn
+
+ */
+@font-face {
+  font-family: 'sanFranciscoR';
+  src: url("../fonts/SanFranciscoDisplay-Regular.otf"); }
+@font-face {
+  font-family: 'sanFranciscoT';
+  src: url("../fonts/SanFranciscoDisplay-Thin.otf"); }
+@font-face {
+  font-family: 'centur';
+  src: url("../fonts/UTM%20Centur.ttf"); }
+@font-face {
+  font-family: 'UVFaria';
+  src: url("../fonts/UVF%20Aria%20Pro_0.otf"); }
+h1 {
+  font-size: 2.5em; }
+
+h2 {
+  font-size: 1.875em; }
+
+h3 {
+  font-size: 1.5em; }
+
+h4 {
+  font-size: 1.125em; }
+
+p {
+  font-size: 1.3em; }
+
+body {
+  font-family: "sanFranciscoR"; }
+
+.header {
+  font-family: "sanFranciscoR";
+  font-size: 1.3em; }
+
+.slide .carousel-inner .slide-banner .button .btn {
+  font-size: 1.5em;
+  text-transform: uppercase; }
+
+.main-content .break .title {
+  font-family: "UVFaria";
+  text-transform: uppercase; }
+.main-content .content#contact .btn-outline {
+  font-family: "sanFranciscoR";
+  text-transform: uppercase; }
+.main-content .btn-outline {
+  font-family: "sanFranciscoR";
+  font-size: 1.125em;
+  text-transform: uppercase; }
+.main-content .content .title {
+  font-family: "UVFaria"; }
+.main-content .content .text h1 {
+  font-family: "UVFaria"; }
+.main-content .content .text p {
+  font-family: "sanFranciscoR"; }
+
+.footer p {
+  font-size: 1.1em; }
+
+/*# sourceMappingURL=font-settings.css.map */
