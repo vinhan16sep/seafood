@@ -75,6 +75,35 @@ class MY_Model extends CI_Model {
         return $this->db->get()->row_array();
     }
 
+    public function get_by_slug($slug, $lang = '') {
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content');
+        $this->db->from($this->table);
+        $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id', 'left');
+        if($lang != ''){
+            $this->db->where($this->table_lang .'.language', $lang);
+        }
+        $this->db->where($this->table .'.is_deleted', 0);
+        $this->db->where($this->table .'.slug', $slug);
+        $this->db->limit(1);
+
+        return $this->db->get()->row_array();
+    }
+
+    public function get_all_with_pagination_by_lang($limit = NULL, $start = NULL, $lang = '', $order = 'desc'){
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content');
+        $this->db->from($this->table);
+        $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id');
+        $this->db->where($this->table .'.is_deleted', 0);
+        if($lang != ''){
+            $this->db->where($this->table_lang .'.language', $lang);
+        }
+        $this->db->limit($limit, $start);
+        $this->db->group_by($this->table_lang .'.'. $this->table .'_id');
+        $this->db->order_by($this->table .".id", $order);
+
+        return $result = $this->db->get()->result_array();
+    }
+
     public function common_update($id, $data) {
         $this->db->where('id', $id);
 
