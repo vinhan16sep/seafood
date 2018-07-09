@@ -1,0 +1,83 @@
+/*
+Import variable.scss
+ */
+
+@import "variable";
+
+.cover{
+    width: 100%;
+    height: 50vh;
+
+    .mask{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+#list-blogs{
+    .item{
+        margin-bottom: 30px;
+
+        .mask{
+            width: 100%;
+
+            border: 1px solid #eaeaea;
+
+            margin-bottom: 30px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        a{
+            font-size: 1.5em;
+            font-weight: bold;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 1.7em;
+            height: 3.4em;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+
+            color: $text-color;
+
+            &:hover{
+                color: $text-color;
+            }
+        }
+    }
+}
+
+#detail-blogs{
+    article{
+        p{
+            &.description{
+                font-size: 1.25em;
+                color: $text-color;
+
+                margin-bottom: 30px;
+            }
+
+            &.paragraph{
+                font-size: 1em;
+                color: #999;
+            }
+        }
+
+        img{
+            width: 100% !important;
+        }
+    }
+}

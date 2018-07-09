@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- lightbox.scss -->
 	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/lightbox/css/lightbox.min.css">
 	<!-- _main.scss -->
-	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.min.css">
+	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.css">
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
@@ -59,7 +59,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo $this->lang->line('events') ?>
                             </a>
                         </li>
-
+						<li>
+							<a href="<?php echo base_url('blog/') ?>">
+                                <?php echo $this->lang->line('blogs') ?>
+							</a>
+						</li>
 					</ul>
 				</div>
 
