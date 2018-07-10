@@ -145,7 +145,7 @@ class Blog extends Admin_Controller {
                 }
                 if ($check_upload == true) {
                     $slug = $this->input->post('slug_shared');
-                    $unique_slug = $this->blog_model->build_unique_slug($slug);
+                    $unique_slug = $this->blog_model->build_unique_slug($slug, $id);
                     $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/blog', 'assets/upload/blog/thumb');
                     $shared_request = array(
                         'slug' => $unique_slug,
@@ -239,19 +239,16 @@ class Blog extends Admin_Controller {
 
     public function active(){
         $id = $this->input->post('id');
-        $count = $this->blog_model->count_active();
         $data = array('is_activated' => 1);
-        if($count < 1){
-            $update = $this->blog_model->common_update($id, $data);
-            if($update == 1){
-                $reponse = array(
-                    'csrf_hash' => $this->security->get_csrf_hash()
-                );
-                return $this->output
-                    ->set_content_type('application/json')
-                    ->set_status_header(HTTP_SUCCESS)
-                    ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true, 'reponse' => $reponse)));
-            }
+        $update = $this->blog_model->common_update($id, $data);
+        if($update == 1){
+            $reponse = array(
+                'csrf_hash' => $this->security->get_csrf_hash()
+            );
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_status_header(HTTP_SUCCESS)
+                ->set_output(json_encode(array('status' => HTTP_SUCCESS, 'success' => true, 'reponse' => $reponse)));
         }
         return $this->output
             ->set_content_type('application/json')

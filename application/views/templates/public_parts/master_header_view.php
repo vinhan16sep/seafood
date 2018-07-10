@@ -59,8 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <?php echo $this->lang->line('events') ?>
                             </a>
                         </li>
-						<li>
-							<a href="<?php echo base_url('blog/') ?>">
+                        <li>
+							<a href="<?php echo base_url('blog') ?>">
                                 <?php echo $this->lang->line('blogs') ?>
 							</a>
 						</li>

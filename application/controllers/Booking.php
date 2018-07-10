@@ -69,10 +69,10 @@ class Booking extends Public_Controller {
         $mail->Port = 465; // set the port to use
         $mail->SMTPAuth = true; // turn on SMTP authentication
         $mail->SMTPSecure = 'ssl';
-        $mail->Username = "nghemalao@gmail.com"; // your SMTP username or your gmail username
-        $mail->Password = "Huongdan1"; // your SMTP password or your gmail password
-        $from = "minhtruong93gtvt@gmail.com"; // Reply to this email
-        $to = "truong.do@matocreative.vn"; // Recipients email ID
+        $mail->Username = "ngochuong.res@gmail.com"; // your SMTP username or your gmail username
+        $mail->Password = "ngochuong123"; // your SMTP password or your gmail password
+        $from = "ngochuong.res@gmail.com"; // Reply to this email
+        $to = "info@ngochuong.vn"; // Recipients email ID
         $name = 'WEBMAIL'; // Recipient's name
         $mail->From = $from;
         $mail->FromName = $name; // Name to indicate where the email came from when the recepient received

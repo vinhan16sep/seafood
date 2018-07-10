@@ -94,9 +94,9 @@
                                         -->
                                         <td>
                                             <?php if($value['is_activated'] == 1): ?>
-                                                <span class="label label-success" onclick="deactive('event', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng sự kiện này?')">Đang sử dụng</span>
+                                                <span class="label label-success" onclick="deactive('event', <?php echo $value['id'] ?>, 'Chắc chắn tắt sự kiện này?')">Đang sử dụng</span>
                                             <?php else: ?>
-                                                <span class="label label-warning" onclick="active('event', <?php echo $value['id'] ?>, 'Chắc chắn tắt sự kiện này?')">Không sử dụng</span>
+                                                <span class="label label-warning" onclick="active('event', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng sự kiện này?')">Không sử dụng</span>
                                             <?php endif ?>
                                         </td>
                                         <td>

@@ -3,7 +3,7 @@
     <section class="content-header">
         <h1>
             Chỉnh sửa
-            <small>Sự kiện</small>
+            <small>Tin Tức</small>
         </h1>
     </section>
 

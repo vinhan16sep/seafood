@@ -149,7 +149,7 @@ class Event extends Admin_Controller {
                 }
                 if ($check_upload == true) {
                     $slug = $this->input->post('slug_shared');
-                    $unique_slug = $this->event_model->build_unique_slug($slug);
+                    $unique_slug = $this->event_model->build_unique_slug($slug, $id);
                     $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/event', 'assets/upload/event/thumb');
                     $shared_request = array(
                         'slug' => $unique_slug,
