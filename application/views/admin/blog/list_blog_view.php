@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             Danh sách
-            <small>Sự kiện</small>
+            <small>Tin Tức</small>
         </h1>
 <!--        <ol class="breadcrumb">-->
 <!--            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
@@ -34,7 +34,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Sự kiện</h3>
+                        <h3 class="box-title">Tin Tức</h3>
                     </div>
 
                     <div class="row">
@@ -94,9 +94,9 @@
                                         -->
                                         <td>
                                             <?php if($value['is_activated'] == 1): ?>
-                                                <span class="label label-success" onclick="deactive('blog', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng sự kiện này?')">Đang sử dụng</span>
+                                                <span class="label label-success" onclick="deactive('blog', <?php echo $value['id'] ?>, 'Chắc chắn tắt tin tức này?')">Đang sử dụng</span>
                                             <?php else: ?>
-                                                <span class="label label-warning" onclick="active('blog', <?php echo $value['id'] ?>, 'Chắc chắn tắt sự kiện này?')">Không sử dụng</span>
+                                                <span class="label label-warning" onclick="active('blog', <?php echo $value['id'] ?>, 'Chắc chắn sử dụng tin tức này?')">Không sử dụng</span>
                                             <?php endif ?>
                                         </td>
                                         <td>
@@ -112,7 +112,7 @@
                                 <?php endforeach ?>
                                 <?php else: ?>
                                     <tr>
-                                        Chưa có blogs
+                                        Chưa có tin tức
                                     </tr>
                                 <?php endif; ?>
 

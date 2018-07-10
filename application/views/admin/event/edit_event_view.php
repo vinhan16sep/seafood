@@ -27,7 +27,7 @@
                             <?php
                             echo form_label('Ảnh đại diện đang sử dụng', 'image_old_shared');
                             ?>
-                            <img src="<?php echo base_url('assets/upload/event/'.$event['image']) ?>" alt="anh-cua-<?php echo $event['slug'] ?>" style="display: block;">
+                            <img src="<?php echo base_url('assets/upload/event/'.$event['image']) ?>" alt="anh-cua-<?php echo $event['slug'] ?>" style="display: block;" width=150>
                             <br>
                         </div>
 

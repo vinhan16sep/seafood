@@ -111,7 +111,7 @@ class MY_Model extends CI_Model {
     }
 
     public function count_active(){
-        $query = $this->db->from($this->table)->where('is_activated', 1)->get();
+        $query = $this->db->from($this->table)->where(['is_activated' => 1, 'is_deleted' => 0])->get();
         return $query->num_rows();
     }
 

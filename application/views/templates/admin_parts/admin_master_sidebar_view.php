@@ -63,6 +63,12 @@ if($this->ion_auth->logged_in()) {
 						<span>Slider</span>
 					</a>
 				</li>
+				<li class="<?php echo ($this->uri->segment(2) == 'blog')? 'active' : '' ?>">
+					<a href="<?php echo base_url('admin/blog') ?>">
+						<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+						<span>Bài Viết</span>
+					</a>
+				</li>
                 <li class="<?php echo ($this->uri->segment(2) == 'our_food')? 'active' : '' ?>">
                     <a href="<?php echo base_url('admin/our_food') ?>">
                         <i class="fa fa-cutlery"></i>
@@ -149,6 +155,19 @@ if($this->ion_auth->logged_in()) {
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'list_food' || $this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'create_food')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/upload/list_food') ?>">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <span>Upload Menu</span>
+                    </a>
+                </li>
+
+                <li class="<?php echo ($this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'list_floor' || $this->uri->segment(2) == 'upload' && $this->uri->segment(3) == 'create_floor')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/upload/list_floor') ?>">
+                        <i class="fa fa-th-large" aria-hidden="true"></i>
+                        <span>Upload Mặt Bằng</span>
+                    </a>
                 </li>
                 <li class="header">DOCUMENTATION</li>
                 <li>
