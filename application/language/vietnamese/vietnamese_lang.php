@@ -88,3 +88,9 @@ $lang['company-follow'] = 'Theo dõi chúng tôi tại';
 $lang['modal-menu'] = 'Menu';
 $lang['modal-floor-plan'] = 'Sơ đồ nhà hàng';
 $lang['modal-close'] = 'Đóng';
+
+/*
+    Blogs
+ */
+
+$lang['related'] = 'Tin liên quan';

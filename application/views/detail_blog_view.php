@@ -21,6 +21,29 @@
 					</article>
 					<div class="fb-comments" data-href="<?php echo base_url('blog/detail/' . $detail['slug']) ?>" data-width="100%" data-numposts="5"></div>
 				</div>
+				<div class="blog-related">
+					<div class="title">
+						<h3><?php echo $this->lang->line('related') ?></h3>
+					</div>
+					<div class="row">
+                        <?php if($relative): ?>
+							<?php foreach ($relative as $key => $value): ?>
+								<div class="media col-sm-6 col-xs-12">
+									<div class="media-left media-middle">
+										<a href="#">
+											<div class="mask">
+												<img class="media-object" src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="img related blogs">
+											</div>
+										</a>
+									</div>
+									<div class="media-body">
+										<h4 class="media-heading"><?php echo $value['title'] ?></h4>
+									</div>
+								</div>
+                            <?php endforeach ?>
+                        <?php endif ?>
+					</div>
+				</div>
 			</div>
 			<div class="right col-sm-4 col-xs-12">
 				<div class="booking">

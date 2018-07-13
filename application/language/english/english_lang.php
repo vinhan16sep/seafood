@@ -87,3 +87,9 @@ $lang['company-follow'] = 'Follow us on';
 $lang['modal-menu'] = 'Menu';
 $lang['modal-floor-plan'] = 'Floor Plan';
 $lang['modal-close'] = 'Close';
+
+/*
+    Blogs
+ */
+
+$lang['related'] = 'Related Blogs';
