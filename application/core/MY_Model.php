@@ -137,12 +137,13 @@ class MY_Model extends CI_Model {
         return $temp_slug;
     }
 
-    public function get_relative_blog($lang, $limit){
+    public function get_relative_blog($lang, $slug, $limit){
         $this->db->select($this->table .'.*, '. $this->table_lang .'.title');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id');
         $this->db->where($this->table_lang .'.language', $lang);
         $this->db->where($this->table .'.is_deleted', 0);
+        $this->db->where($this->table .'.slug !=', $slug);
         $this->db->limit($limit);
         $this->db->order_by($this->table .".id", "desc");
 

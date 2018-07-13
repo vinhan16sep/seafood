@@ -42,7 +42,7 @@ class Blog extends Public_Controller {
 		$detail = $this->blog_model->get_by_slug($slug, $this->data['lang']);
 		$this->data['detail'] = $detail;
 
-		$this->data['relative'] = $this->blog_model->get_relative_blog($this->data['lang'], 3);
+		$this->data['relative'] = $this->blog_model->get_relative_blog($this->data['lang'], $slug, 4);
 
         $this->load->helper('form');
         $this->load->library('form_validation');
