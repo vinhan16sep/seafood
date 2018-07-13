@@ -561,6 +561,60 @@ body, html{
         }
     }
 
+    .content#news{
+        .title{
+            a{
+                color: $text-color;
+
+                &:hover{
+                    color: $text-color;
+                }
+            }
+        }
+        .row{
+            .item{
+                margin-bottom: 30px;
+
+                .mask{
+                    width: 100%;
+
+                    border: 1px solid #eaeaea;
+
+                    margin-bottom: 30px;
+
+                    a{
+                        height: 100%;
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                a{
+                    font-size: 1.5em;
+                    font-weight: bold;
+
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    line-height: 1.7em;
+                    height: 3.4em;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+
+                    color: $text-color;
+
+                    &:hover{
+                        color: $text-color;
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 #floor-plan{

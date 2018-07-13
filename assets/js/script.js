@@ -13,6 +13,8 @@ $(document).ready(function(){
     $('.container-fluid#gallery .mask').css('height' , maskWidth);
     var mask = $('.container .mask').width();
     $('.container .mask').css( 'height' , mask);
+    var maskNews = $('#news .mask').width();
+    $('#news .mask').css( 'height' , maskNews);
 
     // Smooth Scroll
     var navH = $('header').height();
@@ -20,6 +22,7 @@ $(document).ready(function(){
     var ab = $('#about').height() + 200;
     var fo = $('#food').height() + 200;
     var ev = $('#events').height() + 200;
+    var ne = $('#news').height() + 200;
     var ga = $('#gallery').height() + 200;
     var br = $('.break').height() + 300;
 
@@ -27,6 +30,7 @@ $(document).ready(function(){
         ab = $('#about').height() + 100;
         fo = $('#food').height() + 100;
         ev = $('#events').height() + 100;
+        ne = $('#news').height() + 100;
         ga = $('#gallery').height() + 100;
         br = $('.break').height() + 300;
     }
@@ -48,14 +52,19 @@ $(document).ready(function(){
             scrollTop : sl + ab + br + fo + br - navH
         }, 800)
     });
-    $('.header a#toGallery').click(function () {
+    $('.header a#toNews').click(function () {
         $('html, body').animate({
             scrollTop : sl + ab + br + fo + br + ev - navH
         }, 800)
     });
+    $('.header a#toGallery').click(function () {
+        $('html, body').animate({
+            scrollTop : sl + ab + br + fo + br + ev + ne - navH
+        }, 800)
+    });
     $('.header a#toContact').click(function () {
         $('html, body').animate({
-            scrollTop : sl + ab + br + fo + br + ev + ga - navH
+            scrollTop : sl + ab + br + fo + br + ev + ne + ga - navH
         }, 800)
     });
     $('.footer .logo a').click(function () {

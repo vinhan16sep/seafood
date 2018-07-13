@@ -19,7 +19,7 @@ $lang['gallery'] = 'Thư viện';
 $lang['contact-us'] = 'Liên hệ';
 $lang['book-table'] = 'Đặt bàn';
 $lang['get-direction'] = 'Chỉ hướng';
-$lang['blogs'] = 'Bài viết';
+$lang['blogs'] = 'Tin tức';
 
 /*
     Break
