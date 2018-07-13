@@ -111,7 +111,7 @@ select.form-control {
   padding-top: 30px;
   padding-bottom: 50px; }
 #detail-blogs .row .left .blog-related .row .media:first-of-type {
-  margin-top: 0; }
+  margin-top: 15px; }
 #detail-blogs .row .left .blog-related .row .media .media-left .mask {
   width: 100px;
   height: 100px;
