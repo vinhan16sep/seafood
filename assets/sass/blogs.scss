@@ -102,30 +102,55 @@ Import variable.scss
 
             .blog-content{
                 text-align: left;
-            }
 
-            article{
-                p{
-                    &.description{
-                        font-size: 1.25em;
-                        color: $text-color;
+                article{
+                    p{
+                        &.description{
+                            font-size: 1.25em;
+                            color: $text-color;
 
-                        margin-bottom: 30px;
+                            margin-bottom: 30px;
+                        }
+
+                        &.paragraph{
+                            font-size: 1em;
+                            color: #999;
+                        }
                     }
 
-                    &.paragraph{
-                        font-size: 1em;
-                        color: #999;
+                    img{
+                        width: 100% !important;
                     }
                 }
 
-                img{
-                    width: 100% !important;
+                .fb-comments{
+
                 }
             }
 
-            .fb-comments{
+            .blog-related{
+                .title{
+                    padding-top: 30px;
+                    padding-bottom: 50px;
+                }
 
+                .row{
+                    .media{
+                        .media-left{
+                            .mask{
+                                width: 100px;
+                                height: 100px;
+                                overflow: hidden;
+
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

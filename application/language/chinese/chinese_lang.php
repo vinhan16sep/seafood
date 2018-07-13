@@ -87,3 +87,9 @@ $lang['company-follow'] = '跟着我们';
 $lang['modal-menu'] = '菜单';
 $lang['modal-floor-plan'] = '平面图';
 $lang['modal-close'] = '关';
+
+/*
+    Blogs
+ */
+
+$lang['related'] = '相关博客';
