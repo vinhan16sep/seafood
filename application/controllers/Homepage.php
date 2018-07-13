@@ -175,7 +175,7 @@ class Homepage extends Public_Controller {
         $mail->Username = "ngochuong.res@gmail.com"; // your SMTP username or your gmail username
         $mail->Password = "ngochuong123"; // your SMTP password or your gmail password
         $from = "ngochuong.res@gmail.com"; // Reply to this email
-        $to = "truong.do@matocreative.vn"; // Recipients email ID
+        $to = "info@ngochuong.vn"; // Recipients email ID
         $name = 'WEBMAIL'; // Recipient's name
         $mail->From = $from;
         $mail->FromName = $name; // Name to indicate where the email came from when the recepient received
