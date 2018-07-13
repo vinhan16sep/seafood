@@ -77,40 +77,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</li>
 					</ul>
 				</div>
-
-                <?php
-                $url_vi = '';
-                $url_en = '';
-                $url_cn = '';
-                switch($current_link){
-                    case 'homepage':
-                        $url_vi = base_url() . 'vi';
-                        $url_en = base_url() . 'en';
-                        $url_cn = base_url() . 'cn';
-                        break;
-                    case 'booking':
-                        $url_vi = base_url() . 'vi/booking';
-                        $url_en = base_url() . 'en/booking';
-                        $url_cn = base_url() . 'cn/booking';
-                        break;
-                    case 'blog':
-                        $url_vi = base_url() . 'vi/blog';
-                        $url_en = base_url() . 'en/blog';
-                        $url_cn = base_url() . 'cn/blog';
-                        break;
-                    case 'blog/detail':
-                        $url_vi = base_url() . 'vi/blog/detail';
-                        $url_en = base_url() . 'en/blog/detail';
-                        $url_cn = base_url() . 'cn/blog/detail';
-                        break;
-                    default:
-                        $url_vi = base_url() . 'vi';
-                        $url_en = base_url() . 'en';
-                        $url_cn = base_url() . 'cn';
-                        break;
-                }
-                ?>
-
 				<div class="right">
 					<ul class="nav nav-justified">
 						<li>
@@ -130,32 +96,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</li>
 						<li>
 							<select class="form-control" id="langNav">
-								<option value="<?php echo $url_vi; ?>">Tiếng Việt</option>
-								<option value="<?php echo $url_en; ?>">English</option>
-								<option value="<?php echo $url_cn; ?>">中文</option>
+								<option value="vi">Tiếng Việt</option>
+								<option value="en">English</option>
+								<option value="cn">中文</option>
 							</select>
 						</li>
 						<script type="text/javascript">
-                            var currentLink = "<?php echo $current_link; ?>";
-                            var baseUrl = "<?php echo base_url(); ?>";
-                            var sessionLocation = "<?php echo $this->session->userdata('langAbbreviation'); ?>";
 
-                            switch(currentLink){
-                                case 'homepage':
-                                    $url = baseUrl + sessionLocation;
-                                    break;
-                                case 'booking':
-                                    $url = baseUrl + sessionLocation + '/booking';
-                                    break;
-                                default:
-                                    $url = baseUrl + sessionLocation;
-                                    break;
-                            }
-                            $('#langNav').val($url).change();
-                            var urlmenu = document.getElementById( 'langNav' );
-                            urlmenu.onchange = function() {
-                                window.location = this.value;
-                            };
+                            $("#langNav").val("<?php echo $this->session->userdata('langAbbreviation'); ?>");
+
+                            $("#langNav").change(function(){
+                                $.ajax({
+                                    method: "GET",
+                                    url: "http://localhost/seafood/homepage/change_language",
+                                    data: {
+                                        lang: $(this).val()
+                                    },
+                                    success: function(res){
+                                        if(res.message == 'changed'){
+                                            window.location.reload();
+                                        }
+                                    },
+                                    error: function(){
+
+                                    }
+                                });
+                            });
 						</script>
 					</ul>
 				</div>
