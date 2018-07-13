@@ -32,7 +32,7 @@
                                     </span>
                                 <?php endforeach ?>
                             <?php endif ?>
-                            
+
                         </div>
                         <div class="form-group col-xs-12">
                             <?php

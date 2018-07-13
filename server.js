@@ -1,6 +1,16 @@
 var socket  = require( 'socket.io' );
 var express = require('express');
+var q       = require('q');
 var app     = express();
+
+var mysql = require('mysql');
+var pool = mysql.createPool({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'seafood_db'
+});
+
 var server  = require('http').createServer(app);
 var io      = socket.listen( server );
 var port    = process.env.PORT || 3000;
@@ -30,6 +40,24 @@ var rooms = [];
 var conversations = [];
 
 io.on('connection', function (socket) {
+    console.log("Client connected");
+    // Fetch list room in database
+    pool.getConnection(function(err, connection){
+        if(err){
+            throw err;
+            console.log(err);
+        }else{
+            console.log(connection);
+            connection.query("SELECT * FROM room", function(err, rows){
+                if(err){
+                    throw err;
+                }else{
+                    io.sockets.emit("Server-send-list-rooms", rows);
+                }
+            });
+            connection.release();
+        }
+    });
 
     socket.on( 'Client-send-register-data', function(data) {
         // socket.join(socket.id);
@@ -37,11 +65,44 @@ io.on('connection', function (socket) {
         socket.clientEmail = data.email;
         socket.clientPhone = data.phone;
 
-        rooms.push(
-            new User(socket.id, data.name, data.email, data.phone)
-        );
+        var registerData = {
+            socket_id: socket.id,
+            name: data.name,
+            email: data.email,
+            phone: data.phone
+        };
 
-        io.sockets.emit("Server-send-list-rooms", rooms);
+        var promise = new Promise(function(resolve, reject){
+            pool.getConnection(function(err, connection){
+                if(err){
+                    reject(err);
+                }else{
+                    resolve(connection);
+                }
+            });
+        }).then(function(connection){
+            var connected = new Promise(function(resolve, reject){
+                connection.query("INSERT INTO room SET ?", registerData, function(err, result){
+                    if(err){
+                        reject(err);
+                    }else{
+                        resolve(result);
+                    }
+                });
+            }).then(function(result){
+                if(result){
+                    connection.query("SELECT * FROM room", function(err, rows){
+                        io.sockets.emit("Server-send-list-rooms", rows);
+                    });
+                }
+
+                connection.release();
+            }).catch(function(err){
+                throw {error: err, queryRequest: queryRequest}
+            });
+        }).catch(function(err){
+            throw {error: err, queryRequest: queryRequest}
+        });
 
         if(data.phone != ""){
             socket.emit("Server-send-create-room-status", socket.id);
@@ -67,7 +128,7 @@ io.on('connection', function (socket) {
     });
 
     socket.on("Client-send-message", function(data){
-        var author = socket.clientName;
+        var author = socket.clientName; 
         if(socket.clientName == undefined){
             author = "Admin";
         }
