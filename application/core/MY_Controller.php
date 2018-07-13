@@ -38,6 +38,13 @@ class MY_Controller extends CI_Controller {
         return $config;
     }
 
+    function return_api($status, $message='', $data = null,$isExisted= true){
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_status_header($status)
+            ->set_output(json_encode(array('status' => $status,'message' => $message , 'reponse' => $data, 'isExisted' => $isExisted)));
+    }
+
 }
 
 class Admin_Controller extends MY_Controller {
@@ -166,7 +173,8 @@ class Public_Controller extends MY_Controller {
 
         date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-        $this->langAbbreviation = $this->uri->segment(1) ? $this->uri->segment(1) : 'vi';
+        $this->langAbbreviation = $this->session->userdata('langAbbreviation') ? $this->session->userdata('langAbbreviation') : 'vi';
+
         if($this->langAbbreviation == 'vi' || $this->langAbbreviation == 'en' || $this->langAbbreviation == 'cn' || $this->langAbbreviation == ''){
             $this->session->set_userdata('langAbbreviation', $this->langAbbreviation);
         }

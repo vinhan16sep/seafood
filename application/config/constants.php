@@ -95,3 +95,9 @@ defined('HTTP_SUCCESS') OR define('HTTP_SUCCESS', 200);
  * HTTP Error code
  */
 defined('HTTP_BAD_REQUEST') OR define('HTTP_BAD_REQUEST', 400);
+
+/**
+ * Change Language
+ */
+defined('MESSAGE_CHANGE_LANGUAGE_SUCCESS') OR define('MESSAGE_CHANGE_LANGUAGE_SUCCESS', 'changed');
+defined('MESSAGE_CHANGE_LANGUAGE_FAIL') OR define('MESSAGE_CHANGE_LANGUAGE_FAIL', 'keep');
