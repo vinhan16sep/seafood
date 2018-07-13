@@ -97,7 +97,7 @@
 		</div>
 	</div>
 	<!-- End Food -->
-	
+
 	<?php $image_2 = base_url("assets/upload/break/". $break_2["image"]) ?>
 	<div class="break" id="break-2" style="background-image: url('<?php echo $image_2 ?>')">
 		<div class="container">
