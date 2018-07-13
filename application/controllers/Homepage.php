@@ -19,6 +19,7 @@ class Homepage extends Public_Controller {
         $this->load->model('banner_model');
         $this->load->model('break_model');
         $this->load->model('upload_model');
+        $this->load->model('blog_model');
         $this->data['lang'] = $this->session->userdata('langAbbreviation');
     }
 
@@ -124,6 +125,27 @@ class Homepage extends Public_Controller {
         $floor = $this->upload_model->get_active(1);
         $this->data['floor'] = $floor;
 
+        /**
+         *
+         * Get Blogs
+         *
+         */
+        $total_rows  = $this->blog_model->count_search();
+        $this->load->library('pagination');
+        $config = array();
+        $base_url = base_url('blog/index');
+        $per_page = 3;
+        $uri_segment = 3;
+        foreach ($this->pagination_config($base_url, $total_rows, $per_page, $uri_segment) as $key => $value) {
+            $config[$key] = $value;
+        }
+        $this->pagination->initialize($config);
+
+        $this->data['page_links'] = $this->pagination->create_links();
+        $this->data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+        $result = $this->blog_model->get_all_with_pagination_by_lang($per_page, $this->data['page'], $this->data['lang']);
+        $this->data['blogs'] = $result;
 
         $this->data['current_link'] = 'homepage';
         $this->render('homepage_view');

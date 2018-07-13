@@ -19,7 +19,7 @@ $lang['gallery'] = '画廊';
 $lang['contact-us'] = '联系我们';
 $lang['book-table'] = '预订';
 $lang['get-direction'] = '得到指引';
-$lang['blogs'] = '博客';
+$lang['blogs'] = '新闻';
 
 /*
 Break

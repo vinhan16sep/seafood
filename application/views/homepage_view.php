@@ -138,6 +138,31 @@
 	</div>
 	<!-- End Events -->
 
+	<div class="container content" id="news">
+		<div class="title">
+				<h1>
+					<a href="<?php echo base_url('blog') ?>">
+						<?php echo $this->lang->line('blogs') ?>
+					</a>
+				</h1>
+		</div>
+		<div class="row">
+            <?php if($blogs): ?>
+                <?php foreach ($blogs as $key => $value): ?>
+					<div class="item col-sm-4 col-xs-12">
+						<div class="mask">
+							<a href="<?php echo base_url('blog/detail/' . $value['slug']) ?>">
+								<img src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="">
+							</a>
+						</div>
+						<a href="<?php echo base_url('blog/detail/' . $value['slug']) ?>"><?php echo $value['title'] ?></a>
+					</div>
+                <?php endforeach ?>
+            <?php endif ?>
+		</div>
+	</div>
+	<!-- End Events -->
+
 	<div class="container-fluid content" id="gallery">
 		<div class="title">
 			<h1><?php echo $this->lang->line('gallery') ?></h1>

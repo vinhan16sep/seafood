@@ -28,6 +28,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 
+<!-- Facebook SDK -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.0';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
 <header class="header">
 	<div class="container">
 		<nav class="nav">
@@ -60,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </a>
                         </li>
                         <li>
-							<a href="<?php echo base_url('blog') ?>">
+							<a href="homepage#news" id="toNews">
                                 <?php echo $this->lang->line('blogs') ?>
 							</a>
 						</li>
