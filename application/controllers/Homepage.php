@@ -39,34 +39,34 @@ class Homepage extends Public_Controller {
          * Get About
          *
          */
-        $about = $this->about_model->get_by_id(1, $this->data['lang']);
-        $about_avatar = explode('.', $about['avatar']);
-        if(count($about_avatar) == 2){
-            $about['avatar'] = $about_avatar[0] .'_thumb.'. $about_avatar[1];
-        }
-        $this->data['about'] = $about;
+        $this->data['about'] = $this->about_model->get_by_id(1, $this->data['lang']);
+//        $about_avatar = explode('.', $about['avatar']);
+//        if(count($about_avatar) == 2){
+//            $about['avatar'] = $about_avatar[0] .'_thumb.'. $about_avatar[1];
+//        }
+//        $this->data['about'] = $about;
 
         /**
          *
          * Get Our Food
          *
          */
-        $our_food = $this->our_food_model->get_our_food_by_id(1, $this->data['lang']);
-        $our_food_avatar = explode('.', $our_food['avatar']);
-        if(count($our_food_avatar) == 2){
-            $our_food['avatar'] = $our_food_avatar[0] .'_thumb.'. $our_food_avatar[1];
-        }
-        $this->data['our_food'] = $our_food;
+        $this->data['our_food'] = $this->our_food_model->get_our_food_by_id(1, $this->data['lang']);
+//        $our_food_avatar = explode('.', $our_food['avatar']);
+//        if(count($our_food_avatar) == 2){
+//            $our_food['avatar'] = $our_food_avatar[0] .'_thumb.'. $our_food_avatar[1];
+//        }
+//        $this->data['our_food'] = $our_food;
 
         /**
          *  Get Event
          */
-        $event = $this->event_model->get_event_when_active($this->data['lang']);
-        $event_avatar = explode('.', $event['image']);
-        if(count($event_avatar) == 2){
-            $event['image'] = $event_avatar[0] .'_thumb.'. $event_avatar[1];
-        }
-        $this->data['event'] = $event;
+        $this->data['event'] = $this->event_model->get_event_when_active($this->data['lang']);
+//        $event_avatar = explode('.', $event['image']);
+//        if(count($event_avatar) == 2){
+//            $event['image'] = $event_avatar[0] .'_thumb.'. $event_avatar[1];
+//        }
+//        $this->data['event'] = $event;
 
         /**
          *  Get Gallery

@@ -56,7 +56,7 @@
 	<div class="container content" id="about">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="<?php echo base_url('assets/upload/about/thumb/'. $about['avatar']) ?>" alt="anh gioi thieu">
+				<img src="<?php echo base_url('assets/upload/about/'. $about['avatar']) ?>" alt="anh gioi thieu">
 				<div class="image-decor"></div>
 			</div>
 		</div>
@@ -91,7 +91,7 @@
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="<?php echo base_url('assets/upload/our_food/thumb/'. $our_food['avatar']) ?>" alt="anh mon an">
+				<img src="<?php echo base_url('assets/upload/our_food/'. $our_food['avatar']) ?>" alt="anh mon an">
 				<div class="image-decor"></div>
 			</div>
 		</div>
@@ -111,7 +111,7 @@
 	<div class="container content" id="events">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="<?php echo base_url('assets/upload/event/thumb/'. $event['image']) ?>" alt="anh su kien">
+				<img src="<?php echo base_url('assets/upload/event/'. $event['image']) ?>" alt="anh su kien">
 				<div class="image-decor"></div>
 			</div>
 		</div>
