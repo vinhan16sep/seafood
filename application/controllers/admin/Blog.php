@@ -6,7 +6,7 @@
 class Blog extends Admin_Controller {
 
     private $request_language_template = array(
-        'title', 'description', 'content'
+        'title', 'description', 'content', 'imagetitle', 'imagealt', 'imagedescription'
     );
     private $author_data = array();
 
@@ -130,6 +130,27 @@ class Blog extends Admin_Controller {
         $blog['content_vi'] = $content[2];
         $this->data['blog'] = $blog;
 
+        $imagetitle = explode('|||', $blog['blog_imagetitle']);
+        $blog['imagetitle_cn'] = $imagetitle[0];
+        $blog['imagetitle_en'] = $imagetitle[1];
+        $blog['imagetitle_vi'] = $imagetitle[2];
+        $this->data['blog'] = $blog;
+
+        $imagedescription = explode('|||', $blog['blog_imagedescription']);
+        $blog['imagedescription_cn'] = $imagedescription[0];
+        $blog['imagedescription_en'] = $imagedescription[1];
+        $blog['imagedescription_vi'] = $imagedescription[2];
+        $this->data['blog'] = $blog;
+
+        $imagealt = explode('|||', $blog['blog_imagealt']);
+        $blog['imagealt_cn'] = $imagealt[0];
+        $blog['imagealt_en'] = $imagealt[1];
+        $blog['imagealt_vi'] = $imagealt[2];
+        $this->data['blog'] = $blog;
+
+        // echo '<pre>';
+        // print_r($blog);die;
+
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -212,6 +233,24 @@ class Blog extends Admin_Controller {
         $blog['content_cn'] = $content[0];
         $blog['content_en'] = $content[1];
         $blog['content_vi'] = $content[2];
+
+        $imagetitle = explode('|||', $blog['blog_imagetitle']);
+        $blog['imagetitle_cn'] = $imagetitle[0];
+        $blog['imagetitle_en'] = $imagetitle[1];
+        $blog['imagetitle_vi'] = $imagetitle[2];
+        $this->data['blog'] = $blog;
+
+        $imagedescription = explode('|||', $blog['blog_imagedescription']);
+        $blog['imagedescription_cn'] = $imagedescription[0];
+        $blog['imagedescription_en'] = $imagedescription[1];
+        $blog['imagedescription_vi'] = $imagedescription[2];
+        $this->data['blog'] = $blog;
+
+        $imagealt = explode('|||', $blog['blog_imagealt']);
+        $blog['imagealt_cn'] = $imagealt[0];
+        $blog['imagealt_en'] = $imagealt[1];
+        $blog['imagealt_vi'] = $imagealt[2];
+        $this->data['blog'] = $blog;
 
         $this->data['blog'] = $blog;
 

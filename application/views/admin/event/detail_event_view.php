@@ -112,15 +112,28 @@
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
-                                                        <th style="width: 100px">Tiêu đề: </th>
+                                                        <th style="width: 200px">Tiêu đề của hình ảnh: </th>
+                                                        <td><?php echo $event['imagetitle_vi'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">Alt của hình ảnh: </th>
+                                                        <td><?php echo $event['imagealt_vi'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">Giới thiệu về hình ảnh: </th>
+                                                        <td><?php echo $event['imagedescription_vi'] ?></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th style="width: 200px">Tiêu đề: </th>
                                                         <td><?php echo $event['title_vi'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Giới thiệu: </th>
+                                                        <th style="width: 200px">Giới thiệu: </th>
                                                         <td><?php echo $event['description_vi'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Nội dung: </th>
+                                                        <th style="width: 200px">Nội dung: </th>
                                                         <td><?php echo $event['content_vi'] ?></td>
                                                     </tr>
                                                 </tbody>
@@ -132,15 +145,28 @@
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
-                                                        <th style="width: 100px">Title: </th>
+                                                        <th style="width: 200px">Image title: </th>
+                                                        <td><?php echo $event['imagetitle_en'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">Image Alt: </th>
+                                                        <td><?php echo $event['imagealt_en'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">Image description: </th>
+                                                        <td><?php echo $event['imagedescription_en'] ?></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th style="width: 200px">Title: </th>
                                                         <td><?php echo $event['title_en'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Description: </th>
+                                                        <th style="width: 200px">Description: </th>
                                                         <td><?php echo $event['description_en'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">Content: </th>
+                                                        <th style="width: 200px">Content: </th>
                                                         <td><?php echo $event['content_en'] ?></td>
                                                     </tr>
                                                 </tbody>
@@ -152,15 +178,28 @@
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
-                                                        <th style="width: 100px">标题: </th>
+                                                        <th style="width: 200px">图像的标题: </th>
+                                                        <td><?php echo $event['imagetitle_cn'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">Alt图片: </th>
+                                                        <td><?php echo $event['imagealt_cn'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th style="width: 200px">关于图像: </th>
+                                                        <td><?php echo $event['imagedescription_cn'] ?></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th style="width: 200px">标题: </th>
                                                         <td><?php echo $event['title_cn'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">介绍: </th>
+                                                        <th style="width: 200px">介绍: </th>
                                                         <td><?php echo $event['description_cn'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th style="width: 100px">内容: </th>
+                                                        <th style="width: 200px">内容: </th>
                                                         <td><?php echo $event['content_cn'] ?></td>
                                                     </tr>
                                                 </tbody>

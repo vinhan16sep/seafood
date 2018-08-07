@@ -111,8 +111,11 @@
 	<div class="container content" id="events">
 		<div class="left col-xs-12 col-sm-6 col-md-6">
 			<div class="mask">
-				<img src="<?php echo base_url('assets/upload/event/'. $event['image']) ?>" alt="anh su kien">
+				<img src="<?php echo base_url('assets/upload/event/'. $event['image']) ?>" alt="<?php echo $event['event_imagealt'] ?>" title="<?php echo $event['event_imagetitle'] ?>">
 				<div class="image-decor"></div>
+			</div>
+			<div style="text-align: center;">
+				<small style="color: #777"><?php echo $event['event_imagedescription'] ?></small>
 			</div>
 		</div>
 		<div class="right col-xs-12 col-sm-6 col-md-6 text">
@@ -152,7 +155,7 @@
 					<div class="item col-sm-4 col-xs-12">
 						<div class="mask">
 							<a href="<?php echo base_url('blog/detail/' . $value['slug']) ?>">
-								<img src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="">
+								<img src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="<?php echo $value['imagealt'] ?>" title="<?php echo $value['imagetitle'] ?>">
 							</a>
 						</div>
 						<a href="<?php echo base_url('blog/detail/' . $value['slug']) ?>"><?php echo $value['title'] ?></a>

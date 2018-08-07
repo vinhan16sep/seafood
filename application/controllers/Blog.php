@@ -43,6 +43,8 @@ class Blog extends Public_Controller {
 		$this->data['detail'] = $detail;
 
 		$this->data['relative'] = $this->blog_model->get_relative_blog($this->data['lang'], $slug, 4);
+        // echo '<pre>';
+        // print_r($detail);die;
 
         $this->load->helper('form');
         $this->load->library('form_validation');

@@ -2,7 +2,7 @@
 
 <div class="cover">
 	<div class="mask">
-		<img src="<?php echo base_url('assets/upload/blog/'. $detail['image']) ?>">
+		<img src="<?php echo base_url('assets/upload/blog/'. $detail['image']) ?>" alt="<?php echo $detail['imagealt'] ?>" title="<?php echo $detail['imagetitle'] ?>">
 	</div>
 </div>
 
@@ -32,7 +32,7 @@
 									<div class="media-left media-middle">
 										<a href="#">
 											<div class="mask">
-												<img class="media-object" src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="img related blogs">
+												<img class="media-object" src="<?php echo base_url('assets/upload/blog/'. $value['image']) ?>" alt="<?php echo $value['imagealt'] ?>" title="<?php echo $value['imagetitle'] ?>">
 											</div>
 										</a>
 									</div>
