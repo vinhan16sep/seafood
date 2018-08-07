@@ -117,6 +117,33 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="vi">
                                     <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('Tiêu đề của hình ảnh', 'imagetitle_vi');
+                                            echo form_error('imagetitle_vi');
+                                            echo form_input('imagetitle_vi', $blog['imagetitle_vi'], 'class="form-control" id="imagetitle_vi"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('Alt của hình ảnh', 'imagealt_vi');
+                                            echo form_error('imagealt_vi');
+                                            echo form_input('imagealt_vi', $blog['imagealt_vi'], 'class="form-control" id="imagealt_vi"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('Giới thiệu về hình ảnh', 'imagedescription_vi');
+                                        echo form_error('imagedescription_vi');
+                                        echo form_textarea('imagedescription_vi', $blog['imagedescription_vi'], 'class="form-control" rows="5" ')
+                                        ?>
+                                    </div>
+
+
+                                    <div class="form-group col-xs-12">
                                         <?php
                                         echo form_label('Tiêu đề', 'title_vi');
                                         echo form_error('title_vi');
@@ -140,6 +167,33 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="en">
                                     <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('Image title', 'imagetitle_en');
+                                            echo form_error('imagetitle_en');
+                                            echo form_input('imagetitle_en', $blog['imagetitle_en'], 'class="form-control" id="imagetitle_en"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('Image Alt', 'imagealt_en');
+                                            echo form_error('imagealt_en');
+                                            echo form_input('imagealt_en', $blog['imagealt_en'], 'class="form-control" id="imagealt_en"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('Image description', 'imagedescription_en');
+                                        echo form_error('imagedescription_en');
+                                        echo form_textarea('imagedescription_en', $blog['imagedescription_en'], 'class="form-control" rows="5" ')
+                                        ?>
+                                    </div>
+
+
+                                    <div class="form-group col-xs-12">
                                         <?php
                                         echo form_label('Title', 'title_en');
                                         echo form_error('title_en');
@@ -162,6 +216,33 @@
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="cn">
+                                    <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('图像的标题', 'imagetitle_cn');
+                                            echo form_error('imagetitle_cn');
+                                            echo form_input('imagetitle_cn', $blog['imagetitle_cn'], 'class="form-control" id="imagetitle_cn"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <div class="form-group col-xs-12">
+                                            <?php
+                                            echo form_label('Alt图片', 'imagealt_cn');
+                                            echo form_error('imagealt_cn');
+                                            echo form_input('imagealt_cn', $blog['imagealt_cn'], 'class="form-control" id="imagealt_cn"');
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('关于图像', 'imagedescription_cn');
+                                        echo form_error('imagedescription_cn');
+                                        echo form_textarea('imagedescription_cn', $blog['imagedescription_cn'], 'class="form-control" rows="5" ')
+                                        ?>
+                                    </div>
+
+                                    
                                     <div class="form-group col-xs-12">
                                         <?php
                                         echo form_label('标题', 'title_cn');

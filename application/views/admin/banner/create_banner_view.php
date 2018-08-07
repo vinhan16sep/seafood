@@ -38,6 +38,34 @@
                             <p class="help-block">Click để upload</p>
                         </div>
 
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Tiêu đề của hình ảnh', 'imagetitle_shared');
+                                echo form_error('imagetitle_shared');
+                                echo form_input('imagetitle_shared', set_value('imagetitle_shared'), 'class="form-control" id="imagetitle_shared"');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <div class="form-group col-xs-12">
+                                <?php
+                                echo form_label('Alt của hình ảnh', 'imagealt_shared');
+                                echo form_error('imagealt_shared');
+                                echo form_input('imagealt_shared', set_value('imagealt_shared'), 'class="form-control" id="imagealt_shared"');
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <?php
+                            echo form_label('Giới thiệu về hình ảnh', 'imagedescription_shared');
+                            echo form_error('imagedescription_shared');
+                            echo form_textarea('imagedescription_shared', set_value('imagedescription_shared', '', false), 'class="form-control" rows="5" ')
+                            ?>
+                        </div>
+
+                        
+
                         <?php echo form_submit('submit_shared', 'OK', 'class="btn btn-primary"'); ?>
                         <?php echo form_close(); ?>
                     </div>

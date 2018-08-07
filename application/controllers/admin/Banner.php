@@ -40,6 +40,9 @@ class Banner extends Admin_Controller {
                     $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/banner', 'assets/upload/banner/thumb');
                     $shared_request = array(
                         'image' => $image,
+                        'imagetitle' => $this->input->post('imagetitle_shared'),
+                        'imagealt' => $this->input->post('imagealt_shared'),
+                        'imagedescription' => $this->input->post('imagedescription_shared'),
                         'created_at' => $this->author_data['created_at'],
                         'created_by' => $this->author_data['created_by'],
                         'updated_at' => $this->author_data['updated_at'],

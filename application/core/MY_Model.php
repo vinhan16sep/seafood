@@ -61,8 +61,11 @@ class MY_Model extends CI_Model {
         $this->db->query('SET SESSION group_concat_max_len = 10000000');
         $this->db->select($this->table .'.*, GROUP_CONCAT('. $this->table_lang .'.title ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_title,
                                 GROUP_CONCAT('. $this->table_lang .'.description ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_description,
-                                GROUP_CONCAT('. $this->table_lang .'.content ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_content
-                        ');
+                                GROUP_CONCAT('. $this->table_lang .'.content ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_content,
+                                GROUP_CONCAT('. $this->table_lang .'.imagetitle ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_imagetitle,
+                                GROUP_CONCAT('. $this->table_lang .'.imagedescription ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_imagedescription,
+                                GROUP_CONCAT('. $this->table_lang .'.imagealt ORDER BY '. $this->table_lang .'.language separator \' ||| \') as '. $this->table .'_imagealt,
+                                ');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id', 'left');
         if($lang != ''){
@@ -76,7 +79,7 @@ class MY_Model extends CI_Model {
     }
 
     public function get_by_slug($slug, $lang = '') {
-        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content');
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content ,' . $this->table_lang .'.imagetitle ,' . $this->table_lang .'.imagealt ,' . $this->table_lang .'.imagedescription');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id', 'left');
         if($lang != ''){
@@ -90,7 +93,7 @@ class MY_Model extends CI_Model {
     }
 
     public function get_all_with_pagination_by_lang($limit = NULL, $start = NULL, $lang = '', $order = 'desc'){
-        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content');
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content ,' . $this->table_lang .'.imagetitle ,' . $this->table_lang .'.imagealt ,' . $this->table_lang .'.imagedescription');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id');
         $this->db->where($this->table .'.is_deleted', 0);
@@ -138,7 +141,7 @@ class MY_Model extends CI_Model {
     }
 
     public function get_relative_blog($lang, $slug, $limit){
-        $this->db->select($this->table .'.*, '. $this->table_lang .'.title');
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.imagetitle ,' . $this->table_lang .'.imagealt ,');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id');
         $this->db->where($this->table_lang .'.language', $lang);

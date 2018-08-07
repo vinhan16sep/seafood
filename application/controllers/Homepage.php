@@ -62,6 +62,8 @@ class Homepage extends Public_Controller {
          *  Get Event
          */
         $this->data['event'] = $this->event_model->get_event_when_active($this->data['lang']);
+        // echo '<pre>';
+        // print_r($this->data['event']);die;
 //        $event_avatar = explode('.', $event['image']);
 //        if(count($event_avatar) == 2){
 //            $event['image'] = $event_avatar[0] .'_thumb.'. $event_avatar[1];

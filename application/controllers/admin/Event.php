@@ -6,7 +6,7 @@
 class Event extends Admin_Controller {
 
     private $request_language_template = array(
-        'title', 'description', 'content'
+        'title', 'description', 'content', 'imagetitle', 'imagealt', 'imagedescription'
     );
     private $author_data = array();
 
@@ -134,6 +134,24 @@ class Event extends Admin_Controller {
         $event['content_vi'] = $content[2];
         $this->data['event'] = $event;
 
+        $imagetitle = explode('|||', $event['event_imagetitle']);
+        $event['imagetitle_cn'] = $imagetitle[0];
+        $event['imagetitle_en'] = $imagetitle[1];
+        $event['imagetitle_vi'] = $imagetitle[2];
+        $this->data['event'] = $event;
+
+        $imagedescription = explode('|||', $event['event_imagedescription']);
+        $event['imagedescription_cn'] = $imagedescription[0];
+        $event['imagedescription_en'] = $imagedescription[1];
+        $event['imagedescription_vi'] = $imagedescription[2];
+        $this->data['event'] = $event;
+
+        $imagealt = explode('|||', $event['event_imagealt']);
+        $event['imagealt_cn'] = $imagealt[0];
+        $event['imagealt_en'] = $imagealt[1];
+        $event['imagealt_vi'] = $imagealt[2];
+        $this->data['event'] = $event;
+
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -216,6 +234,24 @@ class Event extends Admin_Controller {
         $event['content_cn'] = $content[0];
         $event['content_en'] = $content[1];
         $event['content_vi'] = $content[2];
+
+        $imagetitle = explode('|||', $event['event_imagetitle']);
+        $event['imagetitle_cn'] = $imagetitle[0];
+        $event['imagetitle_en'] = $imagetitle[1];
+        $event['imagetitle_vi'] = $imagetitle[2];
+        $this->data['event'] = $event;
+
+        $imagedescription = explode('|||', $event['event_imagedescription']);
+        $event['imagedescription_cn'] = $imagedescription[0];
+        $event['imagedescription_en'] = $imagedescription[1];
+        $event['imagedescription_vi'] = $imagedescription[2];
+        $this->data['event'] = $event;
+
+        $imagealt = explode('|||', $event['event_imagealt']);
+        $event['imagealt_cn'] = $imagealt[0];
+        $event['imagealt_en'] = $imagealt[1];
+        $event['imagealt_vi'] = $imagealt[2];
+        $this->data['event'] = $event;
 
         $this->data['event'] = $event;
 
