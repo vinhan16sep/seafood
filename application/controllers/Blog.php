@@ -32,6 +32,8 @@ class Blog extends Public_Controller {
 
         $result = $this->blog_model->get_all_with_pagination_by_lang($per_page, $this->data['page'], $this->data['lang']);
         $this->data['blogs'] = $result;
+        // echo '<pre>';
+        // print_r($result);die;
 		
 		$this->render('blog_view');
 	}

@@ -9,8 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Ngoc Huong Restaurant</title>
     <!-- Tell the browser to be responsive to screen width -->
-    <meta name="description" content="<?php echo isset($detail['meta_keywords'])? $detail['meta_description'] : $event['meta_description'] ?>">
-    <meta name="keywords" content="<?php echo isset($detail['meta_keywords'])? $detail['meta_keywords'] : $event['meta_keywords'] ?>">
+    <?php if ($this->uri->segment(2) == '!blog'): ?>
+        <meta name="description" content="<?php echo isset($detail['meta_description'])? $detail['meta_description'] : $event['meta_description'] ?>">
+        <meta name="keywords" content="<?php echo isset($detail['meta_keywords'])? $detail['meta_keywords'] : $event['meta_keywords'] ?>">
+    <?php endif ?>
+    
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/bootstrap/css/bootstrap.min.css">
