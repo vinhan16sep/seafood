@@ -112,6 +112,10 @@
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
+                                                        <th style="width: 200px">Title Tag: </th>
+                                                        <td><?php echo $blog['dynamictitle_vi'] ?></td>
+                                                    </tr>
+                                                    <tr>
                                                         <th style="width: 200px">Tiêu đề của hình ảnh: </th>
                                                         <td><?php echo $blog['imagetitle_vi'] ?></td>
                                                     </tr>
@@ -144,6 +148,10 @@
                                         <div class="table-responsive">
                                             <table class="table table-striped">
                                                 <tbody>
+                                                     <tr>
+                                                        <th style="width: 200px">Title Tag: </th>
+                                                        <td><?php echo $blog['dynamictitle_en'] ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <th style="width: 200px">Image title: </th>
                                                         <td><?php echo $blog['imagetitle_en'] ?></td>
@@ -177,6 +185,10 @@
                                         <div class="table-responsive">
                                             <table class="table table-striped">
                                                 <tbody>
+                                                     <tr>
+                                                        <th style="width: 200px">Title Tag: </th>
+                                                        <td><?php echo $blog['dynamictitle_cn'] ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <th style="width: 200px">图像的标题: </th>
                                                         <td><?php echo $blog['imagetitle_cn'] ?></td>

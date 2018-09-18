@@ -79,7 +79,7 @@ class MY_Model extends CI_Model {
     }
 
     public function get_by_slug($slug, $lang = '') {
-        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content ,' . $this->table_lang .'.imagetitle ,' . $this->table_lang .'.imagealt ,' . $this->table_lang .'.imagedescription');
+        $this->db->select($this->table .'.*, '. $this->table_lang .'.title ,' . $this->table_lang .'.description ,' . $this->table_lang .'.content ,' . $this->table_lang .'.imagetitle ,' . $this->table_lang .'.imagealt ,' . $this->table_lang .'.imagedescription,' . $this->table_lang .'.dynamictitle');
         $this->db->from($this->table);
         $this->db->join($this->table_lang, $this->table_lang .'.'. $this->table .'_id = '. $this->table .'.id', 'left');
         if($lang != ''){

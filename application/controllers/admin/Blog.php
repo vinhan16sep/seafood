@@ -6,7 +6,7 @@
 class Blog extends Admin_Controller {
 
     private $request_language_template = array(
-        'title', 'description', 'content', 'imagetitle', 'imagealt', 'imagedescription'
+        'title', 'description', 'content', 'imagetitle', 'imagealt', 'imagedescription', 'dynamictitle'
     );
     private $author_data = array();
 
@@ -109,7 +109,7 @@ class Blog extends Admin_Controller {
     }
 
     public function edit($id = null){
-        $blog = $this->blog_model->get_by_id($id);
+        $blog = $this->blog_model->get_blog_by_id($id);
         if(!$blog){
             redirect('admin/blog/index','refresh');
         }
@@ -128,28 +128,27 @@ class Blog extends Admin_Controller {
         $blog['content_cn'] = $content[0];
         $blog['content_en'] = $content[1];
         $blog['content_vi'] = $content[2];
-        $this->data['blog'] = $blog;
 
         $imagetitle = explode('|||', $blog['blog_imagetitle']);
         $blog['imagetitle_cn'] = $imagetitle[0];
         $blog['imagetitle_en'] = $imagetitle[1];
         $blog['imagetitle_vi'] = $imagetitle[2];
-        $this->data['blog'] = $blog;
 
         $imagedescription = explode('|||', $blog['blog_imagedescription']);
         $blog['imagedescription_cn'] = $imagedescription[0];
         $blog['imagedescription_en'] = $imagedescription[1];
         $blog['imagedescription_vi'] = $imagedescription[2];
-        $this->data['blog'] = $blog;
 
         $imagealt = explode('|||', $blog['blog_imagealt']);
         $blog['imagealt_cn'] = $imagealt[0];
         $blog['imagealt_en'] = $imagealt[1];
         $blog['imagealt_vi'] = $imagealt[2];
-        $this->data['blog'] = $blog;
 
-        // echo '<pre>';
-        // print_r($blog);die;
+        $dynamictitle = explode('|||', $blog['blog_dynamictitle']);
+        $blog['dynamictitle_cn'] = $dynamictitle[0];
+        $blog['dynamictitle_en'] = $dynamictitle[1];
+        $blog['dynamictitle_vi'] = $dynamictitle[2];
+        $this->data['blog'] = $blog;
 
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -217,7 +216,7 @@ class Blog extends Admin_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $blog = $this->blog_model->get_by_id($id);
+        $blog = $this->blog_model->get_blog_by_id($id);
 
         $title = explode('|||', $blog['blog_title']);
         $blog['title_cn'] = $title[0];
@@ -238,19 +237,21 @@ class Blog extends Admin_Controller {
         $blog['imagetitle_cn'] = $imagetitle[0];
         $blog['imagetitle_en'] = $imagetitle[1];
         $blog['imagetitle_vi'] = $imagetitle[2];
-        $this->data['blog'] = $blog;
 
         $imagedescription = explode('|||', $blog['blog_imagedescription']);
         $blog['imagedescription_cn'] = $imagedescription[0];
         $blog['imagedescription_en'] = $imagedescription[1];
         $blog['imagedescription_vi'] = $imagedescription[2];
-        $this->data['blog'] = $blog;
 
         $imagealt = explode('|||', $blog['blog_imagealt']);
         $blog['imagealt_cn'] = $imagealt[0];
         $blog['imagealt_en'] = $imagealt[1];
         $blog['imagealt_vi'] = $imagealt[2];
-        $this->data['blog'] = $blog;
+
+        $dynamictitle = explode('|||', $blog['blog_dynamictitle']);
+        $blog['dynamictitle_cn'] = $dynamictitle[0];
+        $blog['dynamictitle_en'] = $dynamictitle[1];
+        $blog['dynamictitle_vi'] = $dynamictitle[2];
 
         $this->data['blog'] = $blog;
 

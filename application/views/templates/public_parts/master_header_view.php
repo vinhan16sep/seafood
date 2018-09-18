@@ -7,13 +7,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ngoc Huong Restaurant</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <?php if ($this->uri->segment(2) == '!blog'): ?>
-        <meta name="description" content="<?php echo isset($detail['meta_description'])? $detail['meta_description'] : $event['meta_description'] ?>">
-        <meta name="keywords" content="<?php echo isset($detail['meta_keywords'])? $detail['meta_keywords'] : $event['meta_keywords'] ?>">
-    <?php endif ?>
     
+    <!-- Tell the browser to be responsive to screen width -->
+    <?php if ($this->uri->segment(1) != 'blog'): ?>
+        <?php if ($this->uri->segment(1) == 'booking'): ?>
+            <title>Đặt Bàn</title>
+        <?php else: ?>
+            <title>Ngoc Huong Restaurant</title>
+        <?php endif ?>
+        
+        <meta name="description" content="<?php echo isset($event['meta_description'])? $event['meta_description'] : '' ?>">
+        <meta name="keywords" content="<?php echo isset($event['meta_keywords']) ? $event['meta_keywords'] : '' ?>">
+    <?php else: ?>
+        <?php if ($this->uri->segment(2) == 'detail'): ?>
+            <title><?php echo $detail['dynamictitle'] ?></title>
+        <?php else: ?>
+            <title>Tin Tức</title>
+        <?php endif ?>
+        <meta name="description" content="<?php echo isset($detail['meta_description']) ? $detail['meta_description'] : '' ?>">
+        <meta name="keywords" content="<?php echo isset($detail['meta_keywords']) ? $detail['meta_keywords'] : '' ?>">
+    <?php endif ?>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/bootstrap/css/bootstrap.min.css">

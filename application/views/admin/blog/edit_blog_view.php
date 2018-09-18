@@ -152,6 +152,13 @@
                                     </div>
                                     <div class="form-group col-xs-12">
                                         <?php
+                                        echo form_label('Title Tag', 'dynamictitle_vi');
+                                        echo form_error('dynamictitle_vi');
+                                        echo form_input('dynamictitle_vi', $blog['dynamictitle_vi'], 'class="form-control" id="dynamictitle_vi"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
                                         echo form_label('Giới thiệu', 'description_vi');
                                         echo form_error('description_vi');
                                         echo form_textarea('description_vi', $blog['description_vi'], 'class="form-control" rows="5" ')
@@ -202,6 +209,13 @@
                                     </div>
                                     <div class="form-group col-xs-12">
                                         <?php
+                                        echo form_label('Title Tag', 'dynamictitle_en');
+                                        echo form_error('dynamictitle_en');
+                                        echo form_input('dynamictitle_en', $blog['dynamictitle_en'], 'class="form-control" id="dynamictitle_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
                                         echo form_textarea('description_en', $blog['description_en'], 'class="form-control" rows="5" ')
@@ -248,6 +262,13 @@
                                         echo form_label('标题', 'title_cn');
                                         echo form_error('title_cn');
                                         echo form_input('title_cn', $blog['title_cn'], 'class="form-control" id="title_cn"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('Title Tag', 'dynamictitle_cn');
+                                        echo form_error('dynamictitle_cn');
+                                        echo form_input('dynamictitle_cn', $blog['dynamictitle_cn'], 'class="form-control" id="dynamictitle_cn"');
                                         ?>
                                     </div>
                                     <div class="form-group col-xs-12">

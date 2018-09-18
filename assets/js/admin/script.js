@@ -38,6 +38,15 @@ $(document).ready(function(){
 
     $('#title_vi').change(function(){
         $('#slug_shared').val(to_slug($('#title_vi').val()));
+        $('#dynamictitle_vi').val($('#title_vi').val());
+    });
+
+    $('#title_en').change(function(){
+        $('#dynamictitle_en').val($('#title_en').val());
+    });
+
+    $('#title_cn').change(function(){
+        $('#dynamictitle_cn').val($('#title_cn').val());
     });
 });
 

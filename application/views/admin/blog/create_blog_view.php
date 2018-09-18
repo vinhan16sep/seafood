@@ -107,6 +107,7 @@
                             <hr>
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="vi">
+                                    
                                     <div class="form-group col-xs-12">
                                         <div class="form-group col-xs-12">
                                             <?php
@@ -139,6 +140,13 @@
                                         echo form_label('Tiêu đề', 'title_vi');
                                         echo form_error('title_vi');
                                         echo form_input('title_vi', set_value('title_vi'), 'class="form-control" id="title_vi"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('Title Tag', 'dynamictitle_vi');
+                                        echo form_error('dynamictitle_vi');
+                                        echo form_input('dynamictitle_vi', set_value('dynamictitle_vi'), 'class="form-control" id="dynamictitle_vi"');
                                         ?>
                                     </div>
                                     <div class="form-group col-xs-12">
@@ -192,6 +200,13 @@
                                     </div>
                                     <div class="form-group col-xs-12">
                                         <?php
+                                        echo form_label('Title Tag', 'dynamictitle_en');
+                                        echo form_error('dynamictitle_en');
+                                        echo form_input('dynamictitle_en', set_value('dynamictitle_en'), 'class="form-control" id="dynamictitle_en"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
                                         echo form_label('Description', 'description_en');
                                         echo form_error('description_en');
                                         echo form_textarea('description_en', set_value('description_en', '', false), 'class="form-control" rows="5" ')
@@ -237,6 +252,13 @@
                                         echo form_label('标题', 'title_cn');
                                         echo form_error('title_cn');
                                         echo form_input('title_cn', set_value('title_cn'), 'class="form-control" id="title_cn"');
+                                        ?>
+                                    </div>
+                                    <div class="form-group col-xs-12">
+                                        <?php
+                                        echo form_label('Title Tag', 'dynamictitle_cn');
+                                        echo form_error('dynamictitle_cn');
+                                        echo form_input('dynamictitle_cn', set_value('dynamictitle_cn'), 'class="form-control" id="dynamictitle_cn"');
                                         ?>
                                     </div>
                                     <div class="form-group col-xs-12">
