@@ -35,7 +35,7 @@
                                 <?php
                                 echo form_label('Slug', 'slug_shared');
                                 echo form_error('slug_shared');
-                                echo form_input('slug_shared', set_value('slug_shared'), 'class="form-control" id="slug_shared" readonly');
+                                echo form_input('slug_shared', set_value('slug_shared'), 'class="form-control" id="slug_shared" ');
                                 ?>
                             </div>
                         </div>

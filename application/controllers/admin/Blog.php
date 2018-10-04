@@ -54,6 +54,7 @@ class Blog extends Admin_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+        $this->form_validation->set_rules('slug_shared', 'Slug', 'trim|required');
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'trim|required');
         $this->form_validation->set_rules('title_en', 'Title', 'trim|required');
         $this->form_validation->set_rules('title_cn', '标题', 'trim|required');
@@ -67,7 +68,7 @@ class Blog extends Admin_Controller {
                     $check_upload = false;
                 }
                 if ($check_upload == true) {
-                    $slug = $this->input->post('slug_shared');
+                    $slug = $this->str_slug($this->input->post('slug_shared'));
                     $unique_slug = $this->blog_model->build_unique_slug($slug);
 
                     $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/blog', 'assets/upload/blog/thumb');
@@ -153,6 +154,7 @@ class Blog extends Admin_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+        $this->form_validation->set_rules('slug_shared', 'Slug', 'trim|required');
         $this->form_validation->set_rules('title_vi', 'Tiêu đề', 'required');
         $this->form_validation->set_rules('title_en', 'Title', 'required');
         $this->form_validation->set_rules('title_cn', '标题', 'required');
@@ -164,7 +166,7 @@ class Blog extends Admin_Controller {
                     $check_upload = false;
                 }
                 if ($check_upload == true) {
-                    $slug = $this->input->post('slug_shared');
+                    $slug = $this->str_slug($this->input->post('slug_shared'));
                     $unique_slug = $this->blog_model->build_unique_slug($slug, $id);
                     $image = $this->upload_image('image_shared', $_FILES['image_shared']['name'], 'assets/upload/blog', 'assets/upload/blog/thumb');
                     $shared_request = array(

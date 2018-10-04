@@ -52,8 +52,10 @@
                             echo form_open_multipart('admin/about/edit', array('class' => 'form-horizontal'));
                             ?>
                             <div class="form-group col-xs-12">
-                                <label for="slug_shared">Slug</label>
-                                <input type="text" name="slug_shared" value="<?php echo $about['slug'] ?>" class="form-control" id="slug_shared" readonly="">
+                                <div class="col-xs-12">
+                                    <label for="slug_shared">Slug</label>
+                                    <input type="text" name="slug_shared" value="<?php echo $about['slug'] ?>" class="form-control" id="slug_shared" readonly="">
+                                </div>
                             </div>
                             <?php $count_image = count(json_decode($about['image'])) ?>
                             <input type="hidden" name="count_image" value="<?php echo $count_image   ?>">
