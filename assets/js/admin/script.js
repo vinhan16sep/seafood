@@ -37,8 +37,10 @@ $(document).ready(function(){
     });
 
     $('#title_vi').change(function(){
-        $('#slug_shared').val(to_slug($('#title_vi').val()));
-        $('#dynamictitle_vi').val($('#title_vi').val());
+        if($('#slug_shared').val() == ''){
+            $('#slug_shared').val(to_slug($('#title_vi').val()));
+            $('#dynamictitle_vi').val($('#title_vi').val());
+        }
     });
 
     $('#title_en').change(function(){
