@@ -169,6 +169,12 @@ if($this->ion_auth->logged_in()) {
                         <span>Upload Mặt Bằng</span>
                     </a>
                 </li>
+                <li class="<?php echo ($this->uri->segment(2) == 'file')? 'active' : '' ?>">
+                    <a href="<?php echo base_url('admin/file/edit') ?>">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <span>Upload Sitemap</span>
+                    </a>
+                </li>
                 <li class="header">DOCUMENTATION</li>
                 <li>
                     <a href="<?php echo base_url('admin/documentation') ?>">
