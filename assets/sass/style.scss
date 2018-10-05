@@ -1,0 +1,30 @@
+/*
+===========================
+===========================
+
+MAIN STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+@import "variables";
+@import "mixins";
+@import "fontSettings";
+@import "resetBootstrap";
+
+/* MASTER LAYOUT */
+
+@import "header";
+@import "main";
+@import "footer";
+
+/* PAGES */
+
+@import "homepage";
+@import "blogs";
+@import "booking";
+
+@import "responsive";

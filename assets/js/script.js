@@ -9,12 +9,12 @@ $(document).ready(function(){
 
 
     //Make gallery square size item
-    var maskWidth = $('.container-fluid#gallery .mask').width();
-    $('.container-fluid#gallery .mask').css('height' , maskWidth);
-    var mask = $('.container .mask').width();
-    $('.container .mask').css( 'height' , mask);
-    var maskNews = $('#news .mask').width();
-    $('#news .mask').css( 'height' , maskNews);
+    // var maskWidth = $('.container-fluid#gallery .mask').width();
+    // $('.container-fluid#gallery .mask').css('height' , maskWidth);
+    // var mask = $('.container .mask').width();
+    // $('.container .mask').css( 'height' , mask);
+    // var maskNews = $('#news .mask').width();
+    // $('#news .mask').css( 'height' , maskNews);
 
     // Smooth Scroll
     var navH = $('header').height();

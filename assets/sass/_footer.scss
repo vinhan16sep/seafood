@@ -1,0 +1,65 @@
+/*
+===========================
+===========================
+
+MAIN FOOTER STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+.footer{
+    background-color: #000;
+    color: #fff;
+
+    padding-top: 15px;
+    padding-bottom: 20px;
+
+    .left{
+        text-align: left;
+        padding-top: 180px;
+    }
+
+    .middle{
+        text-align: center;
+
+        .logo{
+            width: 300px;
+            margin: auto;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        ul{
+            padding-left: 0;
+
+            li{
+                display: inline-block;
+                padding: 10px;
+
+
+                a{
+                    span.fa-stack{
+                        background-color: #fff;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        border-radius: 50%;
+
+                        i{
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .right{
+        text-align: right;
+        padding-top: 180px;
+    }
+}
