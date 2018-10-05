@@ -1,0 +1,174 @@
+/*
+===========================
+===========================
+
+MAIN HEADER STYLE
+
+Author: hung.luong@matocreative.vn
+
+===========================
+===========================
+ */
+
+.header{
+    width: 100%;
+
+    padding-top: 15px;
+    padding-bottom: 30px;
+
+    @include headerBackground;
+
+    position: fixed;
+    z-index: 999;
+
+    .container{
+        position: relative;
+        height: 150px;
+
+        .logo{
+            width: 250px;
+            height: 144px;
+
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            margin-left: -125px;
+            z-index: 1001;
+
+            img{
+                width: 60%;
+                margin-top: -45px;
+                margin-left: 20%;
+
+            }
+        }
+
+        .nav-expand-btn{
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #fff;
+
+            position: absolute;
+            top: 20px;
+            right: 15px;
+
+            span{
+                display: block;
+                width: 100%;
+                height:4px;
+                background-color: #fff;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                -webkit-border-radius: 2px;
+                -moz-border-radius: 2px;
+                border-radius: 2px;
+            }
+        }
+
+        .nav-expand{
+            width: 100%;
+            position: absolute;
+            top: 20px;
+            left: 0;
+
+            padding-top: 30px;
+            padding-bottom: 30px;
+
+            a{
+                color: #fff;
+            }
+
+            ul{
+                padding-left: 0;
+                list-style: none;
+
+                li{
+                    a:hover{
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            .left{
+                width: 40%;
+                float: left;
+
+                ul{
+                    li{
+                        text-align: center;
+                    }
+                }
+            }
+
+            .right{
+                width: 40%;
+                float: right;
+
+                ul{
+                    li{
+
+                        &#bookTable{
+                            -webkit-border-radius: 3px;
+                            -moz-border-radius: 3px;
+                            border-radius: 3px;
+
+                            a{
+                                color: #fff;
+                            }
+
+                            /*
+                            &:hover{
+                                background-color: #fff;
+
+                                a{
+                                    color: $primary;
+                                }
+                            }
+                            */
+                        }
+
+                        select.form-control{
+                            background-color: transparent;
+                            color: #fff;
+                        }
+
+                        &#dropDownLang{
+                            ul.dropdown-menu{
+                                background-color: transparent;
+                                -webkit-box-shadow: none;
+                                -moz-box-shadow: none;
+                                box-shadow: none;
+
+                                border: none;
+
+                                li{
+                                    a:hover{
+                                        background-color: transparent;
+                                    }
+                                }
+                            }
+                        }
+
+                        select{
+                            option{
+                                color: $text-color;
+                            }
+                        }
+                    }
+
+                    li.open{
+                        a:focus{
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.fixed{
+        .container{
+            height: 100px;
+        }
+    }
+}

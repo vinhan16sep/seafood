@@ -17,8 +17,6 @@ CONTENT:
 
 @media (max-width: 767px){
     .header{
-
-
         .container{
             height: 100px;
 
@@ -122,9 +120,8 @@ CONTENT:
             padding-top: 50px;
             padding-bottom: 50px;
 
-            .mask{
-                width: 300px;
-                height:300px
+            .square{
+                margin-bottom: 30px;
             }
 
             .text{
@@ -166,10 +163,6 @@ CONTENT:
                 .item{
                     .inner{
                         padding: 5px;
-
-                        .mask{
-                            width: 100%;
-                        }
                     }
                 }
             }

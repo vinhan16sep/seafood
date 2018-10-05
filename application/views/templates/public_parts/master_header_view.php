@@ -27,6 +27,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="description" content="<?php echo isset($detail['meta_description']) ? $detail['meta_description'] : '' ?>">
         <meta name="keywords" content="<?php echo isset($detail['meta_keywords']) ? $detail['meta_keywords'] : '' ?>">
     <?php endif ?>
+
+	<!-- Canonical tag -->
+	<link rel="canonical" href="<?php echo base_url(uri_string())?>">
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/bootstrap/css/bootstrap.min.css">
@@ -35,13 +39,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- lightbox.scss -->
 	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>lib/lightbox/css/lightbox.min.css">
 	<!-- _main.scss -->
-	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/main.css">
+	<link rel="stylesheet" href="<?php echo site_url('assets/') ?>sass/style.min.css">
 
     <script src="<?php echo site_url('assets/') ?>lib/jquery/jquery.min.js"></script>
 	<script src="<?php echo site_url('assets/') ?>lib/bootstrap/js/bootstrap.min.js"></script>
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="<?php echo site_url('assets/') ?>img/favicon.png"/>
+
+	<!-- Start Shema.org -->
+	<script type="application/ld+json">
+    {
+    	"@context": "http://schema.org",
+      	"@type": "Organization",
+
+      	"address": {
+    		"@type": "PostalAddress",
+    		"addressLocality": "Đà Nẵng",
+    		"addressRegion": "Việt Nam",
+    		"postalCode":"550000",
+    		"streetAddress": "Lô 8+9, Khu dân cư 3, đường Võ Nguyên Giáp, quận Sơn Trà, thành phố Đà Nẵng"
+    },
+      	"url": "https://ngochuong.vn",
+		"logo": "https://ngochuong.vn/assets/img/logo.png",
+      	"name" : "Nhà Hàng Ngọc Hương",
+		"url" : "https://ngochuong.vn",
+        "sameAs" : [
+        	"https://www.facebook.com/NgocHuongSeafood",
+			"https://www.instagram.com/ngochuongseafood",
+		],
+      	"contactPoint" :
+      	[
+        	{
+        		"@type" : "ContactPoint",
+          		"telephone" : "+84 913315127",
+          		"contactType" : "customer service"
+        	}
+		]
+    }
+	</script>
+	<!-- End Shema.org -->
 </head>
 
 <body>
