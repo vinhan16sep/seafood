@@ -572,30 +572,31 @@ Author: hung.luong@matocreative.vn
 ===========================
 ===========================
  */
-.cover {
+#list-blogs .cover {
   width: 100%;
   height: 50vh; }
-  .cover .mask {
+  #list-blogs .cover .mask {
     width: 100%;
     height: 100%;
     overflow: hidden; }
-    .cover .mask img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; }
-
+#list-blogs .content .title {
+  text-align: center; }
 #list-blogs .item {
   margin-bottom: 30px; }
-  #list-blogs .item .mask {
-    width: 100%;
-    border: 1px solid #eaeaea;
-    margin-bottom: 30px; }
-    #list-blogs .item .mask a {
-      height: 100%; }
-    #list-blogs .item .mask img {
+  #list-blogs .item .square {
+    position: relative; }
+    #list-blogs .item .square:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%; }
+    #list-blogs .item .square .mask {
       width: 100%;
       height: 100%;
-      object-fit: cover; }
+      border: 1px solid #eaeaea;
+      margin-bottom: 30px;
+      position: absolute; }
+      #list-blogs .item .square .mask a {
+        height: 100%; }
   #list-blogs .item a {
     font-size: 1.5em;
     font-weight: bold;
@@ -631,39 +632,46 @@ Author: hung.luong@matocreative.vn
     #list-blogs .page a:hover {
       background: #ddd; }
 
-#detail-blogs .row .left .title {
+#detail-blog .cover {
+  width: 100%;
+  height: 50vh; }
+  #detail-blog .cover .mask {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+#detail-blog .row .left .title {
   text-align: left; }
-#detail-blogs .row .left .blog-content {
+#detail-blog .row .left .blog-content {
   text-align: left; }
-  #detail-blogs .row .left .blog-content article p.description {
+  #detail-blog .row .left .blog-content article p.description {
     font-size: 1.25em;
     color: #6d6d6d;
     margin-bottom: 30px; }
-  #detail-blogs .row .left .blog-content article p.paragraph {
+  #detail-blog .row .left .blog-content article p.paragraph {
     font-size: 1em;
     color: #999; }
-  #detail-blogs .row .left .blog-content article img {
+  #detail-blog .row .left .blog-content article img {
     width: 100% !important; }
-#detail-blogs .row .left .blog-related .title {
+#detail-blog .row .left .blog-related .title {
   padding-top: 30px;
   padding-bottom: 50px; }
-#detail-blogs .row .left .blog-related .row .media:first-of-type {
+#detail-blog .row .left .blog-related .row .media:first-of-type {
   margin-top: 15px; }
-#detail-blogs .row .left .blog-related .row .media .media-left .mask {
+#detail-blog .row .left .blog-related .row .media .media-left .mask {
   width: 100px;
   height: 100px;
   overflow: hidden; }
-  #detail-blogs .row .left .blog-related .row .media .media-left .mask img {
+  #detail-blog .row .left .blog-related .row .media .media-left .mask img {
     width: 100%;
     height: 100%;
     object-fit: cover; }
-#detail-blogs .row .right .booking {
+#detail-blog .row .right .booking {
   padding-bottom: 30px;
   border-bottom: 1px solid #eaeaea; }
-  #detail-blogs .row .right .booking .form-horizontal .form-group {
+  #detail-blog .row .right .booking .form-horizontal .form-group {
     margin-left: 0;
     margin-right: 0; }
-#detail-blogs .row .right .contact {
+#detail-blog .row .right .contact {
   padding-top: 30px; }
 
 /*

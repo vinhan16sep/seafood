@@ -308,7 +308,7 @@
 			<div class="title">
 				<h1><?php echo $this->lang->line('get-direction') ?></h1>
 			</div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2722.16776955629!2d108.20111104784492!3d16.0529015712601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219bab3e5ab59%3A0xc53bd360a446d08c!2zQnVyZ2VyIEtpbmcgU8OibiBCYXkgxJDDoCBO4bq1bmc!5e0!3m2!1svi!2s!4v1522685834411" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1274.5512014872475!2d108.24438904999467!3d16.073471575957836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xab8b6a77a496e2d7!2zTmfhu41jIEjGsMahbmcgU2VhZm9vZA!5e0!3m2!1svi!2s!4v1539056601073" width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 		<!-- End Map -->
 
